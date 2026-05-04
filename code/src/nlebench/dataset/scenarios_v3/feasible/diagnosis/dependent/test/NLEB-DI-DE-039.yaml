@@ -1,0 +1,67 @@
+id: NLEB-DI-DE-039
+legacy_id: NLB-v3-DI-DE-039
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L3
+  feasibility: feasible
+  information: diagnosis
+  action: dependent
+split: test
+canary: NLE-BENCH-V3-TEST-e9c5595f
+fixture:
+  base: complex_sequence
+  patch:
+  - op: set_attribute
+    params:
+      entity: video_clip_3
+      field: transform.rotation
+      value: 180.0
+  - op: set_attribute
+    params:
+      entity: video_clip_3
+      field: transform.scale_x
+      value: 0.3
+turns:
+- instruction: The last V1 clip has multiple visual issues. Find it, fix all visual
+    problems, then add a saturation effect, then boost its audio (same-time audio
+    clip) by 3 dB.
+constraints:
+  required:
+  - attribute_equals:
+      entity: video_clip_3
+      field: transform.rotation
+      value: 0.0
+  - attribute_equals:
+      entity: video_clip_3
+      field: transform.scale_x
+      value: 1.0
+  - has_effect:
+      entity: video_clip_3
+      effect_type: saturation
+  - attribute_changed:
+      entity: audio_clip_3
+      field: audio.volume
+      direction: increase
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_3
+- audio_clip_3
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: 'L3 4-step: update_clip x2 + add_effect + update_clip (cross-track).'
+  cell: diagnosis × dependent

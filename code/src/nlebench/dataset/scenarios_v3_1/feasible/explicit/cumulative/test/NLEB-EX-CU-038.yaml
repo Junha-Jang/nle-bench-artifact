@@ -1,0 +1,58 @@
+id: NLEB-EX-CU-038
+legacy_id: NLB-v3-EX-CU-038
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L3
+  feasibility: feasible
+  information: explicit
+  action: cumulative
+split: test
+canary: NLE-BENCH-V3-TEST-8a7ce5b7
+fixture: simple_sequence
+turns:
+- instruction: Split video_clip_1 at 3 seconds.
+- instruction: Add a blur effect to the second half. Keep the split.
+- instruction: Add a cross-dissolve transition between the two halves. Preserve the effect.
+- instruction: Slow the second half to 0.75x. Preserve everything.
+constraints:
+  required:
+  - entity_exists:
+      entity: $new_clip_1
+  - has_effect:
+      entity: $new_clip_1
+      effect_type: blur
+  - entity_exists:
+      entity: $new_transition_1
+  - attribute_equals:
+      entity: $new_clip_1
+      field: speed
+      value: 0.75
+  - unchanged_except:
+      changed:
+      - video_clip_1
+      - $new_clip_1
+      - $new_transition_1
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_1
+- $new_clip_1
+- $new_transition_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L3. split -> add_effect -> add_transition -> update_clip.
+  cell: explicit × cumulative

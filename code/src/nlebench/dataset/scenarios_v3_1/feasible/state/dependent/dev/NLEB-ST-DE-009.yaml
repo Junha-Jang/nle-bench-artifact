@@ -1,0 +1,46 @@
+id: NLEB-ST-DE-009
+legacy_id: NLB-v3-ST-DE-009
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L3
+  feasibility: feasible
+  information: state
+  action: dependent
+split: dev
+canary: NLE-BENCH-V3-DEV-6195e4e8
+fixture: complex_sequence
+turns:
+- instruction: Add a new video track V3.
+- instruction: Move the shortest V2 clip to the new track.
+- instruction: Add a blur effect to that moved clip since it's now a standalone overlay.
+constraints:
+  required:
+  - entity_count_changed:
+      type: track
+      direction: increase
+  - has_effect:
+      entity: video_clip_5
+      effect_type: blur
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- $new_track_1
+- video_clip_5
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L3 add_track → update_clip(move) → add_effect. Shortest V2=vc5.
+  cell: state × dependent

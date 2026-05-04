@@ -1,0 +1,50 @@
+id: NLEB-EX-CO-029
+legacy_id: NLB-v3-EX-CO-029
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: explicit
+  action: compound
+split: test
+canary: NLE-BENCH-V3-TEST-9846328a
+fixture: simple_sequence
+turns:
+- instruction: Import 'overlay.png' as new media, add a clip from it at 1.0s with
+    duration 2.0s on video_track_1, and add a fade-out effect to the new clip.
+constraints:
+  required:
+  - entity_exists:
+      type: media
+      where:
+        field: name
+        value: overlay.png
+  - entity_count_changed:
+      type: video_clip
+      direction: increase
+  - has_effect:
+      entity: $new_clip_1
+      effect_type: fade_out
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- $new_media_1
+- $new_clip_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2. import_media + add_clip + add_effect.
+  cell: explicit × compound

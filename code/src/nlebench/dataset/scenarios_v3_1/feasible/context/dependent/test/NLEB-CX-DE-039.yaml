@@ -1,0 +1,47 @@
+id: NLEB-CX-DE-039
+legacy_id: NLB-v3-CX-DE-039
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L1
+  feasibility: feasible
+  information: context
+  action: dependent
+split: test
+canary: NLE-BENCH-V3-TEST-1de619ce
+fixture: multi_sequence
+turns:
+- instruction: On timeline 1, the intro is too slow. Speed it to 1.3x and shift the
+    next clip earlier to fill the gap.
+constraints:
+  required:
+  - attribute_equals:
+      entity: vc_1
+      field: speed
+      value: 1.3
+  - attribute_changed:
+      entity: vc_2
+      field: timeline_start
+      direction: decrease
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- vc_1
+- vc_2
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L1 multi. update_clip -> update_clip.
+  cell: context × dependent

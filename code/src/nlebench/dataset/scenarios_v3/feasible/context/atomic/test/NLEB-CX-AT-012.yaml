@@ -1,0 +1,44 @@
+id: NLEB-CX-AT-012
+legacy_id: NLB-v3-CX-AT-012
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L1
+  feasibility: feasible
+  information: context
+  action: atomic
+split: test
+canary: NLE-BENCH-V3-TEST-3ea97dbb
+fixture: simple_sequence
+turns:
+- instruction: The opening clip needs a brightness boost. Add a brightness effect
+    to it.
+constraints:
+  required:
+  - has_effect:
+      entity: video_clip_1
+      effect_type: brightness
+  - unchanged_except:
+      changed:
+      - video_clip_1
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L1. add_effect.
+  cell: context × atomic

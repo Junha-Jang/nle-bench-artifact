@@ -1,0 +1,50 @@
+id: NLEB-CX-CO-027
+legacy_id: NLB-v3-CX-CO-027
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: context
+  action: compound
+split: test
+canary: NLE-BENCH-V3-TEST-fee75ae0
+fixture: with_transitions
+turns:
+- instruction: The intro-to-bridge transition is too long — shorten it to 0.5s.
+- instruction: Put a contrast effect on the bridge clip and slow it to 0.9x.
+constraints:
+  required:
+  - attribute_equals:
+      entity: vt_trans_1
+      field: duration
+      value: 0.5
+  - has_effect:
+      entity: vc_2
+      effect_type: contrast
+  - attribute_equals:
+      entity: vc_2
+      field: speed
+      value: 0.9
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- vt_trans_1
+- vc_2
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2. update_transition + add_effect + update_clip.
+  cell: context × compound

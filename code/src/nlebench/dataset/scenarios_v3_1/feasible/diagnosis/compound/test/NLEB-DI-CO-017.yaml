@@ -1,0 +1,61 @@
+id: NLEB-DI-CO-017
+legacy_id: NLB-v3-DI-CO-017
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L1
+  feasibility: feasible
+  information: diagnosis
+  action: compound
+split: test
+canary: NLE-BENCH-V3-TEST-c58e9521
+fixture:
+  base: complex_sequence
+  patch:
+  - op: set_attribute
+    params:
+      entity: video_clip_5
+      field: transform.opacity
+      value: 0.1
+  - op: add_effect
+    params:
+      clip_id: video_clip_5
+      effect_type: saturation
+      params:
+        amount: -80
+turns:
+- instruction: The V2 clip is barely visible and looks completely desaturated — restore it.
+constraints:
+  required:
+  - attribute_equals:
+      entity: video_clip_5
+      field: transform.opacity
+      value: 1.0
+  - entity_not_exists:
+      type: effect
+      parent: video_clip_5
+      effect_type: saturation
+  - unchanged_except:
+      changed:
+      - video_clip_5
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_5
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L1. update_clip + remove_effect.
+  cell: diagnosis × compound

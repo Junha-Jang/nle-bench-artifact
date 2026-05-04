@@ -1,0 +1,53 @@
+id: NLEB-EX-CO-037
+legacy_id: NLB-v3-EX-CO-037
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L3
+  feasibility: feasible
+  information: explicit
+  action: compound
+split: test
+canary: NLE-BENCH-V3-TEST-63616572
+fixture: complex_sequence
+turns:
+- instruction: Unlink video_clip_2 from audio_clip_2. Remove video_clip_2. Remove
+    audio_clip_2. Add a new video clip from av_media_1 at 2.0s with duration 3.0s
+    on video_track_1. Link the new clip with audio_clip_4.
+constraints:
+  required:
+  - entity_not_exists:
+      entity: video_clip_2
+  - entity_not_exists:
+      entity: audio_clip_2
+  - entity_count_changed:
+      type: video_clip
+      direction: any
+  - has_link:
+      clip_ids:
+      - $new_clip_1
+      - audio_clip_4
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_2
+- audio_clip_2
+- $new_clip_1
+- audio_clip_4
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L3. unlink + remove + remove + add_clip + link_clips.
+  cell: explicit × compound

@@ -1,0 +1,45 @@
+id: NLEB-CX-AT-020
+legacy_id: NLB-v3-CX-AT-020
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L1
+  feasibility: feasible
+  information: context
+  action: atomic
+split: test
+canary: NLE-BENCH-V3-TEST-c6ac8d28
+fixture: complex_sequence
+turns:
+- instruction: The earlier B-roll overlay — lower its opacity to 0.5 for a subtle
+    look.
+constraints:
+  required:
+  - attribute_equals:
+      entity: video_clip_4
+      field: transform.opacity
+      value: 0.5
+  - unchanged_except:
+      changed:
+      - video_clip_4
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_4
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L1. Earlier V2 = vc4. update_clip.
+  cell: context × atomic

@@ -1,0 +1,50 @@
+id: NLEB-CX-CO-038
+legacy_id: NLB-v3-CX-CO-038
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L3
+  feasibility: feasible
+  information: context
+  action: compound
+split: test
+canary: NLE-BENCH-V3-TEST-6d7e2c5f
+fixture: complex_sequence
+turns:
+- instruction: The contrast effect on the hero shot is too intense — tone it down
+    to 0.4 intensity.
+- instruction: Remove the later B-roll overlay entirely.
+- instruction: Add a subtitle 'Key Moment' at 15s.
+constraints:
+  required:
+  - attribute_equals:
+      entity: $existing_effect_1
+      field: params.intensity
+      value: 0.4
+  - entity_not_exists:
+      entity: video_clip_5
+  - entity_exists:
+      entity: $new_caption_1
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- $existing_effect_1
+- video_clip_5
+- $new_caption_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L3. update_effect + remove_clip + add_caption.
+  cell: context × compound

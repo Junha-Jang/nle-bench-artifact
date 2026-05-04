@@ -1,0 +1,55 @@
+id: NLEB-ST-CO-029
+legacy_id: NLB-v3-ST-CO-029
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: state
+  action: compound
+split: test
+canary: NLE-BENCH-V3-TEST-e96c266f
+fixture: complex_sequence
+turns:
+- instruction: On the BGM audio, set volume to -6 dB and remove any existing effects.
+- instruction: On the earliest V1 clip, add a fade-in and set its opacity to 0.9.
+constraints:
+  required:
+  - attribute_equals:
+      entity: audio_clip_4
+      field: audio.volume
+      value: -6.0
+  - has_effect:
+      entity: video_clip_1
+      effect_type: fade_in
+  - attribute_equals:
+      entity: video_clip_1
+      field: transform.opacity
+      value: 0.9
+  - unchanged_except:
+      changed:
+      - audio_clip_4
+      - video_clip_1
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- audio_clip_4
+- video_clip_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2. update_clip + remove_effect | add_effect + update_clip. BGM=ac4. Earliest
+    V1=vc1.
+  cell: state × compound

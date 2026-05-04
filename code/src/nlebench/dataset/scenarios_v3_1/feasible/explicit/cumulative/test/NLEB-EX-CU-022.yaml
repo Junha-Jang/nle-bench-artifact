@@ -1,0 +1,47 @@
+id: NLEB-EX-CU-022
+legacy_id: NLB-v3-EX-CU-022
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: explicit
+  action: cumulative
+split: test
+canary: NLE-BENCH-V3-TEST-ec225aac
+fixture: complex_sequence
+turns:
+- instruction: Create a new video track.
+- instruction: Add a clip from av_media_2 on the new track at 2s. Keep the track.
+- instruction: Apply a blur effect to the new clip. Preserve everything.
+constraints:
+  required:
+  - entity_exists:
+      entity: $new_track_1
+  - entity_exists:
+      entity: $new_clip_1
+  - has_effect:
+      entity: $new_clip_1
+      effect_type: blur
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- $new_track_1
+- $new_clip_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2. add_track -> add_clip -> add_effect, full preserve.
+  cell: explicit × cumulative

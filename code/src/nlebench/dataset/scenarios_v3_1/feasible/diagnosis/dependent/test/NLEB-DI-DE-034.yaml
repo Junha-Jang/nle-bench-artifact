@@ -1,0 +1,68 @@
+id: NLEB-DI-DE-034
+legacy_id: NLB-v3-DI-DE-034
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L3
+  feasibility: feasible
+  information: diagnosis
+  action: dependent
+split: test
+canary: NLE-BENCH-V3-TEST-156c9385
+fixture:
+  base: complex_sequence
+  patch:
+  - op: set_attribute
+    params:
+      entity: video_clip_2
+      field: duration
+      value:
+        n: 40
+        d: 1
+  - op: set_attribute
+    params:
+      entity: video_clip_2
+      field: transform.rotation
+      value: 90.0
+turns:
+- instruction: The second V1 clip has a bad duration and it's rotated sideways — set its duration to 10 seconds first, then straighten it, then shift the next clip's start to 18.0, and finally add a cross-dissolve between them.
+constraints:
+  required:
+  - attribute_equals:
+      entity: video_clip_2
+      field: duration
+      value: 10.0
+  - attribute_equals:
+      entity: video_clip_2
+      field: transform.rotation
+      value: 0.0
+  - attribute_equals:
+      entity: video_clip_3
+      field: timeline_start
+      value: 18.0
+  - has_transition:
+      between:
+      - video_clip_2
+      - video_clip_3
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_2
+- video_clip_3
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: 'L3 4-step: update_clip x3 + add_transition.'
+  cell: diagnosis × dependent

@@ -1,0 +1,51 @@
+id: NLEB-CX-DE-036
+legacy_id: NLB-v3-CX-DE-036
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L3
+  feasibility: feasible
+  information: context
+  action: dependent
+split: test
+canary: NLE-BENCH-V3-TEST-18b6b709
+fixture: complex_sequence
+turns:
+- instruction: The hero shot's audio is wrong — it's linked to the wrong track. Slow
+    the hero to 0.85x first.
+- instruction: Unlink the hero from its current audio.
+- instruction: Link the hero with the dialogue track instead.
+constraints:
+  required:
+  - attribute_equals:
+      entity: video_clip_3
+      field: speed
+      value: 0.85
+  - not_linked:
+      entity: video_clip_3
+  - has_link:
+      clip_ids:
+      - video_clip_3
+      - audio_clip_2
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_3
+- audio_clip_2
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L3. Hero=vc3. update_clip -> unlink -> link.
+  cell: context × dependent

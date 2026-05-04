@@ -1,0 +1,48 @@
+id: NLEB-ST-CU-033
+legacy_id: NLB-v3-ST-CU-033
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: state
+  action: cumulative
+split: test
+canary: NLE-BENCH-V3-TEST-39b3f90c
+fixture: complex_sequence
+turns:
+- instruction: Rename the media file used by the shortest V2 clip to 'b_roll'.
+- instruction: Now update that clip's scale to 1.1. Keep the rename.
+- instruction: Add the media to the 'Favorites' bin folder. Preserve everything.
+constraints:
+  required:
+  - attribute_equals:
+      entity: av_media_5
+      field: name
+      value: b_roll
+  - attribute_equals:
+      entity: video_clip_5
+      field: transform.scale_x
+      value: 1.1
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- av_media_5
+- video_clip_5
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2 3-turn. update_media + update_clip + manage_bin. Explicit preservation.
+  cell: state × cumulative

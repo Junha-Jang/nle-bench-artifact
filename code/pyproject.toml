@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "nlebench"
+version = "0.4.0"
+description = "NLE-Bench: Non-Linear Editing Agent Benchmark"
+authors = ["NLE-Bench Team"]
+readme = "README.md"
+packages = [{include = "nlebench", from = "src"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pydantic = "^2.5.0"
+pyyaml = "^6.0.0"
+httpx = "^0.28.0"
+tqdm = "^4.66.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.1"
+pytest-asyncio = "^0.24.0"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

@@ -1,0 +1,52 @@
+id: NLEB-EX-CU-021
+legacy_id: NLB-v3-EX-CU-021
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: explicit
+  action: cumulative
+split: test
+canary: NLE-BENCH-V3-TEST-e0d09375
+fixture: simple_sequence
+turns:
+- instruction: Import 'logo.png' as media.
+- instruction: Add it as a clip at 0s on the top video track.
+- instruction: Scale it to 0.25 for a watermark. Keep the import and placement.
+constraints:
+  required:
+  - entity_exists:
+      entity: $new_media_1
+  - entity_exists:
+      entity: $new_clip_1
+  - attribute_equals:
+      entity: $new_clip_1
+      field: transform.scale_x
+      value: 0.25
+  - unchanged_except:
+      changed:
+      - $new_media_1
+      - $new_clip_1
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- $new_media_1
+- $new_clip_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2. import_media -> add_clip -> update_clip, full preserve.
+  cell: explicit × cumulative

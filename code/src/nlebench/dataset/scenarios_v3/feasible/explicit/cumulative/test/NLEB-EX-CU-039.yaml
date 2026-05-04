@@ -1,0 +1,54 @@
+id: NLEB-EX-CU-039
+legacy_id: NLB-v3-EX-CU-039
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L3
+  feasibility: feasible
+  information: explicit
+  action: cumulative
+split: test
+canary: NLE-BENCH-V3-TEST-4afe75ef
+fixture: complex_sequence
+turns:
+- instruction: Create a new audio track named 'SFX'.
+- instruction: Import 'explosion.wav' as media. Keep the track.
+- instruction: Add the imported audio as a clip at 10s on the SFX track. Preserve
+    all.
+- instruction: Link the SFX clip with video_clip_3. Keep everything intact.
+constraints:
+  required:
+  - entity_exists:
+      entity: $new_track_1
+  - entity_exists:
+      entity: $new_media_1
+  - entity_exists:
+      entity: $new_clip_1
+  - has_link:
+      clip_ids:
+      - video_clip_3
+      - $new_clip_1
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- $new_track_1
+- $new_media_1
+- $new_clip_1
+- video_clip_3
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L3. add_track -> import -> add_clip -> link.
+  cell: explicit × cumulative

@@ -1,0 +1,38 @@
+id: NLEB-IN-ST-017
+legacy_id: NLB-v3-IN-ST-017
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L1
+  feasibility: infeasible
+  information: state
+  action: null
+split: test
+canary: NLE-BENCH-V3-TEST-2b4f7975
+fixture: complex_sequence
+turns:
+- instruction: Find the clip with the highest contrast and reduce its contrast.
+constraints:
+  required:
+  - unchanged_except:
+      changed: []
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001 []
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: Contrast analysis unsupported.
+  cell: state × infeasible

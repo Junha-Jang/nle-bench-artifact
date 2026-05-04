@@ -1,0 +1,55 @@
+id: NLEB-CX-CU-035
+legacy_id: NLB-v3-CX-CU-035
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: context
+  action: cumulative
+split: test
+canary: NLE-BENCH-V3-TEST-f0233e32
+fixture: simple_sequence
+turns:
+- instruction: Split the middle clip at 3 seconds.
+- instruction: Add a saturation effect to the second half. Keep the split.
+- instruction: Slow the outro to 0.85x. Preserve all.
+constraints:
+  required:
+  - entity_exists:
+      entity: $new_clip_1
+  - has_effect:
+      entity: $new_clip_1
+      effect_type: saturation
+  - attribute_equals:
+      entity: video_clip_3
+      field: speed
+      value: 0.85
+  - unchanged_except:
+      changed:
+      - video_clip_2
+      - $new_clip_1
+      - video_clip_3
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_2
+- $new_clip_1
+- video_clip_3
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2. split + add_effect + update_clip, preserve all.
+  cell: context × cumulative

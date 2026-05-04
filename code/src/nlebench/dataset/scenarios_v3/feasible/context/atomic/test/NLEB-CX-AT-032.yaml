@@ -1,0 +1,51 @@
+id: NLEB-CX-AT-032
+legacy_id: NLB-v3-CX-AT-032
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: context
+  action: atomic
+split: test
+canary: NLE-BENCH-V3-TEST-870d0ae0
+fixture: with_transitions
+turns:
+- instruction: The opening clip needs a contrast boost — add a contrast effect.
+- instruction: And the transition into the second clip is too long — shorten it to
+    0.5 seconds.
+constraints:
+  required:
+  - has_effect:
+      entity: vc_1
+      effect_type: contrast
+  - attribute_equals:
+      entity: vt_trans_1
+      field: duration
+      value: 0.5
+  - unchanged_except:
+      changed:
+      - vc_1
+      - vt_trans_1
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- vc_1
+- vt_trans_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2. add_effect + update_transition.
+  cell: context × atomic

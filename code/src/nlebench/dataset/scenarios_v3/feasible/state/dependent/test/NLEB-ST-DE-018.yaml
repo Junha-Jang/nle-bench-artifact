@@ -1,0 +1,47 @@
+id: NLEB-ST-DE-018
+legacy_id: NLB-v3-ST-DE-018
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L1
+  feasibility: feasible
+  information: state
+  action: dependent
+split: test
+canary: NLE-BENCH-V3-TEST-0e21b1cc
+fixture: multi_sequence
+turns:
+- instruction: On timeline 1, speed up the longest video clip to 1.5x and shift the
+    next video clip earlier by the saved time.
+constraints:
+  required:
+  - attribute_equals:
+      entity: vc_2
+      field: speed
+      value: 1.5
+  - attribute_changed:
+      entity: vc_3
+      field: timeline_start
+      direction: decrease
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- vc_2
+- vc_3
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L1 multi. tl1 longest=vc_2 (15s), followed by vc_3.
+  cell: state × dependent

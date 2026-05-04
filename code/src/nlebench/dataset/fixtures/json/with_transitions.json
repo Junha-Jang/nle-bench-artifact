@@ -1,0 +1,317 @@
+{
+  "schema_version": "4.3",
+  "title": "Transitions Project",
+  "bin": {
+    "id": "root",
+    "name": "Root",
+    "media_ids": [],
+    "timeline_ids": [],
+    "bins": [
+      {
+        "id": "bin_media",
+        "name": "Media",
+        "media_ids": [
+          "src_1"
+        ],
+        "timeline_ids": [],
+        "bins": []
+      }
+    ]
+  },
+  "media": [
+    {
+      "id": "src_1",
+      "name": "clip.mp4",
+      "type": "video",
+      "path": "/media/clip.mp4",
+      "duration": {
+        "n": 10,
+        "d": 1
+      },
+      "video": {
+        "width": 1920,
+        "height": 1080,
+        "fps": {
+          "n": 30000,
+          "d": 1001
+        },
+        "codec": null,
+        "pixel_aspect_ratio": null
+      },
+      "audio": {
+        "sample_rate": 48000,
+        "bit_depth": 24,
+        "tracks": [
+          {
+            "channels": 2,
+            "channel_layout": null
+          }
+        ]
+      },
+      "generator_type": null,
+      "native": []
+    }
+  ],
+  "timelines": [
+    {
+      "id": "seq_1",
+      "name": "Main Sequence",
+      "width": 1920,
+      "height": 1080,
+      "fps": {
+        "n": 30000,
+        "d": 1001
+      },
+      "sample_rate": 48000,
+      "channel_layout": "stereo",
+      "color_space": "Rec.709",
+      "start_timecode": null,
+      "tracks": [
+        {
+          "id": "vt_1",
+          "kind": "video",
+          "name": "V1",
+          "locked": false,
+          "visible": true,
+          "clips": [
+            {
+              "id": "vc_1",
+              "type": "video",
+              "name": "",
+              "timeline_start": {
+                "n": 0,
+                "d": 1
+              },
+              "duration": {
+                "n": 5,
+                "d": 1
+              },
+              "enabled": true,
+              "link_group": null,
+              "ref_id": "src_1",
+              "ref_type": "media",
+              "source_in": {
+                "n": 0,
+                "d": 1
+              },
+              "source_out": {
+                "n": 5,
+                "d": 1
+              },
+              "transform": {
+                "position_x": 0.5,
+                "position_y": 0.5,
+                "scale_x": 1.0,
+                "scale_y": 1.0,
+                "rotation": 0.0,
+                "opacity": 1.0
+              },
+              "audio": {
+                "volume": 0.0,
+                "pan": 0.0,
+                "muted": false
+              },
+              "title": null,
+              "caption": null,
+              "speed": null,
+              "blend_mode": null,
+              "color_correction": null,
+              "label": null,
+              "metadata": null,
+              "native_source_id": null,
+              "markers": [],
+              "native": []
+            },
+            {
+              "id": "vc_2",
+              "type": "video",
+              "name": "",
+              "timeline_start": {
+                "n": 5,
+                "d": 1
+              },
+              "duration": {
+                "n": 5,
+                "d": 1
+              },
+              "enabled": true,
+              "link_group": null,
+              "ref_id": "src_1",
+              "ref_type": "media",
+              "source_in": {
+                "n": 0,
+                "d": 1
+              },
+              "source_out": {
+                "n": 5,
+                "d": 1
+              },
+              "transform": {
+                "position_x": 0.5,
+                "position_y": 0.5,
+                "scale_x": 1.0,
+                "scale_y": 1.0,
+                "rotation": 0.0,
+                "opacity": 1.0
+              },
+              "audio": {
+                "volume": 0.0,
+                "pan": 0.0,
+                "muted": false
+              },
+              "title": null,
+              "caption": null,
+              "speed": null,
+              "blend_mode": null,
+              "color_correction": null,
+              "label": null,
+              "metadata": null,
+              "native_source_id": null,
+              "markers": [],
+              "native": []
+            }
+          ],
+          "transitions": [
+            {
+              "id": "vt_trans_1",
+              "type": "cross_dissolve",
+              "duration": {
+                "n": 2,
+                "d": 1
+              },
+              "clip_before_id": "vc_1",
+              "clip_after_id": "vc_2"
+            }
+          ],
+          "audio": null,
+          "native": []
+        },
+        {
+          "id": "at_1",
+          "kind": "audio",
+          "name": "A1",
+          "locked": false,
+          "visible": true,
+          "clips": [
+            {
+              "id": "ac_1",
+              "type": "audio",
+              "name": "",
+              "timeline_start": {
+                "n": 0,
+                "d": 1
+              },
+              "duration": {
+                "n": 5,
+                "d": 1
+              },
+              "enabled": true,
+              "link_group": null,
+              "ref_id": "src_1",
+              "ref_type": "media",
+              "source_in": {
+                "n": 0,
+                "d": 1
+              },
+              "source_out": {
+                "n": 5,
+                "d": 1
+              },
+              "transform": null,
+              "audio": {
+                "volume": 0.0,
+                "pan": 0.0,
+                "muted": false
+              },
+              "title": null,
+              "caption": null,
+              "speed": null,
+              "blend_mode": null,
+              "color_correction": null,
+              "label": null,
+              "metadata": null,
+              "native_source_id": null,
+              "markers": [],
+              "native": []
+            },
+            {
+              "id": "ac_2",
+              "type": "audio",
+              "name": "",
+              "timeline_start": {
+                "n": 5,
+                "d": 1
+              },
+              "duration": {
+                "n": 5,
+                "d": 1
+              },
+              "enabled": true,
+              "link_group": null,
+              "ref_id": "src_1",
+              "ref_type": "media",
+              "source_in": {
+                "n": 0,
+                "d": 1
+              },
+              "source_out": {
+                "n": 5,
+                "d": 1
+              },
+              "transform": null,
+              "audio": {
+                "volume": 0.0,
+                "pan": 0.0,
+                "muted": false
+              },
+              "title": null,
+              "caption": null,
+              "speed": null,
+              "blend_mode": null,
+              "color_correction": null,
+              "label": null,
+              "metadata": null,
+              "native_source_id": null,
+              "markers": [],
+              "native": []
+            }
+          ],
+          "transitions": [
+            {
+              "id": "at_trans_1",
+              "type": "constant_power",
+              "duration": {
+                "n": 2,
+                "d": 1
+              },
+              "clip_before_id": "ac_1",
+              "clip_after_id": "ac_2"
+            }
+          ],
+          "audio": {
+            "volume": {
+              "value": 0.0,
+              "keyframes": []
+            },
+            "pan": {
+              "value": 0.0,
+              "keyframes": []
+            },
+            "muted": false,
+            "solo": false,
+            "channels": 2,
+            "channel_layout": null,
+            "adaptive": false
+          },
+          "native": []
+        }
+      ],
+      "markers": [],
+      "native": []
+    }
+  ],
+  "origin": null,
+  "native": [],
+  "source_dom": null,
+  "loss_report": []
+}

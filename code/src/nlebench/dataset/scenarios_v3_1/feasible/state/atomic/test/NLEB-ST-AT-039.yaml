@@ -1,0 +1,45 @@
+id: NLEB-ST-AT-039
+legacy_id: NLB-v3-ST-AT-039
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L1
+  feasibility: feasible
+  information: state
+  action: atomic
+split: test
+canary: NLE-BENCH-V3-TEST-c7b7fee8
+fixture: multi_sequence
+turns:
+- instruction: Boost the volume of the earliest audio clip on the first timeline by
+    2 dB.
+constraints:
+  required:
+  - attribute_changed:
+      entity: ac_1
+      field: audio.volume
+      direction: increase
+  - unchanged_except:
+      changed:
+      - ac_1
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- ac_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L1 update_clip multi. tl1 earliest audio=ac_1.
+  cell: state × atomic

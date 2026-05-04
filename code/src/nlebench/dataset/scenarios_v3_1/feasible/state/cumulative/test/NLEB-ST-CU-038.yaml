@@ -1,0 +1,63 @@
+id: NLEB-ST-CU-038
+legacy_id: NLB-v3-ST-CU-038
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L3
+  feasibility: feasible
+  information: state
+  action: cumulative
+split: test
+canary: NLE-BENCH-V3-TEST-2bc9594b
+fixture: complex_sequence
+turns:
+- instruction: 'Longest V1 video: opacity 0.7.'
+- instruction: 'Longest V2 video: rotation 10 degrees.'
+- instruction: 'Longest audio (any track): mute.'
+- instruction: Remove the track with the fewest clips. Preserve everything.
+constraints:
+  required:
+  - attribute_equals:
+      entity: video_clip_3
+      field: transform.opacity
+      value: 0.7
+  - attribute_equals:
+      entity: video_clip_4
+      field: transform.rotation
+      value: 10.0
+  - attribute_equals:
+      entity: audio_clip_4
+      field: audio.muted
+      value: true
+  - entity_count_changed:
+      type: track
+      direction: decrease
+  - unchanged_except:
+      changed:
+      - video_clip_3
+      - video_clip_4
+      - audio_clip_4
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_3
+- video_clip_4
+- audio_clip_4
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L3 4-turn fragment. update_clip + update_clip + update_clip + remove_track.
+    Explicit.
+  cell: state × cumulative

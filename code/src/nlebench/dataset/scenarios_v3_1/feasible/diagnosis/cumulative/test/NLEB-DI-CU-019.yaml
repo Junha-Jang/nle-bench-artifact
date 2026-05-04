@@ -1,0 +1,58 @@
+id: NLEB-DI-CU-019
+legacy_id: NLB-v3-DI-CU-019
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L1
+  feasibility: feasible
+  information: diagnosis
+  action: cumulative
+split: test
+canary: NLE-BENCH-V3-TEST-005a1416
+fixture:
+  base: simple_sequence
+  patch:
+  - op: set_attribute
+    params:
+      entity: video_clip_1
+      field: speed
+      value: 0.25
+turns:
+- instruction: The first clip is crawling along way too slow — can you get it back to normal speed?
+- instruction: Now set the longest video's opacity to 0.9 — keep the speed fix.
+constraints:
+  required:
+  - attribute_equals:
+      entity: video_clip_1
+      field: speed
+      value: 1.0
+  - attribute_equals:
+      entity: video_clip_2
+      field: transform.opacity
+      value: 0.9
+  - unchanged_except:
+      changed:
+      - video_clip_1
+      - video_clip_2
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_1
+- video_clip_2
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: 'L1 fragment. T1: update_clip. T2: update_clip.'
+  cell: diagnosis × cumulative

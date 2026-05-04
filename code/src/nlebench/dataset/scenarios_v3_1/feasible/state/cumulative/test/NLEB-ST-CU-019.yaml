@@ -1,0 +1,62 @@
+id: NLEB-ST-CU-019
+legacy_id: NLB-v3-ST-CU-019
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: state
+  action: cumulative
+split: test
+canary: NLE-BENCH-V3-TEST-cf52032f
+fixture: complex_sequence
+turns:
+- instruction: Find the longest video clip across both tracks and add a blur effect
+    at 20%.
+- instruction: Now reduce its opacity to 0.80. Keep the blur.
+- instruction: Also boost the volume of the audio clip that temporally overlaps with
+    it by 2 dB.
+constraints:
+  required:
+  - has_effect:
+      entity: video_clip_3
+      effect_type: blur
+  - attribute_equals:
+      entity: $new_effect_1
+      field: params.intensity
+      value: 0.2
+  - attribute_equals:
+      entity: video_clip_3
+      field: transform.opacity
+      value: 0.8
+  - attribute_changed:
+      entity: audio_clip_3
+      field: audio.volume
+      direction: increase
+  - unchanged_except:
+      changed:
+      - video_clip_3
+      - audio_clip_3
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_3
+- audio_clip_3
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2 3-turn. add_effect + update_clip + update_clip. Longest=vc3. Overlapping
+    audio=ac3.
+  cell: state × cumulative

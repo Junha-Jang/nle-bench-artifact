@@ -1,0 +1,59 @@
+id: NLEB-EX-CU-040
+legacy_id: NLB-v3-EX-CU-040
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L3
+  feasibility: feasible
+  information: explicit
+  action: cumulative
+split: test
+canary: NLE-BENCH-V3-TEST-1adaa46c
+fixture: multi_sequence
+turns:
+- instruction: Unlink vc_2 from ac_2.
+- instruction: Split vc_2 at 3 seconds. Keep the unlink.
+- instruction: Remove the first half. Preserve the split's second piece.
+- instruction: Add a saturation effect to the remaining half and re-link it with ac_2.
+    Preserve all.
+constraints:
+  required:
+  - entity_not_exists:
+      entity: vc_2
+  - entity_exists:
+      entity: $new_clip_1
+  - has_effect:
+      entity: $new_clip_1
+      effect_type: saturation
+  - has_link:
+      clip_ids:
+      - $new_clip_1
+      - ac_2
+  - unchanged_except:
+      changed:
+      - vc_2
+      - $new_clip_1
+      - ac_2
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- vc_2
+- $new_clip_1
+- ac_2
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L3 multi. unlink -> split -> remove -> add_effect -> link.
+  cell: explicit × cumulative

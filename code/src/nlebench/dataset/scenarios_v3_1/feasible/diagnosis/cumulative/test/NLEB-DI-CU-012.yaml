@@ -1,0 +1,58 @@
+id: NLEB-DI-CU-012
+legacy_id: NLB-v3-DI-CU-012
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L1
+  feasibility: feasible
+  information: diagnosis
+  action: cumulative
+split: test
+canary: NLE-BENCH-V3-TEST-5905acc5
+fixture:
+  base: simple_sequence
+  patch:
+  - op: add_effect
+    params:
+      clip_id: video_clip_2
+      effect_type: contrast
+      params:
+        amount: 100
+turns:
+- instruction: The second clip looks over-contrasted — can you clean it up?
+- instruction: Now add a blur effect to the shortest video — keep the contrast fix.
+constraints:
+  required:
+  - entity_not_exists:
+      type: effect
+      parent: video_clip_2
+      effect_type: contrast
+  - has_effect:
+      entity: video_clip_1
+      effect_type: blur
+  - unchanged_except:
+      changed:
+      - video_clip_2
+      - video_clip_1
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_2
+- video_clip_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: 'L1. T1: remove_effect. T2: add_effect.'
+  cell: diagnosis × cumulative

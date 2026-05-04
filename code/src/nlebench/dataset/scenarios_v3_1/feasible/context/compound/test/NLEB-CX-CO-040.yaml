@@ -1,0 +1,53 @@
+id: NLEB-CX-CO-040
+legacy_id: NLB-v3-CX-CO-040
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: context
+  action: compound
+split: test
+canary: NLE-BENCH-V3-TEST-a59b6441
+fixture: with_transitions
+turns:
+- instruction: 'The closing shot: slow to 0.85x and opacity 0.92.'
+- instruction: The audio transition is too much — remove it and add a blur effect
+    on the closing instead.
+constraints:
+  required:
+  - attribute_equals:
+      entity: vc_2
+      field: speed
+      value: 0.85
+  - attribute_equals:
+      entity: vc_2
+      field: transform.opacity
+      value: 0.92
+  - entity_not_exists:
+      entity: at_trans_1
+  - has_effect:
+      entity: vc_2
+      effect_type: blur
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- vc_2
+- at_trans_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2. update_clip + remove_transition + add_effect.
+  cell: context × compound

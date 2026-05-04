@@ -1,0 +1,50 @@
+id: NLEB-CX-DE-003
+legacy_id: NLB-v3-CX-DE-003
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: context
+  action: dependent
+split: dev
+canary: NLE-BENCH-V3-DEV-aceec097
+fixture: complex_sequence
+turns:
+- instruction: The hero shot needs a cinematic blur. Add a blur effect to it.
+- instruction: Now set the blur radius to 12 for a soft look.
+constraints:
+  required:
+  - has_effect:
+      entity: video_clip_3
+      effect_type: blur
+  - attribute_equals:
+      entity: $new_effect_1
+      field: params.radius
+      value: 12
+  - unchanged_except:
+      changed:
+      - video_clip_3
+      - $new_effect_1
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_3
+- $new_effect_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2. Hero=longest V1=vc3. add_effect -> update_effect.
+  cell: context × dependent

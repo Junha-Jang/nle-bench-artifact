@@ -1,0 +1,1020 @@
+{
+  "schema_version": "4.3",
+  "title": "Multi Sequence Project",
+  "bin": {
+    "id": "root",
+    "name": "Root",
+    "media_ids": [],
+    "timeline_ids": [],
+    "bins": [
+      {
+        "id": "bin_media",
+        "name": "Media",
+        "media_ids": [
+          "src_1"
+        ],
+        "timeline_ids": [],
+        "bins": []
+      }
+    ]
+  },
+  "media": [
+    {
+      "id": "src_1",
+      "name": "interview.mp4",
+      "type": "video",
+      "path": "/media/interview.mp4",
+      "duration": {
+        "n": 60,
+        "d": 1
+      },
+      "video": {
+        "width": 1920,
+        "height": 1080,
+        "fps": {
+          "n": 30000,
+          "d": 1001
+        },
+        "codec": null,
+        "pixel_aspect_ratio": null
+      },
+      "audio": {
+        "sample_rate": 48000,
+        "bit_depth": 24,
+        "tracks": [
+          {
+            "channels": 2,
+            "channel_layout": null
+          }
+        ]
+      },
+      "generator_type": null,
+      "native": []
+    }
+  ],
+  "timelines": [
+    {
+      "id": "seq_1",
+      "name": "Edit Sequence",
+      "width": 1920,
+      "height": 1080,
+      "fps": {
+        "n": 30000,
+        "d": 1001
+      },
+      "sample_rate": 48000,
+      "channel_layout": "stereo",
+      "color_space": "Rec.709",
+      "start_timecode": null,
+      "tracks": [
+        {
+          "id": "vt_1",
+          "kind": "video",
+          "name": "V1",
+          "locked": false,
+          "visible": true,
+          "clips": [
+            {
+              "id": "vc_1",
+              "type": "video",
+              "name": "",
+              "timeline_start": {
+                "n": 0,
+                "d": 1
+              },
+              "duration": {
+                "n": 10,
+                "d": 1
+              },
+              "enabled": true,
+              "link_group": "link_1",
+              "ref_id": "src_1",
+              "ref_type": "media",
+              "source_in": {
+                "n": 0,
+                "d": 1
+              },
+              "source_out": {
+                "n": 10,
+                "d": 1
+              },
+              "transform": {
+                "position_x": 0.5,
+                "position_y": 0.5,
+                "scale_x": 1.0,
+                "scale_y": 1.0,
+                "rotation": 0.0,
+                "opacity": 1.0
+              },
+              "audio": {
+                "volume": 0.0,
+                "pan": 0.0,
+                "muted": false
+              },
+              "title": null,
+              "caption": null,
+              "speed": null,
+              "blend_mode": null,
+              "color_correction": null,
+              "label": null,
+              "metadata": null,
+              "native_source_id": null,
+              "markers": [],
+              "native": []
+            },
+            {
+              "id": "vc_2",
+              "type": "video",
+              "name": "",
+              "timeline_start": {
+                "n": 10,
+                "d": 1
+              },
+              "duration": {
+                "n": 15,
+                "d": 1
+              },
+              "enabled": true,
+              "link_group": "link_2",
+              "ref_id": "src_1",
+              "ref_type": "media",
+              "source_in": {
+                "n": 10,
+                "d": 1
+              },
+              "source_out": {
+                "n": 25,
+                "d": 1
+              },
+              "transform": {
+                "position_x": 0.5,
+                "position_y": 0.5,
+                "scale_x": 1.0,
+                "scale_y": 1.0,
+                "rotation": 0.0,
+                "opacity": 1.0
+              },
+              "audio": {
+                "volume": 0.0,
+                "pan": 0.0,
+                "muted": false
+              },
+              "title": null,
+              "caption": null,
+              "speed": null,
+              "blend_mode": null,
+              "color_correction": null,
+              "label": null,
+              "metadata": null,
+              "native_source_id": null,
+              "markers": [],
+              "native": []
+            },
+            {
+              "id": "vc_3",
+              "type": "video",
+              "name": "",
+              "timeline_start": {
+                "n": 25,
+                "d": 1
+              },
+              "duration": {
+                "n": 15,
+                "d": 1
+              },
+              "enabled": true,
+              "link_group": "link_3",
+              "ref_id": "src_1",
+              "ref_type": "media",
+              "source_in": {
+                "n": 25,
+                "d": 1
+              },
+              "source_out": {
+                "n": 40,
+                "d": 1
+              },
+              "transform": {
+                "position_x": 0.5,
+                "position_y": 0.5,
+                "scale_x": 1.0,
+                "scale_y": 1.0,
+                "rotation": 0.0,
+                "opacity": 1.0
+              },
+              "audio": {
+                "volume": 0.0,
+                "pan": 0.0,
+                "muted": false
+              },
+              "title": null,
+              "caption": null,
+              "speed": null,
+              "blend_mode": null,
+              "color_correction": null,
+              "label": null,
+              "metadata": null,
+              "native_source_id": null,
+              "markers": [],
+              "native": []
+            }
+          ],
+          "transitions": [],
+          "audio": null,
+          "native": []
+        },
+        {
+          "id": "at_1",
+          "kind": "audio",
+          "name": "A1",
+          "locked": false,
+          "visible": true,
+          "clips": [
+            {
+              "id": "ac_1",
+              "type": "audio",
+              "name": "",
+              "timeline_start": {
+                "n": 0,
+                "d": 1
+              },
+              "duration": {
+                "n": 10,
+                "d": 1
+              },
+              "enabled": true,
+              "link_group": "link_1",
+              "ref_id": "src_1",
+              "ref_type": "media",
+              "source_in": {
+                "n": 0,
+                "d": 1
+              },
+              "source_out": {
+                "n": 10,
+                "d": 1
+              },
+              "transform": null,
+              "audio": {
+                "volume": 0.0,
+                "pan": 0.0,
+                "muted": false
+              },
+              "title": null,
+              "caption": null,
+              "speed": null,
+              "blend_mode": null,
+              "color_correction": null,
+              "label": null,
+              "metadata": null,
+              "native_source_id": null,
+              "markers": [],
+              "native": []
+            },
+            {
+              "id": "ac_2",
+              "type": "audio",
+              "name": "",
+              "timeline_start": {
+                "n": 10,
+                "d": 1
+              },
+              "duration": {
+                "n": 15,
+                "d": 1
+              },
+              "enabled": true,
+              "link_group": "link_2",
+              "ref_id": "src_1",
+              "ref_type": "media",
+              "source_in": {
+                "n": 10,
+                "d": 1
+              },
+              "source_out": {
+                "n": 25,
+                "d": 1
+              },
+              "transform": null,
+              "audio": {
+                "volume": 0.0,
+                "pan": 0.0,
+                "muted": false
+              },
+              "title": null,
+              "caption": null,
+              "speed": null,
+              "blend_mode": null,
+              "color_correction": null,
+              "label": null,
+              "metadata": null,
+              "native_source_id": null,
+              "markers": [],
+              "native": []
+            },
+            {
+              "id": "ac_3",
+              "type": "audio",
+              "name": "",
+              "timeline_start": {
+                "n": 25,
+                "d": 1
+              },
+              "duration": {
+                "n": 15,
+                "d": 1
+              },
+              "enabled": true,
+              "link_group": "link_3",
+              "ref_id": "src_1",
+              "ref_type": "media",
+              "source_in": {
+                "n": 25,
+                "d": 1
+              },
+              "source_out": {
+                "n": 40,
+                "d": 1
+              },
+              "transform": null,
+              "audio": {
+                "volume": 0.0,
+                "pan": 0.0,
+                "muted": false
+              },
+              "title": null,
+              "caption": null,
+              "speed": null,
+              "blend_mode": null,
+              "color_correction": null,
+              "label": null,
+              "metadata": null,
+              "native_source_id": null,
+              "markers": [],
+              "native": []
+            }
+          ],
+          "transitions": [],
+          "audio": {
+            "volume": {
+              "value": 0.0,
+              "keyframes": []
+            },
+            "pan": {
+              "value": 0.0,
+              "keyframes": []
+            },
+            "muted": false,
+            "solo": false,
+            "channels": 2,
+            "channel_layout": null,
+            "adaptive": false
+          },
+          "native": []
+        },
+        {
+          "id": "ct_1",
+          "kind": "caption",
+          "name": "Caption Track 1",
+          "locked": false,
+          "visible": true,
+          "clips": [
+            {
+              "id": "cc_1",
+              "type": "caption",
+              "name": "",
+              "timeline_start": {
+                "n": 1,
+                "d": 1
+              },
+              "duration": {
+                "n": 3,
+                "d": 1
+              },
+              "enabled": true,
+              "link_group": null,
+              "ref_id": null,
+              "ref_type": null,
+              "source_in": null,
+              "source_out": null,
+              "transform": {
+                "position_x": 0.5,
+                "position_y": 0.5,
+                "scale_x": 1.0,
+                "scale_y": 1.0,
+                "rotation": 0.0,
+                "opacity": 1.0
+              },
+              "audio": {
+                "volume": 0.0,
+                "pan": 0.0,
+                "muted": false
+              },
+              "title": null,
+              "caption": {
+                "text": "안녕하세요 여러분",
+                "style": null,
+                "appearance": null
+              },
+              "speed": null,
+              "blend_mode": null,
+              "color_correction": null,
+              "label": null,
+              "metadata": null,
+              "native_source_id": null,
+              "markers": [],
+              "native": []
+            },
+            {
+              "id": "cc_2",
+              "type": "caption",
+              "name": "",
+              "timeline_start": {
+                "n": 5,
+                "d": 1
+              },
+              "duration": {
+                "n": 4,
+                "d": 1
+              },
+              "enabled": true,
+              "link_group": null,
+              "ref_id": null,
+              "ref_type": null,
+              "source_in": null,
+              "source_out": null,
+              "transform": {
+                "position_x": 0.5,
+                "position_y": 0.5,
+                "scale_x": 1.0,
+                "scale_y": 1.0,
+                "rotation": 0.0,
+                "opacity": 1.0
+              },
+              "audio": {
+                "volume": 0.0,
+                "pan": 0.0,
+                "muted": false
+              },
+              "title": null,
+              "caption": {
+                "text": "오늘은 인터뷰 편집을 해볼게요",
+                "style": null,
+                "appearance": null
+              },
+              "speed": null,
+              "blend_mode": null,
+              "color_correction": null,
+              "label": null,
+              "metadata": null,
+              "native_source_id": null,
+              "markers": [],
+              "native": []
+            },
+            {
+              "id": "cc_3",
+              "type": "caption",
+              "name": "",
+              "timeline_start": {
+                "n": 12,
+                "d": 1
+              },
+              "duration": {
+                "n": 6,
+                "d": 1
+              },
+              "enabled": true,
+              "link_group": null,
+              "ref_id": null,
+              "ref_type": null,
+              "source_in": null,
+              "source_out": null,
+              "transform": {
+                "position_x": 0.5,
+                "position_y": 0.5,
+                "scale_x": 1.0,
+                "scale_y": 1.0,
+                "rotation": 0.0,
+                "opacity": 1.0
+              },
+              "audio": {
+                "volume": 0.0,
+                "pan": 0.0,
+                "muted": false
+              },
+              "title": null,
+              "caption": {
+                "text": "이 부분이 하이라이트입니다",
+                "style": null,
+                "appearance": null
+              },
+              "speed": null,
+              "blend_mode": null,
+              "color_correction": null,
+              "label": null,
+              "metadata": null,
+              "native_source_id": null,
+              "markers": [],
+              "native": []
+            },
+            {
+              "id": "cc_4",
+              "type": "caption",
+              "name": "",
+              "timeline_start": {
+                "n": 30,
+                "d": 1
+              },
+              "duration": {
+                "n": 5,
+                "d": 1
+              },
+              "enabled": true,
+              "link_group": null,
+              "ref_id": null,
+              "ref_type": null,
+              "source_in": null,
+              "source_out": null,
+              "transform": {
+                "position_x": 0.5,
+                "position_y": 0.5,
+                "scale_x": 1.0,
+                "scale_y": 1.0,
+                "rotation": 0.0,
+                "opacity": 1.0
+              },
+              "audio": {
+                "volume": 0.0,
+                "pan": 0.0,
+                "muted": false
+              },
+              "title": null,
+              "caption": {
+                "text": "마무리 인사드릴게요",
+                "style": null,
+                "appearance": null
+              },
+              "speed": null,
+              "blend_mode": null,
+              "color_correction": null,
+              "label": null,
+              "metadata": null,
+              "native_source_id": null,
+              "markers": [],
+              "native": []
+            }
+          ],
+          "transitions": [],
+          "audio": null,
+          "native": []
+        }
+      ],
+      "markers": [],
+      "native": []
+    },
+    {
+      "id": "seq_2",
+      "name": "Longform",
+      "width": 1920,
+      "height": 1080,
+      "fps": {
+        "n": 30000,
+        "d": 1001
+      },
+      "sample_rate": 48000,
+      "channel_layout": "stereo",
+      "color_space": "Rec.709",
+      "start_timecode": null,
+      "tracks": [
+        {
+          "id": "vt_2",
+          "kind": "video",
+          "name": "V1",
+          "locked": false,
+          "visible": true,
+          "clips": [
+            {
+              "id": "vc_4",
+              "type": "timeline",
+              "name": "",
+              "timeline_start": {
+                "n": 0,
+                "d": 1
+              },
+              "duration": {
+                "n": 25,
+                "d": 1
+              },
+              "enabled": true,
+              "link_group": "link_4",
+              "ref_id": "seq_1",
+              "ref_type": "timeline",
+              "source_in": {
+                "n": 0,
+                "d": 1
+              },
+              "source_out": {
+                "n": 25,
+                "d": 1
+              },
+              "transform": null,
+              "audio": {
+                "volume": 0.0,
+                "pan": 0.0,
+                "muted": false
+              },
+              "title": null,
+              "caption": null,
+              "speed": null,
+              "blend_mode": null,
+              "color_correction": null,
+              "label": null,
+              "metadata": null,
+              "native_source_id": null,
+              "markers": [],
+              "native": []
+            },
+            {
+              "id": "vc_5",
+              "type": "timeline",
+              "name": "",
+              "timeline_start": {
+                "n": 25,
+                "d": 1
+              },
+              "duration": {
+                "n": 15,
+                "d": 1
+              },
+              "enabled": true,
+              "link_group": "link_5",
+              "ref_id": "seq_1",
+              "ref_type": "timeline",
+              "source_in": {
+                "n": 25,
+                "d": 1
+              },
+              "source_out": {
+                "n": 40,
+                "d": 1
+              },
+              "transform": null,
+              "audio": {
+                "volume": 0.0,
+                "pan": 0.0,
+                "muted": false
+              },
+              "title": null,
+              "caption": null,
+              "speed": null,
+              "blend_mode": null,
+              "color_correction": null,
+              "label": null,
+              "metadata": null,
+              "native_source_id": null,
+              "markers": [],
+              "native": []
+            }
+          ],
+          "transitions": [],
+          "audio": null,
+          "native": []
+        },
+        {
+          "id": "at_2",
+          "kind": "audio",
+          "name": "A1",
+          "locked": false,
+          "visible": true,
+          "clips": [
+            {
+              "id": "ac_4",
+              "type": "audio",
+              "name": "",
+              "timeline_start": {
+                "n": 0,
+                "d": 1
+              },
+              "duration": {
+                "n": 25,
+                "d": 1
+              },
+              "enabled": true,
+              "link_group": "link_4",
+              "ref_id": "seq_1",
+              "ref_type": "timeline",
+              "source_in": {
+                "n": 0,
+                "d": 1
+              },
+              "source_out": {
+                "n": 25,
+                "d": 1
+              },
+              "transform": null,
+              "audio": {
+                "volume": 0.0,
+                "pan": 0.0,
+                "muted": false
+              },
+              "title": null,
+              "caption": null,
+              "speed": null,
+              "blend_mode": null,
+              "color_correction": null,
+              "label": null,
+              "metadata": null,
+              "native_source_id": null,
+              "markers": [],
+              "native": []
+            },
+            {
+              "id": "ac_5",
+              "type": "audio",
+              "name": "",
+              "timeline_start": {
+                "n": 25,
+                "d": 1
+              },
+              "duration": {
+                "n": 15,
+                "d": 1
+              },
+              "enabled": true,
+              "link_group": "link_5",
+              "ref_id": "seq_1",
+              "ref_type": "timeline",
+              "source_in": {
+                "n": 25,
+                "d": 1
+              },
+              "source_out": {
+                "n": 40,
+                "d": 1
+              },
+              "transform": null,
+              "audio": {
+                "volume": 0.0,
+                "pan": 0.0,
+                "muted": false
+              },
+              "title": null,
+              "caption": null,
+              "speed": null,
+              "blend_mode": null,
+              "color_correction": null,
+              "label": null,
+              "metadata": null,
+              "native_source_id": null,
+              "markers": [],
+              "native": []
+            }
+          ],
+          "transitions": [],
+          "audio": {
+            "volume": {
+              "value": 0.0,
+              "keyframes": []
+            },
+            "pan": {
+              "value": 0.0,
+              "keyframes": []
+            },
+            "muted": false,
+            "solo": false,
+            "channels": 2,
+            "channel_layout": null,
+            "adaptive": false
+          },
+          "native": []
+        }
+      ],
+      "markers": [],
+      "native": []
+    },
+    {
+      "id": "seq_3",
+      "name": "Shorts",
+      "width": 1080,
+      "height": 1920,
+      "fps": {
+        "n": 30000,
+        "d": 1001
+      },
+      "sample_rate": 48000,
+      "channel_layout": "stereo",
+      "color_space": "Rec.709",
+      "start_timecode": null,
+      "tracks": [
+        {
+          "id": "vt_3",
+          "kind": "video",
+          "name": "V1",
+          "locked": false,
+          "visible": true,
+          "clips": [
+            {
+              "id": "vc_6",
+              "type": "timeline",
+              "name": "",
+              "timeline_start": {
+                "n": 0,
+                "d": 1
+              },
+              "duration": {
+                "n": 15,
+                "d": 1
+              },
+              "enabled": true,
+              "link_group": "link_6",
+              "ref_id": "seq_1",
+              "ref_type": "timeline",
+              "source_in": {
+                "n": 5,
+                "d": 1
+              },
+              "source_out": {
+                "n": 20,
+                "d": 1
+              },
+              "transform": null,
+              "audio": {
+                "volume": 0.0,
+                "pan": 0.0,
+                "muted": false
+              },
+              "title": null,
+              "caption": null,
+              "speed": null,
+              "blend_mode": null,
+              "color_correction": null,
+              "label": null,
+              "metadata": null,
+              "native_source_id": null,
+              "markers": [],
+              "native": []
+            },
+            {
+              "id": "vc_7",
+              "type": "timeline",
+              "name": "",
+              "timeline_start": {
+                "n": 15,
+                "d": 1
+              },
+              "duration": {
+                "n": 10,
+                "d": 1
+              },
+              "enabled": true,
+              "link_group": "link_7",
+              "ref_id": "seq_1",
+              "ref_type": "timeline",
+              "source_in": {
+                "n": 20,
+                "d": 1
+              },
+              "source_out": {
+                "n": 30,
+                "d": 1
+              },
+              "transform": null,
+              "audio": {
+                "volume": 0.0,
+                "pan": 0.0,
+                "muted": false
+              },
+              "title": null,
+              "caption": null,
+              "speed": null,
+              "blend_mode": null,
+              "color_correction": null,
+              "label": null,
+              "metadata": null,
+              "native_source_id": null,
+              "markers": [],
+              "native": []
+            }
+          ],
+          "transitions": [],
+          "audio": null,
+          "native": []
+        },
+        {
+          "id": "at_3",
+          "kind": "audio",
+          "name": "A1",
+          "locked": false,
+          "visible": true,
+          "clips": [
+            {
+              "id": "ac_6",
+              "type": "audio",
+              "name": "",
+              "timeline_start": {
+                "n": 0,
+                "d": 1
+              },
+              "duration": {
+                "n": 15,
+                "d": 1
+              },
+              "enabled": true,
+              "link_group": "link_6",
+              "ref_id": "seq_1",
+              "ref_type": "timeline",
+              "source_in": {
+                "n": 5,
+                "d": 1
+              },
+              "source_out": {
+                "n": 20,
+                "d": 1
+              },
+              "transform": null,
+              "audio": {
+                "volume": 0.0,
+                "pan": 0.0,
+                "muted": false
+              },
+              "title": null,
+              "caption": null,
+              "speed": null,
+              "blend_mode": null,
+              "color_correction": null,
+              "label": null,
+              "metadata": null,
+              "native_source_id": null,
+              "markers": [],
+              "native": []
+            },
+            {
+              "id": "ac_7",
+              "type": "audio",
+              "name": "",
+              "timeline_start": {
+                "n": 15,
+                "d": 1
+              },
+              "duration": {
+                "n": 10,
+                "d": 1
+              },
+              "enabled": true,
+              "link_group": "link_7",
+              "ref_id": "seq_1",
+              "ref_type": "timeline",
+              "source_in": {
+                "n": 20,
+                "d": 1
+              },
+              "source_out": {
+                "n": 30,
+                "d": 1
+              },
+              "transform": null,
+              "audio": {
+                "volume": 0.0,
+                "pan": 0.0,
+                "muted": false
+              },
+              "title": null,
+              "caption": null,
+              "speed": null,
+              "blend_mode": null,
+              "color_correction": null,
+              "label": null,
+              "metadata": null,
+              "native_source_id": null,
+              "markers": [],
+              "native": []
+            }
+          ],
+          "transitions": [],
+          "audio": {
+            "volume": {
+              "value": 0.0,
+              "keyframes": []
+            },
+            "pan": {
+              "value": 0.0,
+              "keyframes": []
+            },
+            "muted": false,
+            "solo": false,
+            "channels": 2,
+            "channel_layout": null,
+            "adaptive": false
+          },
+          "native": []
+        }
+      ],
+      "markers": [],
+      "native": []
+    }
+  ],
+  "origin": null,
+  "native": [],
+  "source_dom": null,
+  "loss_report": []
+}

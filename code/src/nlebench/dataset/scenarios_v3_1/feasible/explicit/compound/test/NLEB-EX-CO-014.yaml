@@ -1,0 +1,50 @@
+id: NLEB-EX-CO-014
+legacy_id: NLB-v3-EX-CO-014
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L1
+  feasibility: feasible
+  information: explicit
+  action: compound
+split: test
+canary: NLE-BENCH-V3-TEST-84e87468
+fixture: complex_sequence
+turns:
+- instruction: 'video_track_1: mute it. video_clip_4: opacity 0.7.'
+constraints:
+  required:
+  - attribute_equals:
+      entity: video_track_1
+      field: muted
+      value: true
+  - attribute_equals:
+      entity: video_clip_4
+      field: transform.opacity
+      value: 0.7
+  - unchanged_except:
+      changed:
+      - video_track_1
+      - video_clip_4
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_track_1
+- video_clip_4
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L1 fragment. update_track + update_clip.
+  cell: explicit × compound

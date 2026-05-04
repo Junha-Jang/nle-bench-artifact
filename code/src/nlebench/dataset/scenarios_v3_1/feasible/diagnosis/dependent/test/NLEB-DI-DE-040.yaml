@@ -1,0 +1,66 @@
+id: NLEB-DI-DE-040
+legacy_id: NLB-v3-DI-DE-040
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L3
+  feasibility: feasible
+  information: diagnosis
+  action: dependent
+split: test
+canary: NLE-BENCH-V3-TEST-002f0eaf
+fixture:
+  base: multi_sequence
+  patch:
+  - op: set_attribute
+    params:
+      entity: vc_3
+      field: duration
+      value:
+        n: 100
+        d: 1
+  - op: set_attribute
+    params:
+      entity: ac_3
+      field: audio.volume
+      value: 12.0
+turns:
+- instruction: On timeline 1, the last video clip has the wrong duration and its audio is too loud — set the video duration to 15 seconds first, then set the audio volume to -3 dB, and finally add a crop effect to the video plus a fade-in to the audio.
+constraints:
+  required:
+  - attribute_equals:
+      entity: vc_3
+      field: duration
+      value: 15.0
+  - attribute_equals:
+      entity: ac_3
+      field: audio.volume
+      value: -3.0
+  - has_effect:
+      entity: vc_3
+      effect_type: crop
+  - has_effect:
+      entity: ac_3
+      effect_type: fade_in
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- vc_3
+- ac_3
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: 'L3: update_clip x2 + add_effect x2 (two-track).'
+  cell: diagnosis × dependent

@@ -1,0 +1,54 @@
+id: NLEB-ST-DE-036
+legacy_id: NLB-v3-ST-DE-036
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L3
+  feasibility: feasible
+  information: state
+  action: dependent
+split: test
+canary: NLE-BENCH-V3-TEST-5bae89f0
+fixture: complex_sequence
+turns:
+- instruction: Rotate the longest V1 clip by 30 degrees.
+- instruction: Scale it to 1.3 to cover the rotation crop.
+- instruction: Lower its opacity to 0.9 so the scale bump isn't too jarring.
+constraints:
+  required:
+  - attribute_equals:
+      entity: video_clip_3
+      field: transform.rotation
+      value: 30.0
+  - attribute_equals:
+      entity: video_clip_3
+      field: transform.scale_x
+      value: 1.3
+  - attribute_equals:
+      entity: video_clip_3
+      field: transform.opacity
+      value: 0.9
+  - unchanged_except:
+      changed:
+      - video_clip_3
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_3
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L3 update_clip chain (rotate → scale → opacity).
+  cell: state × dependent

@@ -1,0 +1,51 @@
+id: NLEB-ST-CU-010
+legacy_id: NLB-v3-ST-CU-010
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L3
+  feasibility: feasible
+  information: state
+  action: cumulative
+split: dev
+canary: NLE-BENCH-V3-DEV-b545ae0b
+fixture: multi_sequence
+turns:
+- instruction: On timeline 1, mute the audio clip that lines up with the longest video
+    clip.
+- instruction: Add a caption 'Muted Section' at that video clip's start. Keep the
+    mute.
+- instruction: Remove the caption you just added and add one saying 'Silent' instead.
+    Preserve the mute.
+constraints:
+  required:
+  - attribute_equals:
+      entity: ac_2
+      field: audio.muted
+      value: true
+  - entity_count_changed:
+      type: caption
+      direction: increase
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- ac_2
+- $new_caption_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L3 multi. update_clip + add_caption + remove_caption + add_caption. Explicit
+    preservation.
+  cell: state × cumulative

@@ -1,0 +1,46 @@
+id: NLEB-ST-CO-018
+legacy_id: NLB-v3-ST-CO-018
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L1
+  feasibility: feasible
+  information: state
+  action: compound
+split: test
+canary: NLE-BENCH-V3-TEST-d29b2101
+fixture: complex_sequence
+turns:
+- instruction: On the longest V1 clip, add a contrast effect and a fade-out effect.
+constraints:
+  required:
+  - has_effect:
+      entity: video_clip_3
+      effect_type: contrast
+  - has_effect:
+      entity: video_clip_3
+      effect_type: fade_out
+  - unchanged_except:
+      changed:
+      - video_clip_3
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_3
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L1 add_effect + add_effect. Longest V1=vc3.
+  cell: state × compound

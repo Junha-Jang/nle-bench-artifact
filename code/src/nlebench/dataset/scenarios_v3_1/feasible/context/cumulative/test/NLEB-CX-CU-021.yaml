@@ -1,0 +1,53 @@
+id: NLEB-CX-CU-021
+legacy_id: NLB-v3-CX-CU-021
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: context
+  action: cumulative
+split: test
+canary: NLE-BENCH-V3-TEST-e8446980
+fixture: with_transitions
+turns:
+- instruction: Remove the transition between the intro and bridge.
+- instruction: Add a contrast effect on the bridge. Preserve removal.
+- instruction: Slow the bridge to 0.9x. Keep everything.
+constraints:
+  required:
+  - entity_not_exists:
+      entity: vt_trans_1
+  - has_effect:
+      entity: vc_2
+      effect_type: contrast
+  - attribute_equals:
+      entity: vc_2
+      field: speed
+      value: 0.9
+  - unchanged_except:
+      changed:
+      - vt_trans_1
+      - vc_2
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- vt_trans_1
+- vc_2
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2. remove_transition + add_effect + update_clip, preserve all.
+  cell: context × cumulative

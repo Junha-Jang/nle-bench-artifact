@@ -1,0 +1,58 @@
+id: NLEB-ST-CO-022
+legacy_id: NLB-v3-ST-CO-022
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: state
+  action: compound
+split: test
+canary: NLE-BENCH-V3-TEST-daa50dda
+fixture: complex_sequence
+turns:
+- instruction: On the longest V1 clip, set opacity 0.9 and scale 1.05.
+- instruction: On the shortest V2 clip, set rotation to 4 degrees and add a crop effect.
+constraints:
+  required:
+  - attribute_equals:
+      entity: video_clip_3
+      field: transform.opacity
+      value: 0.9
+  - attribute_equals:
+      entity: video_clip_3
+      field: transform.scale_x
+      value: 1.05
+  - attribute_equals:
+      entity: video_clip_5
+      field: transform.rotation
+      value: 4.0
+  - has_effect:
+      entity: video_clip_5
+      effect_type: crop
+  - unchanged_except:
+      changed:
+      - video_clip_3
+      - video_clip_5
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_3
+- video_clip_5
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2.
+  cell: state × compound

@@ -1,0 +1,50 @@
+id: NLEB-CX-CO-031
+legacy_id: NLB-v3-CX-CO-031
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: context
+  action: compound
+split: test
+canary: NLE-BENCH-V3-TEST-9e8578a6
+fixture: complex_sequence
+turns:
+- instruction: 'The hero shot: rotate 3 degrees and add a saturation effect.'
+- instruction: And update the second caption to 'Scene B'.
+constraints:
+  required:
+  - attribute_equals:
+      entity: video_clip_3
+      field: transform.rotation
+      value: 3.0
+  - has_effect:
+      entity: video_clip_3
+      effect_type: saturation
+  - attribute_equals:
+      entity: caption_2
+      field: text
+      value: Scene B
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_3
+- caption_2
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2. update_clip + add_effect + update_caption.
+  cell: context × compound

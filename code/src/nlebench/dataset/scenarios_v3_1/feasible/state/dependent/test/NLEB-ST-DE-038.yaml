@@ -1,0 +1,57 @@
+id: NLEB-ST-DE-038
+legacy_id: NLB-v3-ST-DE-038
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L3
+  feasibility: feasible
+  information: state
+  action: dependent
+split: test
+canary: NLE-BENCH-V3-TEST-c61a3230
+fixture: simple_sequence
+turns:
+- instruction: Remove the first V1 clip from the timeline.
+- instruction: Shift the remaining clips to close the gap.
+- instruction: Add a caption 'Updated Timeline' at the new start of the second clip.
+constraints:
+  required:
+  - entity_not_exists:
+      entity: video_clip_1
+  - attribute_changed:
+      entity: video_clip_2
+      field: timeline_start
+      direction: decrease
+  - entity_count_changed:
+      type: caption
+      direction: increase
+  - entity_exists:
+      entity: $new_caption_1
+  - attribute_equals:
+      entity: $new_caption_1
+      field: text
+      value: Updated Timeline
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_1
+- video_clip_2
+- video_clip_3
+- $new_caption_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L3 remove_clip → update_clip(cascade) → add_caption at new position.
+  cell: state × dependent

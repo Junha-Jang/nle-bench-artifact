@@ -1,0 +1,44 @@
+id: NLEB-EX-DE-035
+legacy_id: NLB-v3-EX-DE-035
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: explicit
+  action: dependent
+split: test
+canary: NLE-BENCH-V3-TEST-49aab1fa
+fixture: simple_sequence
+turns:
+- instruction: Import 'sfx_whoosh.wav' as media.
+- instruction: Move it into the 'Sound Effects' bin.
+constraints:
+  required:
+  - entity_exists:
+      entity: $new_media_1
+  - attribute_equals:
+      entity: $new_media_1
+      field: name
+      value: Sound Effects
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- $new_media_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2. import_media -> manage_bin.
+  cell: explicit × dependent

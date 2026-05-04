@@ -1,0 +1,54 @@
+id: NLEB-EX-CU-033
+legacy_id: NLB-v3-EX-CU-033
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: explicit
+  action: cumulative
+split: test
+canary: NLE-BENCH-V3-TEST-ea6f59f8
+fixture: complex_sequence
+turns:
+- instruction: Add a wipe transition between video_clip_3 and video_clip_4.
+- instruction: Set the transition duration to 2s. Keep the type.
+- instruction: Trim video_clip_4 by 1 second from the start. Preserve the transition.
+constraints:
+  required:
+  - entity_exists:
+      entity: $new_transition_1
+  - attribute_equals:
+      entity: $new_transition_1
+      field: duration
+      value: 2.0
+  - attribute_changed:
+      entity: video_clip_4
+      field: timeline_start
+      direction: increase
+  - unchanged_except:
+      changed:
+      - $new_transition_1
+      - video_clip_4
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- $new_transition_1
+- video_clip_4
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2. add_transition -> update_transition -> update_clip.
+  cell: explicit × cumulative

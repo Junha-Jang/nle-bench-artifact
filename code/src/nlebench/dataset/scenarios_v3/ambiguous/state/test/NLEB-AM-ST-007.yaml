@@ -1,0 +1,38 @@
+id: NLEB-AM-ST-007
+legacy_id: NLB-v3-AM-ST-007
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L1
+  feasibility: ambiguous
+  information: state
+  action: null
+split: test
+canary: NLE-BENCH-V3-TEST-211a5c89
+fixture: simple_sequence
+turns:
+- instruction: Change the longest video.
+constraints:
+  required:
+  - unchanged_except:
+      changed: []
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001 []
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: What change? update_clip missing operation.
+  cell: state × ambiguous

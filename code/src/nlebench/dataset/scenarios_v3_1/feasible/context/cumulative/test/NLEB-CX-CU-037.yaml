@@ -1,0 +1,62 @@
+id: NLEB-CX-CU-037
+legacy_id: NLB-v3-CX-CU-037
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L3
+  feasibility: feasible
+  information: context
+  action: cumulative
+split: test
+canary: NLE-BENCH-V3-TEST-18366087
+fixture: simple_sequence
+turns:
+- instruction: 'Intro: scale 1.08.'
+- instruction: Split the middle clip at 4 seconds. Keep intro scale.
+- instruction: Add a contrast effect to the second half of the split. Preserve all.
+- instruction: Lower BGM by 4 dB. Keep everything.
+constraints:
+  required:
+  - attribute_equals:
+      entity: video_clip_1
+      field: transform.scale_x
+      value: 1.08
+  - entity_exists:
+      entity: $new_clip_1
+  - has_effect:
+      entity: $new_clip_1
+      effect_type: contrast
+  - attribute_changed:
+      entity: audio_clip_4
+      field: audio.volume
+      direction: decrease
+  - unchanged_except:
+      changed:
+      - video_clip_1
+      - video_clip_2
+      - $new_clip_1
+      - audio_clip_4
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_1
+- video_clip_2
+- $new_clip_1
+- audio_clip_4
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L3. update + split + add_effect + update, preserve all.
+  cell: context × cumulative

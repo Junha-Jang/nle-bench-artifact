@@ -1,0 +1,56 @@
+id: NLEB-EX-CU-008
+legacy_id: NLB-v3-EX-CU-008
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: explicit
+  action: cumulative
+split: dev
+canary: NLE-BENCH-V3-DEV-780c5fb5
+fixture: complex_sequence
+turns:
+- instruction: Add a brightness effect to video_clip_3.
+- instruction: Also add a contrast effect to video_clip_3. Keep the brightness.
+- instruction: Set the contrast value to 1.2. Preserve both effects.
+constraints:
+  required:
+  - has_effect:
+      entity: video_clip_3
+      effect_type: brightness
+  - has_effect:
+      entity: video_clip_3
+      effect_type: contrast
+  - attribute_equals:
+      entity: $new_effect_2
+      field: params.value
+      value: 1.2
+  - unchanged_except:
+      changed:
+      - video_clip_3
+      - $new_effect_1
+      - $new_effect_2
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_3
+- $new_effect_1
+- $new_effect_2
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2. add_effect -> add_effect -> update_effect.
+  cell: explicit × cumulative

@@ -1,0 +1,64 @@
+id: NLEB-ST-CO-038
+legacy_id: NLB-v3-ST-CO-038
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L3
+  feasibility: feasible
+  information: state
+  action: compound
+split: test
+canary: NLE-BENCH-V3-TEST-52641040
+fixture: multi_sequence
+turns:
+- instruction: On tl1's longest video, set scale 1.05 and opacity 0.9.
+- instruction: On tl1's earliest audio, set volume to -3 dB and add a fade-in.
+- instruction: On tl1's latest-ending audio, add a fade-out and set its volume to
+    -2 dB.
+constraints:
+  required:
+  - attribute_equals:
+      entity: vc_2
+      field: transform.scale_x
+      value: 1.05
+  - attribute_equals:
+      entity: vc_2
+      field: transform.opacity
+      value: 0.9
+  - attribute_equals:
+      entity: ac_1
+      field: audio.volume
+      value: -3.0
+  - has_effect:
+      entity: ac_1
+      effect_type: fade_in
+  - has_effect:
+      entity: ac_3
+      effect_type: fade_out
+  - attribute_equals:
+      entity: ac_3
+      field: audio.volume
+      value: -2.0
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- vc_2
+- ac_1
+- ac_3
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L3 multi.
+  cell: state × compound

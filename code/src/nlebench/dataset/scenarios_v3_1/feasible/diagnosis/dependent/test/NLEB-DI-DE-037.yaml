@@ -1,0 +1,66 @@
+id: NLEB-DI-DE-037
+legacy_id: NLB-v3-DI-DE-037
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L3
+  feasibility: feasible
+  information: diagnosis
+  action: dependent
+split: test
+canary: NLE-BENCH-V3-TEST-f7656b5a
+fixture:
+  base: complex_sequence
+  patch:
+  - op: set_attribute
+    params:
+      entity: video_clip_1
+      field: duration
+      value:
+        n: 1
+        d: 1
+  - op: set_attribute
+    params:
+      entity: video_clip_2
+      field: timeline_start
+      value:
+        n: 2
+        d: 1
+turns:
+- instruction: The first two V1 clips are misaligned — set the first clip's duration to 8 seconds, shift the second clip's timeline_start to 8.0 to close the gap, and finally add a cross-dissolve between them.
+constraints:
+  required:
+  - attribute_equals:
+      entity: video_clip_1
+      field: duration
+      value: 8.0
+  - attribute_equals:
+      entity: video_clip_2
+      field: timeline_start
+      value: 8.0
+  - has_transition:
+      between:
+      - video_clip_1
+      - video_clip_2
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_1
+- video_clip_2
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: 'L3: update_clip x2 + add_transition.'
+  cell: diagnosis × dependent

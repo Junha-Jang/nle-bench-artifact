@@ -1,0 +1,48 @@
+id: NLEB-CX-CO-018
+legacy_id: NLB-v3-CX-CO-018
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L1
+  feasibility: feasible
+  information: context
+  action: compound
+split: test
+canary: NLE-BENCH-V3-TEST-775700ee
+fixture: simple_sequence
+turns:
+- instruction: Add a credits caption 'Directed by Jane' at 25s, and put a brightness
+    effect on the outro clip.
+constraints:
+  required:
+  - entity_exists:
+      entity: $new_caption_1
+  - attribute_equals:
+      entity: $new_caption_1
+      field: text
+      value: Directed by Jane
+  - has_effect:
+      entity: video_clip_3
+      effect_type: brightness
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- $new_caption_1
+- video_clip_3
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L1. Outro=vc3. add_caption + add_effect.
+  cell: context × compound

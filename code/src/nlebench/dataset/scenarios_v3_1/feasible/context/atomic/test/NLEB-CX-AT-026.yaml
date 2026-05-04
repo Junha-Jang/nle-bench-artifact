@@ -1,0 +1,42 @@
+id: NLEB-CX-AT-026
+legacy_id: NLB-v3-CX-AT-026
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L1
+  feasibility: feasible
+  information: context
+  action: atomic
+split: test
+canary: NLE-BENCH-V3-TEST-38c33171
+fixture: complex_sequence
+turns:
+- instruction: The second video track is empty now — remove it to clean up.
+constraints:
+  required:
+  - entity_not_exists:
+      entity: video_track_2
+  - entity_count_changed:
+      type: track
+      direction: decrease
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_track_2
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L1. V2 track empty. remove_track.
+  cell: context × atomic

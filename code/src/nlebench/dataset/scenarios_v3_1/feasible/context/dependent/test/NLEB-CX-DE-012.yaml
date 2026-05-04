@@ -1,0 +1,46 @@
+id: NLEB-CX-DE-012
+legacy_id: NLB-v3-CX-DE-012
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: context
+  action: dependent
+split: test
+canary: NLE-BENCH-V3-TEST-5e63ff79
+fixture: simple_sequence
+turns:
+- instruction: The intro shot needs warmth — add a brightness effect to it.
+- instruction: Set its intensity to 1.2.
+constraints:
+  required:
+  - has_effect:
+      entity: video_clip_1
+      effect_type: brightness
+  - attribute_equals:
+      entity: $new_effect_1
+      field: params.intensity
+      value: 1.2
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_1
+- $new_effect_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2. Intro=vc1. add_effect -> update_effect.
+  cell: context × dependent

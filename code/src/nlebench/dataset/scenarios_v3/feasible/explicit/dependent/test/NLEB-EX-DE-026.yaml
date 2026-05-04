@@ -1,0 +1,49 @@
+id: NLEB-EX-DE-026
+legacy_id: NLB-v3-EX-DE-026
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: explicit
+  action: dependent
+split: test
+canary: NLE-BENCH-V3-TEST-659dc559
+fixture: complex_sequence
+turns:
+- instruction: Add a new audio track.
+- instruction: Add a voiceover clip from av_media_3 on the new track and link it with
+    video_clip_1.
+constraints:
+  required:
+  - entity_exists:
+      entity: $new_track_1
+  - entity_exists:
+      entity: $new_clip_1
+  - has_link:
+      clip_ids:
+      - video_clip_1
+      - $new_clip_1
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- $new_track_1
+- $new_clip_1
+- video_clip_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2. add_track -> add_clip -> link_clips.
+  cell: explicit × dependent

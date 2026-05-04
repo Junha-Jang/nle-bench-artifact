@@ -1,0 +1,64 @@
+id: NLEB-DI-CU-030
+legacy_id: NLB-v3-DI-CU-030
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: diagnosis
+  action: cumulative
+split: test
+canary: NLE-BENCH-V3-TEST-178fccc7
+fixture:
+  base: complex_sequence
+  patch:
+  - op: set_attribute
+    params:
+      entity: video_clip_4
+      field: transform.rotation
+      value: 180.0
+turns:
+- instruction: A V2 clip is upside down — can you flip it back?
+- instruction: Now lower the BGM by 3 dB.
+- instruction: And add a blur effect to the last V1 clip — keep everything from before.
+constraints:
+  required:
+  - attribute_equals:
+      entity: video_clip_4
+      field: transform.rotation
+      value: 0.0
+  - attribute_changed:
+      entity: audio_clip_4
+      field: audio.volume
+      direction: decrease
+  - has_effect:
+      entity: video_clip_3
+      effect_type: blur
+  - unchanged_except:
+      changed:
+      - video_clip_4
+      - audio_clip_4
+      - video_clip_3
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_4
+- audio_clip_4
+- video_clip_3
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: 'L2. T1: update_clip. T2: update_clip. T3: add_effect.'
+  cell: diagnosis × cumulative

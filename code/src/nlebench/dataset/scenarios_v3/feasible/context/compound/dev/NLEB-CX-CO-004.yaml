@@ -1,0 +1,47 @@
+id: NLEB-CX-CO-004
+legacy_id: NLB-v3-CX-CO-004
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L1
+  feasibility: feasible
+  information: context
+  action: compound
+split: dev
+canary: NLE-BENCH-V3-DEV-2c4c86de
+fixture: complex_sequence
+turns:
+- instruction: 'The later B-roll overlay is distracting: unlink it from its audio,
+    remove the clip, and shift the earlier B-roll''s start 2 seconds later.'
+constraints:
+  required:
+  - not_linked:
+      entity: video_clip_5
+  - entity_not_exists:
+      entity: video_clip_5
+  - attribute_changed:
+      entity: video_clip_4
+      field: timeline_start
+      direction: increase
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_5
+- video_clip_4
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L1. Later V2=vc5, earlier V2=vc4. unlink + remove + update.
+  cell: context × compound

@@ -1,0 +1,65 @@
+id: NLEB-ST-CU-003
+legacy_id: NLB-v3-ST-CU-003
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L3
+  feasibility: feasible
+  information: state
+  action: cumulative
+split: dev
+canary: NLE-BENCH-V3-DEV-f1a540a6
+fixture: multi_sequence
+turns:
+- instruction: On timeline 1, mute the audio clip that starts earliest.
+- instruction: Now increase the playback speed of the video clip that ends latest
+    to 1.5x. Preserve the mute.
+- instruction: Split the longest video clip at its midpoint, keeping the earlier two
+    changes intact.
+- instruction: Finally, add a fade-in to the first half of the split. Don't undo anything
+    from before.
+constraints:
+  required:
+  - attribute_equals:
+      entity: ac_1
+      field: audio.muted
+      value: true
+  - attribute_equals:
+      entity: vc_3
+      field: speed
+      value: 1.5
+  - entity_count_changed:
+      type: video_clip
+      direction: increase
+  - has_effect:
+      entity: vc_2
+      effect_type: fade_in
+  - unchanged_except:
+      changed:
+      - ac_1
+      - vc_3
+      - vc_2
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- ac_1
+- vc_3
+- vc_2
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L3 4-turn. update_clip + update_clip + split_clip + add_effect. Explicit
+    preservation.
+  cell: state × cumulative

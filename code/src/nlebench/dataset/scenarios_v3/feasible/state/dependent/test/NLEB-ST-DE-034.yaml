@@ -1,0 +1,49 @@
+id: NLEB-ST-DE-034
+legacy_id: NLB-v3-ST-DE-034
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: state
+  action: dependent
+split: test
+canary: NLE-BENCH-V3-TEST-98d8f119
+fixture: complex_sequence
+turns:
+- instruction: Rename the media used by the longest V1 clip to 'hero_footage'.
+- instruction: 'Update the earliest caption text to reference the new name: ''hero_footage
+    scene''.'
+constraints:
+  required:
+  - attribute_equals:
+      entity: av_media_3
+      field: name
+      value: hero_footage
+  - attribute_equals:
+      entity: caption_1
+      field: text
+      value: hero_footage scene
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- av_media_3
+- caption_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: 'L2 update_media → update_caption. Dependent: caption references renamed
+    media.'
+  cell: state × dependent

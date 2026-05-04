@@ -1,0 +1,44 @@
+id: NLEB-EX-DE-014
+legacy_id: NLB-v3-EX-DE-014
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L1
+  feasibility: feasible
+  information: explicit
+  action: dependent
+split: test
+canary: NLE-BENCH-V3-TEST-20345250
+fixture: simple_sequence
+turns:
+- instruction: Remove video_clip_2 and shift video_clip_3 earlier to close the gap.
+constraints:
+  required:
+  - entity_not_exists:
+      entity: video_clip_2
+  - attribute_changed:
+      entity: video_clip_3
+      field: timeline_start
+      direction: decrease
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_2
+- video_clip_3
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L1. remove_clip -> update_clip.
+  cell: explicit × dependent

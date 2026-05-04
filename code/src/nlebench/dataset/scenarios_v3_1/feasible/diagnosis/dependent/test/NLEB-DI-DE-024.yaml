@@ -1,0 +1,57 @@
+id: NLEB-DI-DE-024
+legacy_id: NLB-v3-DI-DE-024
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: diagnosis
+  action: dependent
+split: test
+canary: NLE-BENCH-V3-TEST-988d07ad
+fixture:
+  base: complex_sequence
+  patch:
+  - op: set_attribute
+    params:
+      entity: video_clip_5
+      field: duration
+      value:
+        n: 0
+        d: 1
+turns:
+- instruction: A V2 clip has its duration stuck at zero — set it to 5 seconds, then shift its timeline_start to right where vc4 ends so they're contiguous.
+constraints:
+  required:
+  - attribute_equals:
+      entity: video_clip_5
+      field: duration
+      value: 5.0
+  - attribute_equals:
+      entity: video_clip_5
+      field: timeline_start
+      value: 10.0
+  - unchanged_except:
+      changed:
+      - video_clip_5
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_5
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2. update_clip -> update_clip (vc4 ends at 10).
+  cell: diagnosis × dependent

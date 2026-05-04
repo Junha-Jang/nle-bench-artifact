@@ -1,0 +1,47 @@
+id: NLEB-EX-DE-016
+legacy_id: NLB-v3-EX-DE-016
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L1
+  feasibility: feasible
+  information: explicit
+  action: dependent
+split: test
+canary: NLE-BENCH-V3-TEST-f439ebf9
+fixture: complex_sequence
+turns:
+- instruction: Slow video_clip_5 to 0.5x and add a blur effect to sell the slow-mo.
+constraints:
+  required:
+  - attribute_equals:
+      entity: video_clip_5
+      field: speed
+      value: 0.5
+  - has_effect:
+      entity: video_clip_5
+      effect_type: blur
+  - unchanged_except:
+      changed:
+      - video_clip_5
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_5
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L1. update_clip -> add_effect.
+  cell: explicit × dependent

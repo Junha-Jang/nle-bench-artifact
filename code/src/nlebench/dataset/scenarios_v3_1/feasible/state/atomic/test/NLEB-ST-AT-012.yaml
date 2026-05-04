@@ -1,0 +1,45 @@
+id: NLEB-ST-AT-012
+legacy_id: NLB-v3-ST-AT-012
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L1
+  feasibility: feasible
+  information: state
+  action: atomic
+split: test
+canary: NLE-BENCH-V3-TEST-c3f1d383
+fixture: simple_sequence
+turns:
+- instruction: Set the playback speed of the first video clip to start on the timeline
+    to 1.5x.
+constraints:
+  required:
+  - attribute_equals:
+      entity: video_clip_1
+      field: speed
+      value: 1.5
+  - unchanged_except:
+      changed:
+      - video_clip_1
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L1 update_clip. Earliest start = vc1.
+  cell: state × atomic

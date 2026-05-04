@@ -1,0 +1,47 @@
+id: NLEB-CX-CU-012
+legacy_id: NLB-v3-CX-CU-012
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L1
+  feasibility: feasible
+  information: context
+  action: cumulative
+split: test
+canary: NLE-BENCH-V3-TEST-5cae0da2
+fixture: simple_sequence
+turns:
+- instruction: Add a dissolve transition between the middle and closing clips.
+- instruction: Shorten that transition to 0.5 seconds. Keep it in place.
+constraints:
+  required:
+  - entity_exists:
+      entity: $new_transition_1
+  - attribute_equals:
+      entity: $new_transition_1
+      field: duration
+      value: 0.5
+  - unchanged_except:
+      changed:
+      - $new_transition_1
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- $new_transition_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L1. add_transition + update_transition, preserve placement.
+  cell: context × cumulative

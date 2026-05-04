@@ -1,0 +1,48 @@
+id: NLEB-CX-DE-021
+legacy_id: NLB-v3-CX-DE-021
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: context
+  action: dependent
+split: test
+canary: NLE-BENCH-V3-TEST-4f406857
+fixture: simple_sequence
+turns:
+- instruction: The intro shot needs to align with its dialogue — shift the intro audio
+    to start at the same time as the video.
+- instruction: Link the intro video with its dialogue audio so they move together.
+constraints:
+  required:
+  - attribute_changed:
+      entity: audio_clip_1
+      field: timeline_start
+      direction: decrease
+  - has_link:
+      clip_ids:
+      - video_clip_1
+      - audio_clip_1
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- audio_clip_1
+- video_clip_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2. Intro=vc1, dialogue=ac1. update_clip -> link_clips.
+  cell: context × dependent

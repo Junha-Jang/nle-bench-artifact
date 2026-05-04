@@ -1,0 +1,53 @@
+id: NLEB-ST-CO-031
+legacy_id: NLB-v3-ST-CO-031
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: state
+  action: compound
+split: test
+canary: NLE-BENCH-V3-TEST-1beed3e4
+fixture: multi_sequence
+turns:
+- instruction: On tl1's longest video, set scale 1.1 and add a saturation effect.
+- instruction: On tl1's earliest audio, set volume to -4 dB and add a fade-in.
+constraints:
+  required:
+  - attribute_equals:
+      entity: vc_2
+      field: transform.scale_x
+      value: 1.1
+  - has_effect:
+      entity: vc_2
+      effect_type: saturation
+  - attribute_equals:
+      entity: ac_1
+      field: audio.volume
+      value: -4.0
+  - has_effect:
+      entity: ac_1
+      effect_type: fade_in
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- vc_2
+- ac_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2 multi.
+  cell: state × compound

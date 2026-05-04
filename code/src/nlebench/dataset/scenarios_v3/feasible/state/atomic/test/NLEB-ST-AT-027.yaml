@@ -1,0 +1,47 @@
+id: NLEB-ST-AT-027
+legacy_id: NLB-v3-ST-AT-027
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: state
+  action: atomic
+split: test
+canary: NLE-BENCH-V3-TEST-5c8af95e
+fixture: simple_sequence
+turns:
+- instruction: Set the longest video's rotation to 3 degrees.
+- instruction: Split the shortest audio clip on track 1 at its midpoint.
+constraints:
+  required:
+  - attribute_equals:
+      entity: video_clip_2
+      field: transform.rotation
+      value: 3.0
+  - entity_count_changed:
+      type: audio_clip
+      direction: increase
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_2
+- audio_clip_1
+- $new_audio_clip_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2 update_clip + split_clip.
+  cell: state × atomic

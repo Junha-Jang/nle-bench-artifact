@@ -1,0 +1,54 @@
+id: NLEB-DI-DE-033
+legacy_id: NLB-v3-DI-DE-033
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: diagnosis
+  action: dependent
+split: test
+canary: NLE-BENCH-V3-TEST-31b29548
+fixture:
+  base: complex_sequence
+  patch:
+  - op: set_attribute
+    params:
+      entity: caption_1
+      field: transform.scale_x
+      value: 0.1
+turns:
+- instruction: A caption has a display issue. Find it, fix it, then add a crop effect.
+constraints:
+  required:
+  - attribute_equals:
+      entity: caption_1
+      field: transform.scale_x
+      value: 1.0
+  - has_effect:
+      entity: caption_1
+      effect_type: crop
+  - unchanged_except:
+      changed:
+      - caption_1
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- caption_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2. update_clip -> add_effect on caption.
+  cell: diagnosis × dependent

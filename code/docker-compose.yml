@@ -1,0 +1,52 @@
+# NLE-Bench Docker Compose
+#
+# This file only contains the NLE-Bench application containers.
+# The vLLM inference server is expected to run as a separate shared service;
+# start/stop/switch models in that service, not here.
+#
+# Usage:
+#
+# 1. API Mode (Anthropic/OpenAI):
+#    docker compose run --rm nlebench-api --provider anthropic --model claude-sonnet-4-6
+#
+# 2. Local Mode (against the shared vLLM at host:8000):
+#    # Ensure a compatible shared vLLM endpoint is running.
+#    docker compose run --rm nlebench-local --model Qwen/Qwen2.5-7B-Instruct
+#
+# Environment variables:
+#   - ANTHROPIC_API_KEY: API key for Anthropic
+#   - OPENAI_API_KEY:    API key for OpenAI
+#   - VLLM_BASE_URL:     Override if the shared vLLM is on a different host/port
+#                        (default: http://host.docker.internal:8000/v1)
+
+services:
+  # ============================================================
+  # NLE-Bench with API providers (Anthropic/OpenAI)
+  # ============================================================
+  nlebench-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - ANTHROPIC_API_KEY
+      - OPENAI_API_KEY
+    volumes:
+      - ./results:/app/results
+    # Example: docker compose run --rm nlebench-api --provider anthropic --model claude-sonnet-4-6
+
+  # ============================================================
+  # NLE-Bench against the shared vLLM server
+  # (Start/stop/switch the model in the external vLLM service.)
+  # ============================================================
+  nlebench-local:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - VLLM_BASE_URL=${VLLM_BASE_URL:-http://host.docker.internal:8000/v1}
+      - VLLM_API_KEY=EMPTY
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - ./results:/app/results
+    # Example: docker compose run --rm nlebench-local --provider vllm --model Qwen/Qwen2.5-7B-Instruct

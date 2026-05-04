@@ -1,0 +1,49 @@
+id: NLEB-EX-CO-005
+legacy_id: NLB-v3-EX-CO-005
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L1
+  feasibility: feasible
+  information: explicit
+  action: compound
+split: dev
+canary: NLE-BENCH-V3-DEV-119bdd82
+fixture: complex_sequence
+turns:
+- instruction: 'video_clip_3: split at 2.5s, add brightness effect to the first part.'
+constraints:
+  required:
+  - entity_exists:
+      type: video_clip
+      where:
+        field: duration
+        op: <=
+        value: 2.5
+  - has_effect:
+      entity: video_clip_3
+      effect_type: brightness
+  - entity_count_changed:
+      type: video_clip
+      direction: increase
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_3
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L1 fragment. split_clip + add_effect.
+  cell: explicit × compound

@@ -1,0 +1,63 @@
+id: NLEB-ST-CO-026
+legacy_id: NLB-v3-ST-CO-026
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: state
+  action: compound
+split: test
+canary: NLE-BENCH-V3-TEST-f4d5c347
+fixture:
+  base: complex_sequence
+  patch:
+  - op: link_clips
+    params:
+      video_clip_id: video_clip_5
+      audio_clip_id: audio_clip_3
+turns:
+- instruction: Link the longest V1 clip with the audio under it, and set that audio's
+    pan to -0.3.
+- instruction: Unlink the shortest V2 clip from its audio and boost the video's opacity
+    to 1.0.
+constraints:
+  required:
+  - has_link:
+      clip_ids:
+      - video_clip_3
+      - audio_clip_3
+  - attribute_equals:
+      entity: audio_clip_3
+      field: audio.pan
+      value: -0.3
+  - not_linked:
+      entity: video_clip_5
+  - attribute_equals:
+      entity: video_clip_5
+      field: transform.opacity
+      value: 1.0
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_3
+- audio_clip_3
+- video_clip_5
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2. link_clips + update_clip | unlink_clips + update_clip. Longest V1=vc3(18-30),
+    ac3. Shortest V2=vc5.
+  cell: state × compound

@@ -1,0 +1,50 @@
+id: NLEB-EX-CU-030
+legacy_id: NLB-v3-EX-CU-030
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: explicit
+  action: cumulative
+split: test
+canary: NLE-BENCH-V3-TEST-45ef1022
+fixture: complex_sequence
+turns:
+- instruction: Mute audio track 2.
+- instruction: Add a new audio clip from av_media_3 on audio track 1. Preserve the
+    mute.
+constraints:
+  required:
+  - attribute_equals:
+      entity: audio_track_2
+      field: muted
+      value: true
+  - entity_exists:
+      entity: $new_clip_1
+  - unchanged_except:
+      changed:
+      - audio_track_2
+      - $new_clip_1
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- audio_track_2
+- $new_clip_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2. update_track -> add_clip, preserve mute.
+  cell: explicit × cumulative

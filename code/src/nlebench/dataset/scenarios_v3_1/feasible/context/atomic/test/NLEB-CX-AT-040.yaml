@@ -1,0 +1,43 @@
+id: NLEB-CX-AT-040
+legacy_id: NLB-v3-CX-AT-040
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: context
+  action: atomic
+split: test
+canary: NLE-BENCH-V3-TEST-9cd3ff7c
+fixture: simple_sequence
+turns:
+- instruction: The intro-to-middle cut needs a cross-dissolve transition.
+- instruction: And add a scene title 'Part One' at the 3-second mark.
+constraints:
+  required:
+  - entity_exists:
+      entity: $new_transition_1
+  - entity_exists:
+      entity: $new_caption_1
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- $new_transition_1
+- $new_caption_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2. add_transition + add_caption.
+  cell: context × atomic

@@ -1,0 +1,58 @@
+id: NLEB-EX-AT-040
+legacy_id: NLB-v3-EX-AT-040
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L3
+  feasibility: feasible
+  information: explicit
+  action: atomic
+split: test
+canary: NLE-BENCH-V3-TEST-89409cd8
+fixture: complex_sequence
+turns:
+- instruction: Add a contrast effect to video_clip_4.
+- instruction: Split video_clip_3 at 00:00:05:00.
+- instruction: Set video_clip_1 opacity to 0.9.
+constraints:
+  required:
+  - has_effect:
+      entity: video_clip_4
+      effect_type: contrast
+  - entity_count_changed:
+      type: clip
+      direction: increase
+  - attribute_equals:
+      entity: video_clip_1
+      field: transform.opacity
+      value: 0.9
+  - unchanged_except:
+      changed:
+      - video_clip_4
+      - video_clip_3
+      - $new_clip_1
+      - video_clip_1
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_4
+- video_clip_3
+- $new_clip_1
+- video_clip_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L3 add_effect + split_clip + update_clip.
+  cell: explicit × atomic

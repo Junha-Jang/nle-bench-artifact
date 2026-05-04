@@ -1,0 +1,67 @@
+id: NLEB-ST-CU-039
+legacy_id: NLB-v3-ST-CU-039
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L3
+  feasibility: feasible
+  information: state
+  action: cumulative
+split: test
+canary: NLE-BENCH-V3-TEST-7b70078c
+fixture: multi_sequence
+turns:
+- instruction: On timeline 1, find the video clip that starts earliest and reduce
+    its opacity to 0.8.
+- instruction: Next, find the video clip that starts latest and mute the audio that
+    plays with it.
+- instruction: Now add a caption 'End' at the position of the latest-starting clip.
+- instruction: Preserve earlier changes.
+constraints:
+  required:
+  - attribute_equals:
+      entity: vc_1
+      field: transform.opacity
+      value: 0.8
+  - attribute_equals:
+      entity: ac_3
+      field: audio.muted
+      value: true
+  - entity_count_changed:
+      type: caption
+      direction: increase
+  - entity_exists:
+      entity: $new_caption_1
+  - attribute_equals:
+      entity: $new_caption_1
+      field: text
+      value: End
+  - unchanged_except:
+      changed:
+      - vc_1
+      - ac_3
+      - $new_caption_1
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- vc_1
+- ac_3
+- $new_caption_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L3 multi. update_clip + update_clip + add_caption. Earliest=vc_1. Latest=vc_3,
+    audio=ac_3. Explicit.
+  cell: state × cumulative

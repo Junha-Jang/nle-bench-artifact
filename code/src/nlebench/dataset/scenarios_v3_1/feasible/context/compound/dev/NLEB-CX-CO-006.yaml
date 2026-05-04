@@ -1,0 +1,52 @@
+id: NLEB-CX-CO-006
+legacy_id: NLB-v3-CX-CO-006
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: context
+  action: compound
+split: dev
+canary: NLE-BENCH-V3-DEV-3b5b9104
+fixture: simple_sequence
+turns:
+- instruction: Create a new caption track for lower thirds.
+- instruction: 'Add a caption ''Interview: John Doe'' on that track at 10s, then set
+    its font size to 36.'
+constraints:
+  required:
+  - entity_exists:
+      entity: $new_track_1
+  - entity_exists:
+      entity: $new_caption_1
+  - attribute_equals:
+      entity: $new_caption_1
+      field: text
+      value: 'Interview: John Doe'
+  - attribute_equals:
+      entity: $new_caption_1
+      field: caption.style.font_size
+      value: 36
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- $new_track_1
+- $new_caption_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2. add_track + add_caption + update_caption.
+  cell: context × compound

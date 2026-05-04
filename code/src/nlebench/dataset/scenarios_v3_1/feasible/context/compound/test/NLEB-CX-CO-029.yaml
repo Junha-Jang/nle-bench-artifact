@@ -1,0 +1,61 @@
+id: NLEB-CX-CO-029
+legacy_id: NLB-v3-CX-CO-029
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: context
+  action: compound
+split: test
+canary: NLE-BENCH-V3-TEST-a17fa747
+fixture: complex_sequence
+turns:
+- instruction: 'Opening V1: blur effect, scale 1.05, opacity 0.95.'
+- instruction: 'Closing V1: brightness effect, scale 1.05.'
+constraints:
+  required:
+  - has_effect:
+      entity: video_clip_1
+      effect_type: blur
+  - attribute_equals:
+      entity: video_clip_1
+      field: transform.scale_x
+      value: 1.05
+  - attribute_equals:
+      entity: video_clip_1
+      field: transform.opacity
+      value: 0.95
+  - has_effect:
+      entity: video_clip_3
+      effect_type: brightness
+  - attribute_equals:
+      entity: video_clip_3
+      field: transform.scale_x
+      value: 1.05
+  - unchanged_except:
+      changed:
+      - video_clip_1
+      - video_clip_3
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_1
+- video_clip_3
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2. add_effect + update_clip bundle x2.
+  cell: context × compound

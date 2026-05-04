@@ -1,0 +1,47 @@
+id: NLEB-CX-CO-023
+legacy_id: NLB-v3-CX-CO-023
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: context
+  action: compound
+split: test
+canary: NLE-BENCH-V3-TEST-063b4734
+fixture: simple_sequence
+turns:
+- instruction: The source footage label is wrong — rename media_1 to 'Interview Raw'.
+- instruction: And set the intro clip's speed to 1.2x.
+constraints:
+  required:
+  - attribute_equals:
+      entity: av_media_1
+      field: name
+      value: Interview Raw
+  - attribute_equals:
+      entity: video_clip_1
+      field: speed
+      value: 1.2
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- av_media_1
+- video_clip_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2. update_media + update_clip.
+  cell: context × compound

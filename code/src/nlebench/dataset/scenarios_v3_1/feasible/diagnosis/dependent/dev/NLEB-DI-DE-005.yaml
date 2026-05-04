@@ -1,0 +1,56 @@
+id: NLEB-DI-DE-005
+legacy_id: NLB-v3-DI-DE-005
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: diagnosis
+  action: dependent
+split: dev
+canary: NLE-BENCH-V3-DEV-a415f095
+fixture:
+  base: complex_sequence
+  patch:
+  - op: link_clips
+    params:
+      video_clip_id: video_clip_1
+      audio_clip_id: audio_clip_4
+turns:
+- instruction: The first clip is linked to the wrong audio — break that link first, then link it to its correct matching audio clip.
+constraints:
+  required:
+  - not_linked:
+      entity: audio_clip_4
+  - has_link:
+      clip_ids:
+      - video_clip_1
+      - audio_clip_1
+  - unchanged_except:
+      changed:
+      - video_clip_1
+      - audio_clip_1
+      - audio_clip_4
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_1
+- audio_clip_1
+- audio_clip_4
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2. unlink_clips -> link_clips.
+  cell: diagnosis × dependent

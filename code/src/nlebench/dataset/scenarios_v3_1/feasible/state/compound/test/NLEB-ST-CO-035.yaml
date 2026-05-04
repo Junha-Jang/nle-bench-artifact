@@ -1,0 +1,74 @@
+id: NLEB-ST-CO-035
+legacy_id: NLB-v3-ST-CO-035
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L3
+  feasibility: feasible
+  information: state
+  action: compound
+split: test
+canary: NLE-BENCH-V3-TEST-09fc0bcd
+fixture: complex_sequence
+turns:
+- instruction: On the longest V1 clip, set scale 1.05, opacity 0.9, and add a blur
+    effect.
+- instruction: On the shortest V2 clip, set rotation 5 degrees, link it with its overlapping
+    audio, and add a contrast effect.
+- instruction: On the BGM, set volume to -6 dB, add a fade-out, and remove any existing
+    effects first.
+constraints:
+  required:
+  - attribute_equals:
+      entity: video_clip_3
+      field: transform.scale_x
+      value: 1.05
+  - attribute_equals:
+      entity: video_clip_3
+      field: transform.opacity
+      value: 0.9
+  - has_effect:
+      entity: video_clip_3
+      effect_type: blur
+  - attribute_equals:
+      entity: video_clip_5
+      field: transform.rotation
+      value: 5.0
+  - has_link:
+      clip_ids:
+      - video_clip_5
+      - audio_clip_3
+  - has_effect:
+      entity: video_clip_5
+      effect_type: contrast
+  - attribute_equals:
+      entity: audio_clip_4
+      field: audio.volume
+      value: -6.0
+  - has_effect:
+      entity: audio_clip_4
+      effect_type: fade_out
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_3
+- video_clip_5
+- audio_clip_3
+- audio_clip_4
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L3.
+  cell: state × compound

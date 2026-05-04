@@ -1,0 +1,51 @@
+id: NLEB-ST-DE-004
+legacy_id: NLB-v3-ST-DE-004
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: state
+  action: dependent
+split: dev
+canary: NLE-BENCH-V3-DEV-a9983427
+fixture: simple_sequence
+turns:
+- instruction: Remove the shortest video clip from the timeline.
+- instruction: Shift all following clips earlier so there is no gap.
+constraints:
+  required:
+  - entity_not_exists:
+      entity: video_clip_1
+  - attribute_changed:
+      entity: video_clip_2
+      field: timeline_start
+      direction: decrease
+  - attribute_changed:
+      entity: video_clip_3
+      field: timeline_start
+      direction: decrease
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_1
+- video_clip_2
+- video_clip_3
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2 remove_clip → update_clip cascade. Shortest=vc1 (start 0, 5s). vc2 and
+    vc3 shift left.
+  cell: state × dependent

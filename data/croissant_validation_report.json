@@ -1,0 +1,96 @@
+{
+  "validator": "manual_structural_check+mlcroissant_dataset_load",
+  "validator_version": "manual=1.0; mlcroissant=1.1.0",
+  "validated_at": "2026-04-29",
+  "croissant_version": "1.0",
+  "file": "supplementary/data/croissant.json",
+  "summary": {
+    "checks_passed": 17,
+    "checks_total": 17,
+    "checks_skipped": 1,
+    "status": "PASS_PROGRAMMATIC_LOAD"
+  },
+  "checks": [
+    {
+      "check": "top-level field '@context' present",
+      "passed": true
+    },
+    {
+      "check": "top-level field '@type' present",
+      "passed": true
+    },
+    {
+      "check": "top-level field 'name' present",
+      "passed": true
+    },
+    {
+      "check": "top-level field 'description' present",
+      "passed": true
+    },
+    {
+      "check": "top-level field 'url' present",
+      "passed": true
+    },
+    {
+      "check": "top-level field 'license' present",
+      "passed": true
+    },
+    {
+      "check": "top-level field 'conformsTo' present",
+      "passed": true
+    },
+    {
+      "check": "top-level field 'version' present",
+      "passed": true
+    },
+    {
+      "check": "top-level field 'datePublished' present",
+      "passed": true
+    },
+    {
+      "check": "@type is sc:Dataset",
+      "passed": true
+    },
+    {
+      "check": "conformsTo is Croissant 1.0",
+      "passed": true
+    },
+    {
+      "check": "distribution array present",
+      "passed": true
+    },
+    {
+      "check": "distribution non-empty",
+      "passed": true
+    },
+    {
+      "check": "license URL is CC BY 4.0 or similar permissive",
+      "passed": true
+    },
+    {
+      "check": "recordSet (recordSet) present",
+      "passed": true
+    },
+    {
+      "check": "mlcroissant.Dataset(jsonld='data/croissant.json') loads",
+      "passed": true
+    },
+    {
+      "check": "mlcroissant metadata exposes name=NLE-Bench and version=1.0.0",
+      "passed": true
+    }
+  ],
+  "skipped": [
+    {
+      "check": "mlcroissant records('scenarios') streaming round-trip",
+      "reason": "Anonymized review manifest uses a placeholder scenarios_v3_1.zip contentUrl and camera-ready sha256 fields; scenario YAMLs are shipped in code/src/nlebench/dataset/scenarios_v3_1 rather than as the final hosted Croissant archive."
+    }
+  ],
+  "notes": [
+    "Validation performed using manual structural checks and a programmatic mlcroissant Dataset load.",
+    "Command run from supplementary/: python -c \"import mlcroissant as mlc; ds = mlc.Dataset(jsonld='data/croissant.json'); print(ds.metadata.name, ds.metadata.version)\"",
+    "All required top-level Croissant 1.0 fields present.",
+    "Full records streaming is deferred until camera-ready hosting replaces placeholder archive URL and sha256 fields.",
+    "Current metadata text uses the 344/800 non-metadata content-change framing and documents aggregate-only private-test leaderboard reporting."
+  ]
+}

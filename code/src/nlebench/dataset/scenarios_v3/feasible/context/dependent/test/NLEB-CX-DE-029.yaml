@@ -1,0 +1,49 @@
+id: NLEB-CX-DE-029
+legacy_id: NLB-v3-CX-DE-029
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: context
+  action: dependent
+split: test
+canary: NLE-BENCH-V3-TEST-abb25280
+fixture: simple_sequence
+turns:
+- instruction: 'Opening shot: scale 1.1.'
+- instruction: 'Same clip: opacity 0.9 for soft feel.'
+constraints:
+  required:
+  - attribute_equals:
+      entity: video_clip_1
+      field: transform.scale_x
+      value: 1.1
+  - attribute_equals:
+      entity: video_clip_1
+      field: transform.opacity
+      value: 0.9
+  - unchanged_except:
+      changed:
+      - video_clip_1
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2 fragment. Opener=vc1. update_clip -> update_clip.
+  cell: context × dependent

@@ -1,0 +1,52 @@
+id: NLEB-ST-DE-001
+legacy_id: NLB-v3-ST-DE-001
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L1
+  feasibility: feasible
+  information: state
+  action: dependent
+split: dev
+canary: NLE-BENCH-V3-DEV-d14c7563
+fixture: simple_sequence
+turns:
+- instruction: Double the playback speed of the longest video clip on the timeline,
+    and shift the clip that follows it so there is no gap.
+constraints:
+  required:
+  - attribute_equals:
+      entity: video_clip_2
+      field: speed
+      value: 2.0
+  - attribute_changed:
+      entity: video_clip_3
+      field: timeline_start
+      direction: decrease
+  - unchanged_except:
+      changed:
+      - video_clip_2
+      - video_clip_3
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_2
+- video_clip_3
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L1 update_clip + update_clip (cascade). Longest=vc2 (10s). Speed 2x halves
+    duration. vc3 shifts earlier.
+  cell: state × dependent

@@ -1,0 +1,62 @@
+id: NLEB-EX-CO-039
+legacy_id: NLB-v3-EX-CO-039
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L3
+  feasibility: feasible
+  information: explicit
+  action: compound
+split: test
+canary: NLE-BENCH-V3-TEST-ad2f7464
+fixture: with_transitions
+turns:
+- instruction: Remove the transition between vc_1 and vc_2 and add a wipe transition
+    with duration 1.5s between them.
+- instruction: Set vc_2 rotation to 12 degrees, add a contrast effect to vc_1, and
+    add a caption 'Opening' at 0s.
+constraints:
+  required:
+  - has_transition:
+      between:
+      - vc_1
+      - vc_2
+      type: wipe
+  - attribute_equals:
+      entity: vc_2
+      field: transform.rotation
+      value: 12.0
+  - has_effect:
+      entity: vc_1
+      effect_type: contrast
+  - entity_exists:
+      entity: $new_caption_1
+  - unchanged_except:
+      changed:
+      - vc_1
+      - vc_2
+      - $new_caption_1
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- vc_1
+- vc_2
+- $new_caption_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: 'L3. Two turns: (remove_transition + add_transition) then (update_clip +
+    add_effect + add_caption).'
+  cell: explicit × compound

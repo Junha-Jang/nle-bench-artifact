@@ -1,0 +1,45 @@
+id: NLEB-ST-CO-002
+legacy_id: NLB-v3-ST-CO-002
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L1
+  feasibility: feasible
+  information: state
+  action: compound
+split: dev
+canary: NLE-BENCH-V3-DEV-c4efd026
+fixture: simple_sequence
+turns:
+- instruction: Split the shortest video clip at its midpoint and add a blur effect
+    to the first half.
+constraints:
+  required:
+  - entity_count_changed:
+      type: video_clip
+      direction: increase
+  - has_effect:
+      entity: video_clip_1
+      effect_type: blur
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_1
+- $new_video_clip_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L1 split_clip + add_effect. Shortest=vc1.
+  cell: state × compound

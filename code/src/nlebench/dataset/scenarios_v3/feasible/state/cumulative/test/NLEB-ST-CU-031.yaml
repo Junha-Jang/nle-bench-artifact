@@ -1,0 +1,47 @@
+id: NLEB-ST-CU-031
+legacy_id: NLB-v3-ST-CU-031
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: state
+  action: cumulative
+split: test
+canary: NLE-BENCH-V3-TEST-b67c3d32
+fixture: with_transitions
+turns:
+- instruction: Set the first transition's duration to 2 seconds.
+- instruction: Now remove it and add a fade-out effect to the clip before it instead.
+    Keep any prior state.
+constraints:
+  required:
+  - entity_count_changed:
+      type: transition
+      direction: decrease
+  - has_effect:
+      entity: vc_1
+      effect_type: fade_out
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- vt_trans_1
+- vc_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2 update_transition + remove_transition + add_effect. Cumulative across
+    turns.
+  cell: state × cumulative

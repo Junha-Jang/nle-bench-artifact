@@ -1,0 +1,49 @@
+id: NLEB-ST-DE-012
+legacy_id: NLB-v3-ST-DE-012
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L1
+  feasibility: feasible
+  information: state
+  action: dependent
+split: test
+canary: NLE-BENCH-V3-TEST-4826674d
+fixture: simple_sequence
+turns:
+- instruction: Scale the longest video up to 1.4 and lower its opacity to 0.8 so it
+    doesn't overwhelm the frame.
+constraints:
+  required:
+  - attribute_equals:
+      entity: video_clip_2
+      field: transform.scale_x
+      value: 1.4
+  - attribute_equals:
+      entity: video_clip_2
+      field: transform.opacity
+      value: 0.8
+  - unchanged_except:
+      changed:
+      - video_clip_2
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_2
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L1 update_clip. Opacity is dependent compensation for scale.
+  cell: state × dependent

@@ -1,0 +1,47 @@
+id: NLEB-EX-DE-023
+legacy_id: NLB-v3-EX-DE-023
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: explicit
+  action: dependent
+split: test
+canary: NLE-BENCH-V3-TEST-a44da80c
+fixture: simple_sequence
+turns:
+- instruction: Add a caption 'Interview' at 0s.
+- instruction: Set its font to bold, size 36, then apply a fade-in effect to it.
+constraints:
+  required:
+  - entity_exists:
+      entity: $new_caption_1
+  - attribute_equals:
+      entity: $new_caption_1
+      field: caption.style.font_size
+      value: 36
+  - has_effect:
+      entity: $new_caption_1
+      effect_type: fade_in
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- $new_caption_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2. add_caption -> update_caption -> add_effect.
+  cell: explicit × dependent

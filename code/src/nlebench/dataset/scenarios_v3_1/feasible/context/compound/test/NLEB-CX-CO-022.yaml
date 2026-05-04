@@ -1,0 +1,50 @@
+id: NLEB-CX-CO-022
+legacy_id: NLB-v3-CX-CO-022
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: context
+  action: compound
+split: test
+canary: NLE-BENCH-V3-TEST-a7ae4f7c
+fixture: simple_sequence
+turns:
+- instruction: Add a new audio clip from media_2 at 10s on audio track 1.
+- instruction: Link it with the middle video shot, and lower the BGM by 3 dB.
+constraints:
+  required:
+  - entity_exists:
+      entity: $new_clip_1
+  - has_link:
+      clip_ids:
+      - video_clip_2
+      - $new_clip_1
+  - attribute_changed:
+      entity: audio_clip_4
+      field: audio.volume
+      direction: decrease
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- $new_clip_1
+- video_clip_2
+- audio_clip_4
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2. add_clip + link_clips + update_clip.
+  cell: context × compound

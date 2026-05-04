@@ -1,0 +1,48 @@
+id: NLEB-CX-DE-028
+legacy_id: NLB-v3-CX-DE-028
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: context
+  action: dependent
+split: test
+canary: NLE-BENCH-V3-TEST-7afd1e51
+fixture: complex_sequence
+turns:
+- instruction: Create a new audio track for sound effects.
+- instruction: Add a clip from media_3 on the new track at 10s, and set its volume
+    to -8 dB.
+constraints:
+  required:
+  - entity_exists:
+      entity: $new_track_1
+  - entity_exists:
+      entity: $new_clip_1
+  - attribute_equals:
+      entity: $new_clip_1
+      field: audio.volume
+      value: -8.0
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- $new_track_1
+- $new_clip_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2. add_track -> add_clip -> update_clip.
+  cell: context × dependent

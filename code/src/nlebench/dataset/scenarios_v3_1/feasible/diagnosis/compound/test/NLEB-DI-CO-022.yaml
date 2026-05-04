@@ -1,0 +1,72 @@
+id: NLEB-DI-CO-022
+legacy_id: NLB-v3-DI-CO-022
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: diagnosis
+  action: compound
+split: test
+canary: NLE-BENCH-V3-TEST-30db5637
+fixture:
+  base: simple_sequence
+  patch:
+  - op: set_attribute
+    params:
+      entity: audio_clip_1
+      field: audio.muted
+      value: true
+  - op: set_attribute
+    params:
+      entity: audio_clip_2
+      field: audio.muted
+      value: true
+  - op: add_effect
+    params:
+      clip_id: audio_clip_4
+      effect_type: fade_in
+turns:
+- instruction: The audio's a mess — two clips are silent and the BGM has a fade-in on it that shouldn't be there — clean it all up.
+constraints:
+  required:
+  - attribute_equals:
+      entity: audio_clip_1
+      field: audio.muted
+      value: false
+  - attribute_equals:
+      entity: audio_clip_2
+      field: audio.muted
+      value: false
+  - entity_not_exists:
+      type: effect
+      parent: audio_clip_4
+      effect_type: fade_in
+  - unchanged_except:
+      changed:
+      - audio_clip_1
+      - audio_clip_2
+      - audio_clip_4
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- audio_clip_1
+- audio_clip_2
+- audio_clip_4
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2. update_clip x2 + remove_effect.
+  cell: diagnosis × compound

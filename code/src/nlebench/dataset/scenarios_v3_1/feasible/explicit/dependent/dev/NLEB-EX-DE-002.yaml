@@ -1,0 +1,45 @@
+id: NLEB-EX-DE-002
+legacy_id: NLB-v3-EX-DE-002
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L1
+  feasibility: feasible
+  information: explicit
+  action: dependent
+split: dev
+canary: NLE-BENCH-V3-DEV-6914c691
+fixture: simple_sequence
+turns:
+- instruction: Split video_clip_2 at the 3-second mark and slow the second half to
+    0.5x.
+constraints:
+  required:
+  - entity_exists:
+      entity: $new_clip_1
+  - attribute_equals:
+      entity: $new_clip_1
+      field: speed
+      value: 0.5
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_2
+- $new_clip_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L1. split_clip -> update_clip.
+  cell: explicit × dependent

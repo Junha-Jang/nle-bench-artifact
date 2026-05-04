@@ -1,0 +1,51 @@
+id: NLEB-DI-AT-003
+legacy_id: NLB-v3-DI-AT-003
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L1
+  feasibility: feasible
+  information: diagnosis
+  action: atomic
+split: dev
+canary: NLE-BENCH-V3-DEV-1c5da48f
+fixture:
+  base: simple_sequence
+  patch:
+  - op: set_attribute
+    params:
+      entity: video_clip_1
+      field: transform.rotation
+      value: 180.0
+turns:
+- instruction: One of the V1 clips is rotated — can you straighten it out?
+constraints:
+  required:
+  - attribute_equals:
+      entity: video_clip_1
+      field: transform.rotation
+      value: 0.0
+  - unchanged_except:
+      changed:
+      - video_clip_1
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L1. Rotation fix via update_clip.
+  cell: diagnosis × atomic

@@ -1,0 +1,44 @@
+id: NLEB-ST-AT-028
+legacy_id: NLB-v3-ST-AT-028
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: state
+  action: atomic
+split: test
+canary: NLE-BENCH-V3-TEST-f9b2bb73
+fixture: complex_sequence
+turns:
+- instruction: Add a saturation effect to the longest clip on V1.
+- instruction: Remove the shortest clip on V2 from the timeline.
+constraints:
+  required:
+  - has_effect:
+      entity: video_clip_3
+      effect_type: saturation
+  - entity_not_exists:
+      entity: video_clip_5
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_3
+- video_clip_5
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2 add_effect + remove_clip. Longest V1=vc3, shortest V2=vc5.
+  cell: state × atomic

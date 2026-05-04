@@ -1,0 +1,51 @@
+id: NLEB-EX-CO-024
+legacy_id: NLB-v3-EX-CO-024
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: explicit
+  action: compound
+split: test
+canary: NLE-BENCH-V3-TEST-358b026e
+fixture: with_transitions
+turns:
+- instruction: Split vc_2 at 3.0s, set the first part's opacity to 0.8, and add a
+    cross-dissolve transition between the two resulting parts.
+constraints:
+  required:
+  - entity_count_changed:
+      type: video_clip
+      direction: increase
+  - attribute_equals:
+      entity: vc_2
+      field: transform.opacity
+      value: 0.8
+  - has_transition:
+      between:
+      - vc_2
+      - $new_clip_1
+      type: cross_dissolve
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- vc_2
+- $new_clip_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2. split_clip + update_clip + add_transition.
+  cell: explicit × compound

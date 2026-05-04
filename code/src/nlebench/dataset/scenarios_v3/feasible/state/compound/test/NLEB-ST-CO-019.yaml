@@ -1,0 +1,45 @@
+id: NLEB-ST-CO-019
+legacy_id: NLB-v3-ST-CO-019
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L1
+  feasibility: feasible
+  information: state
+  action: compound
+split: test
+canary: NLE-BENCH-V3-TEST-d6d4c690
+fixture: multi_sequence
+turns:
+- instruction: On tl1's longest video clip, set scale to 1.1 and opacity to 0.9.
+constraints:
+  required:
+  - attribute_equals:
+      entity: vc_2
+      field: transform.scale_x
+      value: 1.1
+  - attribute_equals:
+      entity: vc_2
+      field: transform.opacity
+      value: 0.9
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- vc_2
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L1 multi update_clip(2 attrs).
+  cell: state × compound

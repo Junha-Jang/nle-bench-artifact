@@ -1,0 +1,44 @@
+id: NLEB-CX-CO-012
+legacy_id: NLB-v3-CX-CO-012
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L1
+  feasibility: feasible
+  information: context
+  action: compound
+split: test
+canary: NLE-BENCH-V3-TEST-92c7dc1a
+fixture: simple_sequence
+turns:
+- instruction: The closing shot needs a saturation effect and a dissolve transition
+    leading into it from the middle.
+constraints:
+  required:
+  - has_effect:
+      entity: video_clip_3
+      effect_type: saturation
+  - entity_exists:
+      entity: $new_transition_1
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_3
+- $new_transition_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L1. Closing=vc3, middle=vc2. add_effect + add_transition.
+  cell: context × compound

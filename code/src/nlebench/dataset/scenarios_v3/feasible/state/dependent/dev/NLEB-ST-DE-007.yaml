@@ -1,0 +1,55 @@
+id: NLEB-ST-DE-007
+legacy_id: NLB-v3-ST-DE-007
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L3
+  feasibility: feasible
+  information: state
+  action: dependent
+split: dev
+canary: NLE-BENCH-V3-DEV-4cc33d1e
+fixture: complex_sequence
+turns:
+- instruction: Speed up the first V1 clip to 2x.
+- instruction: Shift the next V1 clip earlier to close the resulting gap.
+- instruction: Add a cross-dissolve transition at the new boundary between those two
+    clips.
+constraints:
+  required:
+  - attribute_equals:
+      entity: video_clip_1
+      field: speed
+      value: 2.0
+  - attribute_changed:
+      entity: video_clip_2
+      field: timeline_start
+      direction: decrease
+  - has_transition:
+      between:
+      - video_clip_1
+      - video_clip_2
+      type: cross_dissolve
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_1
+- video_clip_2
+- $new_transition_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L3. update_clip → update_clip(cascade) → add_transition at new boundary.
+  cell: state × dependent

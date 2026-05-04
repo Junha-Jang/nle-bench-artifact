@@ -1,0 +1,52 @@
+id: NLEB-ST-CU-030
+legacy_id: NLB-v3-ST-CU-030
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: state
+  action: cumulative
+split: test
+canary: NLE-BENCH-V3-TEST-f40b1135
+fixture: simple_sequence
+turns:
+- instruction: Mute the shortest audio clip on track 1.
+- instruction: Then unmute it but set its volume to -12 dB.
+- instruction: Also boost the longest audio on track 2 by 3 dB.
+constraints:
+  required:
+  - attribute_equals:
+      entity: audio_clip_1
+      field: audio.muted
+      value: false
+  - attribute_equals:
+      entity: audio_clip_1
+      field: audio.volume
+      value: -12.0
+  - attribute_changed:
+      entity: audio_clip_4
+      field: audio.volume
+      direction: increase
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- audio_clip_1
+- audio_clip_4
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2 update_clip x3. Shortest track 1=ac1. Track 2 longest=ac4.
+  cell: state × cumulative

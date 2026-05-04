@@ -1,0 +1,54 @@
+id: NLEB-EX-CO-031
+legacy_id: NLB-v3-EX-CO-031
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: explicit
+  action: compound
+split: test
+canary: NLE-BENCH-V3-TEST-f7290d92
+fixture: simple_sequence
+turns:
+- instruction: 'Bin ''Footage'': create it. av_media_1: rename to ''main_shot''. Import
+    ''extra.mov''.'
+constraints:
+  required:
+  - entity_exists:
+      type: bin
+      where:
+        field: name
+        value: Footage
+  - attribute_equals:
+      entity: av_media_1
+      field: name
+      value: main_shot
+  - entity_exists:
+      type: media
+      where:
+        field: name
+        value: extra.mov
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- $new_bin_1
+- av_media_1
+- $new_media_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2 fragment. manage_bin + update_media + import_media.
+  cell: explicit × compound

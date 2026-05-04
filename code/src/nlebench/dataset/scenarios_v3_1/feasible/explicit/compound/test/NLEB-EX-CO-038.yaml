@@ -1,0 +1,66 @@
+id: NLEB-EX-CO-038
+legacy_id: NLB-v3-EX-CO-038
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L3
+  feasibility: feasible
+  information: explicit
+  action: compound
+split: test
+canary: NLE-BENCH-V3-TEST-f87045c1
+fixture: simple_sequence
+turns:
+- instruction: Create a bin called 'Assets', import 'interview.mp4', add a clip from
+    it at 5.0s with duration 8.0s on video_track_1, add a brightness effect to the
+    clip, set the clip's scale to 0.9, and add a caption 'Interview' at 5.0s.
+constraints:
+  required:
+  - entity_exists:
+      type: bin
+      where:
+        field: name
+        value: Assets
+  - entity_exists:
+      type: media
+      where:
+        field: name
+        value: interview.mp4
+  - entity_count_changed:
+      type: video_clip
+      direction: increase
+  - has_effect:
+      entity: $new_clip_1
+      effect_type: brightness
+  - attribute_equals:
+      entity: $new_clip_1
+      field: transform.scale_x
+      value: 0.9
+  - entity_exists:
+      type: caption
+      where:
+        field: text
+        value: Interview
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- $new_bin_1
+- $new_media_1
+- $new_clip_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L3. manage_bin + import_media + add_clip + add_effect + update_clip + add_caption.
+  cell: explicit × compound

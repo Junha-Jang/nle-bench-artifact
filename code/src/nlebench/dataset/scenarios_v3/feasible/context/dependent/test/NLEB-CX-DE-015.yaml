@@ -1,0 +1,46 @@
+id: NLEB-CX-DE-015
+legacy_id: NLB-v3-CX-DE-015
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: context
+  action: dependent
+split: test
+canary: NLE-BENCH-V3-TEST-d48a63c4
+fixture: complex_sequence
+turns:
+- instruction: The hero shot's audio is fighting the BGM. Separate the hero from its
+    linked audio.
+- instruction: Now lower the BGM by 6 dB so the hero's native audio can breathe.
+constraints:
+  required:
+  - not_linked:
+      entity: video_clip_3
+  - attribute_changed:
+      entity: audio_clip_4
+      field: audio.volume
+      direction: decrease
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_3
+- audio_clip_4
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2. Hero=vc3, BGM=ac4. unlink_clips -> update_clip.
+  cell: context × dependent

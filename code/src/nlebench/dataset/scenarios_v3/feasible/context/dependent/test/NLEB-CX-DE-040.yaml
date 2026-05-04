@@ -1,0 +1,51 @@
+id: NLEB-CX-DE-040
+legacy_id: NLB-v3-CX-DE-040
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: context
+  action: dependent
+split: test
+canary: NLE-BENCH-V3-TEST-97a01d57
+fixture: multi_sequence
+turns:
+- instruction: On timeline 1, slow the outro to 0.85x.
+- instruction: Add a blur effect to it and lower the earliest audio clip's volume
+    by 4 dB.
+constraints:
+  required:
+  - attribute_equals:
+      entity: vc_3
+      field: speed
+      value: 0.85
+  - has_effect:
+      entity: vc_3
+      effect_type: blur
+  - attribute_changed:
+      entity: ac_1
+      field: audio.volume
+      direction: decrease
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- vc_3
+- ac_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2 multi. update_clip -> add_effect -> update_clip.
+  cell: context × dependent

@@ -1,0 +1,44 @@
+id: NLEB-EX-AT-030
+legacy_id: NLB-v3-EX-AT-030
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L1
+  feasibility: feasible
+  information: explicit
+  action: atomic
+split: test
+canary: NLE-BENCH-V3-TEST-8c1f9b6e
+fixture: simple_sequence
+turns:
+- instruction: Mute audio_track_2.
+constraints:
+  required:
+  - attribute_equals:
+      entity: audio_track_2
+      field: muted
+      value: true
+  - unchanged_except:
+      changed:
+      - audio_track_2
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- audio_track_2
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L1 update_track fragment.
+  cell: explicit × atomic

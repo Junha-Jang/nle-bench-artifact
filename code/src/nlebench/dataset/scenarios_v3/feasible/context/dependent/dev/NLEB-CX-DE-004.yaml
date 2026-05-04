@@ -1,0 +1,45 @@
+id: NLEB-CX-DE-004
+legacy_id: NLB-v3-CX-DE-004
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: context
+  action: dependent
+split: dev
+canary: NLE-BENCH-V3-DEV-15762e79
+fixture: simple_sequence
+turns:
+- instruction: The opening section needs a title card. Add a caption 'Welcome' at
+    0s.
+- instruction: Make the title bigger — set its font size to 48.
+constraints:
+  required:
+  - entity_exists:
+      entity: $new_caption_1
+  - attribute_equals:
+      entity: $new_caption_1
+      field: caption.style.font_size
+      value: 48
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- $new_caption_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2. add_caption -> update_caption.
+  cell: context × dependent

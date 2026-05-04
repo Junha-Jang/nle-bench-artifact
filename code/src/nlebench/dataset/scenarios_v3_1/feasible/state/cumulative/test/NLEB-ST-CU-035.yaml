@@ -1,0 +1,63 @@
+id: NLEB-ST-CU-035
+legacy_id: NLB-v3-ST-CU-035
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L3
+  feasibility: feasible
+  information: state
+  action: cumulative
+split: test
+canary: NLE-BENCH-V3-TEST-a346efb3
+fixture: multi_sequence
+turns:
+- instruction: On timeline 1, find the video clip with the longest duration and scale
+    it to 0.85.
+- instruction: Now set the quietest audio clip's volume to 0 dB.
+- instruction: Rotate the scaled clip by 5 degrees. Preserve everything.
+- instruction: Finally add a saturation effect to the earliest-starting video clip.
+constraints:
+  required:
+  - attribute_equals:
+      entity: vc_2
+      field: transform.scale_x
+      value: 0.85
+  - attribute_equals:
+      entity: ac_1
+      field: audio.volume
+      value: 0.0
+  - attribute_equals:
+      entity: vc_2
+      field: transform.rotation
+      value: 5.0
+  - has_effect:
+      entity: vc_1
+      effect_type: saturation
+  - unchanged_except:
+      changed:
+      - vc_2
+      - ac_1
+      - vc_1
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- vc_2
+- ac_1
+- vc_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L3 4-turn multi. update_clip + update_clip + update_clip + add_effect. Explicit.
+  cell: state × cumulative

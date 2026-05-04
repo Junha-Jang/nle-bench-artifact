@@ -1,0 +1,52 @@
+id: NLEB-ST-CU-022
+legacy_id: NLB-v3-ST-CU-022
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: state
+  action: cumulative
+split: test
+canary: NLE-BENCH-V3-TEST-7e37a538
+fixture: complex_sequence
+turns:
+- instruction: 'Longest V2 video: rotate 30 degrees.'
+- instruction: 'Shortest V2 video: scale 1.3.'
+- instruction: Preserve both above and add a contrast effect to the longest V1 video.
+constraints:
+  required:
+  - attribute_equals:
+      entity: video_clip_4
+      field: transform.rotation
+      value: 30.0
+  - attribute_equals:
+      entity: video_clip_5
+      field: transform.scale_x
+      value: 1.3
+  - has_effect:
+      entity: video_clip_3
+      effect_type: contrast
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_4
+- video_clip_5
+- video_clip_3
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2 fragment. update_clip + update_clip + add_effect. Explicit preservation.
+  cell: state × cumulative

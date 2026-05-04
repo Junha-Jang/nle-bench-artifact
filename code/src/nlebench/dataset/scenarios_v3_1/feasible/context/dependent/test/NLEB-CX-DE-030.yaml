@@ -1,0 +1,53 @@
+id: NLEB-CX-DE-030
+legacy_id: NLB-v3-CX-DE-030
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: context
+  action: dependent
+split: test
+canary: NLE-BENCH-V3-TEST-1ad4fa98
+fixture:
+  base: complex_sequence
+  patch:
+  - op: link_clips
+    params:
+      video_clip_id: video_clip_4
+      audio_clip_id: audio_clip_4
+turns:
+- instruction: Separate the earlier B-roll from its audio.
+- instruction: Mute the B-roll clip's own audio and remove the later B-roll.
+constraints:
+  required:
+  - not_linked:
+      entity: video_clip_4
+  - attribute_equals:
+      entity: video_clip_4
+      field: audio.muted
+      value: true
+  - entity_not_exists:
+      entity: video_clip_5
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_4
+- video_clip_5
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2. Earlier V2=vc4, later V2=vc5. unlink -> update -> remove.
+  cell: context × dependent

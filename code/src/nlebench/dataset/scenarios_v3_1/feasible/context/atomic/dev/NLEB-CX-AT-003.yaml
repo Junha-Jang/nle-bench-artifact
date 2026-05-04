@@ -1,0 +1,45 @@
+id: NLEB-CX-AT-003
+legacy_id: NLB-v3-CX-AT-003
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L1
+  feasibility: feasible
+  information: context
+  action: atomic
+split: dev
+canary: NLE-BENCH-V3-DEV-b9f9d9e8
+fixture: simple_sequence
+turns:
+- instruction: The cut between the intro and the middle section feels too abrupt.
+    Add a cross-dissolve transition there.
+constraints:
+  required:
+  - entity_exists:
+      entity: $new_transition_1
+  - has_transition:
+      between:
+      - video_clip_1
+      - video_clip_2
+      type: cross_dissolve
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- $new_transition_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L1. Intro→middle = vc1→vc2. add_transition.
+  cell: context × atomic

@@ -1,0 +1,49 @@
+id: NLEB-CX-CO-034
+legacy_id: NLB-v3-CX-CO-034
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: context
+  action: compound
+split: test
+canary: NLE-BENCH-V3-TEST-1d2c6892
+fixture: multi_sequence
+turns:
+- instruction: Create a new timeline for the rough cut version.
+- instruction: On the first timeline, slow the intro to 0.9x and add a watermark caption
+    'DRAFT' at 0s.
+constraints:
+  required:
+  - entity_exists:
+      entity: $new_sequence_1
+  - attribute_equals:
+      entity: vc_1
+      field: speed
+      value: 0.9
+  - entity_exists:
+      entity: $new_caption_1
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- $new_sequence_1
+- vc_1
+- $new_caption_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2 multi. add_sequence + update_clip + add_caption.
+  cell: context × compound

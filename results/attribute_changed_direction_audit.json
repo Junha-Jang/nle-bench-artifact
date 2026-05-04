@@ -1,0 +1,2092 @@
+{
+  "description": "attribute_changed.direction usage audit for the released scenario corpus.",
+  "scenarios": [
+    {
+      "action": "atomic",
+      "constraints": [
+        {
+          "direction": "decrease",
+          "entity": "audio_clip_4",
+          "field": "audio.volume",
+          "index": 0,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "context",
+      "path": "feasible/context/atomic/dev/NLEB-CX-AT-007.yaml",
+      "scenario_id": "NLEB-CX-AT-007",
+      "split": "dev"
+    },
+    {
+      "action": "atomic",
+      "constraints": [
+        {
+          "direction": "decrease",
+          "entity": "video_clip_3",
+          "field": "timeline_start",
+          "index": 1,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "context",
+      "path": "feasible/context/atomic/dev/NLEB-CX-AT-008.yaml",
+      "scenario_id": "NLEB-CX-AT-008",
+      "split": "dev"
+    },
+    {
+      "action": "atomic",
+      "constraints": [
+        {
+          "direction": "decrease",
+          "entity": "audio_clip_4",
+          "field": "audio.volume",
+          "index": 1,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "context",
+      "path": "feasible/context/atomic/test/NLEB-CX-AT-031.yaml",
+      "scenario_id": "NLEB-CX-AT-031",
+      "split": "test"
+    },
+    {
+      "action": "atomic",
+      "constraints": [
+        {
+          "direction": "increase",
+          "entity": "audio_clip_4",
+          "field": "audio.volume",
+          "index": 1,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "context",
+      "path": "feasible/context/atomic/test/NLEB-CX-AT-035.yaml",
+      "scenario_id": "NLEB-CX-AT-035",
+      "split": "test"
+    },
+    {
+      "action": "atomic",
+      "constraints": [
+        {
+          "direction": "decrease",
+          "entity": "vc_2",
+          "field": "timeline_start",
+          "index": 1,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "context",
+      "path": "feasible/context/atomic/test/NLEB-CX-AT-037.yaml",
+      "scenario_id": "NLEB-CX-AT-037",
+      "split": "test"
+    },
+    {
+      "action": "compound",
+      "constraints": [
+        {
+          "direction": "increase",
+          "entity": "video_clip_4",
+          "field": "timeline_start",
+          "index": 2,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "context",
+      "path": "feasible/context/compound/dev/NLEB-CX-CO-004.yaml",
+      "scenario_id": "NLEB-CX-CO-004",
+      "split": "dev"
+    },
+    {
+      "action": "compound",
+      "constraints": [
+        {
+          "direction": "decrease",
+          "entity": "audio_clip_4",
+          "field": "audio.volume",
+          "index": 2,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "context",
+      "path": "feasible/context/compound/dev/NLEB-CX-CO-008.yaml",
+      "scenario_id": "NLEB-CX-CO-008",
+      "split": "dev"
+    },
+    {
+      "action": "compound",
+      "constraints": [
+        {
+          "direction": "decrease",
+          "entity": "audio_clip_4",
+          "field": "audio.volume",
+          "index": 2,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "context",
+      "path": "feasible/context/compound/test/NLEB-CX-CO-022.yaml",
+      "scenario_id": "NLEB-CX-CO-022",
+      "split": "test"
+    },
+    {
+      "action": "compound",
+      "constraints": [
+        {
+          "direction": "decrease",
+          "entity": "audio_clip_4",
+          "field": "audio.volume",
+          "index": 2,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "context",
+      "path": "feasible/context/compound/test/NLEB-CX-CO-028.yaml",
+      "scenario_id": "NLEB-CX-CO-028",
+      "split": "test"
+    },
+    {
+      "action": "compound",
+      "constraints": [
+        {
+          "direction": "decrease",
+          "entity": "vc_2",
+          "field": "timeline_start",
+          "index": 1,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "context",
+      "path": "feasible/context/compound/test/NLEB-CX-CO-030.yaml",
+      "scenario_id": "NLEB-CX-CO-030",
+      "split": "test"
+    },
+    {
+      "action": "cumulative",
+      "constraints": [
+        {
+          "direction": "decrease",
+          "entity": "audio_clip_4",
+          "field": "audio.volume",
+          "index": 3,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "context",
+      "path": "feasible/context/cumulative/dev/NLEB-CX-CU-005.yaml",
+      "scenario_id": "NLEB-CX-CU-005",
+      "split": "dev"
+    },
+    {
+      "action": "cumulative",
+      "constraints": [
+        {
+          "direction": "decrease",
+          "entity": "audio_clip_4",
+          "field": "audio.volume",
+          "index": 3,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "context",
+      "path": "feasible/context/cumulative/dev/NLEB-CX-CU-009.yaml",
+      "scenario_id": "NLEB-CX-CU-009",
+      "split": "dev"
+    },
+    {
+      "action": "cumulative",
+      "constraints": [
+        {
+          "direction": "decrease",
+          "entity": "audio_clip_4",
+          "field": "audio.volume",
+          "index": 0,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "context",
+      "path": "feasible/context/cumulative/test/NLEB-CX-CU-014.yaml",
+      "scenario_id": "NLEB-CX-CU-014",
+      "split": "test"
+    },
+    {
+      "action": "cumulative",
+      "constraints": [
+        {
+          "direction": "decrease",
+          "entity": "video_clip_3",
+          "field": "timeline_start",
+          "index": 2,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "context",
+      "path": "feasible/context/cumulative/test/NLEB-CX-CU-022.yaml",
+      "scenario_id": "NLEB-CX-CU-022",
+      "split": "test"
+    },
+    {
+      "action": "cumulative",
+      "constraints": [
+        {
+          "direction": "decrease",
+          "entity": "audio_clip_4",
+          "field": "audio.volume",
+          "index": 2,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "context",
+      "path": "feasible/context/cumulative/test/NLEB-CX-CU-023.yaml",
+      "scenario_id": "NLEB-CX-CU-023",
+      "split": "test"
+    },
+    {
+      "action": "cumulative",
+      "constraints": [
+        {
+          "direction": "decrease",
+          "entity": "audio_clip_4",
+          "field": "audio.volume",
+          "index": 0,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "context",
+      "path": "feasible/context/cumulative/test/NLEB-CX-CU-026.yaml",
+      "scenario_id": "NLEB-CX-CU-026",
+      "split": "test"
+    },
+    {
+      "action": "cumulative",
+      "constraints": [
+        {
+          "direction": "decrease",
+          "entity": "audio_clip_4",
+          "field": "audio.volume",
+          "index": 0,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "context",
+      "path": "feasible/context/cumulative/test/NLEB-CX-CU-031.yaml",
+      "scenario_id": "NLEB-CX-CU-031",
+      "split": "test"
+    },
+    {
+      "action": "cumulative",
+      "constraints": [
+        {
+          "direction": "decrease",
+          "entity": "audio_clip_4",
+          "field": "audio.volume",
+          "index": 2,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "context",
+      "path": "feasible/context/cumulative/test/NLEB-CX-CU-034.yaml",
+      "scenario_id": "NLEB-CX-CU-034",
+      "split": "test"
+    },
+    {
+      "action": "cumulative",
+      "constraints": [
+        {
+          "direction": "decrease",
+          "entity": "audio_clip_4",
+          "field": "audio.volume",
+          "index": 3,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "context",
+      "path": "feasible/context/cumulative/test/NLEB-CX-CU-037.yaml",
+      "scenario_id": "NLEB-CX-CU-037",
+      "split": "test"
+    },
+    {
+      "action": "cumulative",
+      "constraints": [
+        {
+          "direction": "decrease",
+          "entity": "audio_clip_4",
+          "field": "audio.volume",
+          "index": 3,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "context",
+      "path": "feasible/context/cumulative/test/NLEB-CX-CU-039.yaml",
+      "scenario_id": "NLEB-CX-CU-039",
+      "split": "test"
+    },
+    {
+      "action": "dependent",
+      "constraints": [
+        {
+          "direction": "decrease",
+          "entity": "video_clip_2",
+          "field": "timeline_start",
+          "index": 1,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "context",
+      "path": "feasible/context/dependent/dev/NLEB-CX-DE-006.yaml",
+      "scenario_id": "NLEB-CX-DE-006",
+      "split": "dev"
+    },
+    {
+      "action": "dependent",
+      "constraints": [
+        {
+          "direction": "decrease",
+          "entity": "vc_2",
+          "field": "timeline_start",
+          "index": 1,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "context",
+      "path": "feasible/context/dependent/dev/NLEB-CX-DE-008.yaml",
+      "scenario_id": "NLEB-CX-DE-008",
+      "split": "dev"
+    },
+    {
+      "action": "dependent",
+      "constraints": [
+        {
+          "direction": "increase",
+          "entity": "audio_clip_3",
+          "field": "duration",
+          "index": 1,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "context",
+      "path": "feasible/context/dependent/dev/NLEB-CX-DE-009.yaml",
+      "scenario_id": "NLEB-CX-DE-009",
+      "split": "dev"
+    },
+    {
+      "action": "dependent",
+      "constraints": [
+        {
+          "direction": "decrease",
+          "entity": "audio_clip_4",
+          "field": "duration",
+          "index": 1,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "context",
+      "path": "feasible/context/dependent/test/NLEB-CX-DE-011.yaml",
+      "scenario_id": "NLEB-CX-DE-011",
+      "split": "test"
+    },
+    {
+      "action": "dependent",
+      "constraints": [
+        {
+          "direction": "decrease",
+          "entity": "video_clip_3",
+          "field": "timeline_start",
+          "index": 1,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "context",
+      "path": "feasible/context/dependent/test/NLEB-CX-DE-014.yaml",
+      "scenario_id": "NLEB-CX-DE-014",
+      "split": "test"
+    },
+    {
+      "action": "dependent",
+      "constraints": [
+        {
+          "direction": "decrease",
+          "entity": "audio_clip_4",
+          "field": "audio.volume",
+          "index": 1,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "context",
+      "path": "feasible/context/dependent/test/NLEB-CX-DE-015.yaml",
+      "scenario_id": "NLEB-CX-DE-015",
+      "split": "test"
+    },
+    {
+      "action": "dependent",
+      "constraints": [
+        {
+          "direction": "decrease",
+          "entity": "audio_clip_1",
+          "field": "timeline_start",
+          "index": 0,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "context",
+      "path": "feasible/context/dependent/test/NLEB-CX-DE-021.yaml",
+      "scenario_id": "NLEB-CX-DE-021",
+      "split": "test"
+    },
+    {
+      "action": "dependent",
+      "constraints": [
+        {
+          "direction": "decrease",
+          "entity": "video_clip_3",
+          "field": "audio.volume",
+          "index": 1,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "context",
+      "path": "feasible/context/dependent/test/NLEB-CX-DE-023.yaml",
+      "scenario_id": "NLEB-CX-DE-023",
+      "split": "test"
+    },
+    {
+      "action": "dependent",
+      "constraints": [
+        {
+          "direction": "decrease",
+          "entity": "vc_2",
+          "field": "timeline_start",
+          "index": 1,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "context",
+      "path": "feasible/context/dependent/test/NLEB-CX-DE-032.yaml",
+      "scenario_id": "NLEB-CX-DE-032",
+      "split": "test"
+    },
+    {
+      "action": "dependent",
+      "constraints": [
+        {
+          "direction": "increase",
+          "entity": "video_clip_3",
+          "field": "duration",
+          "index": 2,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "context",
+      "path": "feasible/context/dependent/test/NLEB-CX-DE-037.yaml",
+      "scenario_id": "NLEB-CX-DE-037",
+      "split": "test"
+    },
+    {
+      "action": "dependent",
+      "constraints": [
+        {
+          "direction": "decrease",
+          "entity": "vc_2",
+          "field": "timeline_start",
+          "index": 2,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "context",
+      "path": "feasible/context/dependent/test/NLEB-CX-DE-038.yaml",
+      "scenario_id": "NLEB-CX-DE-038",
+      "split": "test"
+    },
+    {
+      "action": "dependent",
+      "constraints": [
+        {
+          "direction": "decrease",
+          "entity": "vc_2",
+          "field": "timeline_start",
+          "index": 1,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "context",
+      "path": "feasible/context/dependent/test/NLEB-CX-DE-039.yaml",
+      "scenario_id": "NLEB-CX-DE-039",
+      "split": "test"
+    },
+    {
+      "action": "dependent",
+      "constraints": [
+        {
+          "direction": "decrease",
+          "entity": "ac_1",
+          "field": "audio.volume",
+          "index": 2,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "context",
+      "path": "feasible/context/dependent/test/NLEB-CX-DE-040.yaml",
+      "scenario_id": "NLEB-CX-DE-040",
+      "split": "test"
+    },
+    {
+      "action": "atomic",
+      "constraints": [
+        {
+          "direction": "any",
+          "entity": "caption_1",
+          "field": "text",
+          "index": 1,
+          "likely_numeric": false,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "diagnosis",
+      "path": "feasible/diagnosis/atomic/dev/NLEB-DI-AT-008.yaml",
+      "scenario_id": "NLEB-DI-AT-008",
+      "split": "dev"
+    },
+    {
+      "action": "atomic",
+      "constraints": [
+        {
+          "direction": "any",
+          "entity": "caption_1",
+          "field": "text",
+          "index": 0,
+          "likely_numeric": false,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "diagnosis",
+      "path": "feasible/diagnosis/atomic/test/NLEB-DI-AT-020.yaml",
+      "scenario_id": "NLEB-DI-AT-020",
+      "split": "test"
+    },
+    {
+      "action": "atomic",
+      "constraints": [
+        {
+          "direction": "any",
+          "entity": "caption_2",
+          "field": "text",
+          "index": 0,
+          "likely_numeric": false,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "diagnosis",
+      "path": "feasible/diagnosis/atomic/test/NLEB-DI-AT-027.yaml",
+      "scenario_id": "NLEB-DI-AT-027",
+      "split": "test"
+    },
+    {
+      "action": "atomic",
+      "constraints": [
+        {
+          "direction": "any",
+          "entity": "caption_2",
+          "field": "text",
+          "index": 0,
+          "likely_numeric": false,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "diagnosis",
+      "path": "feasible/diagnosis/atomic/test/NLEB-DI-AT-036.yaml",
+      "scenario_id": "NLEB-DI-AT-036",
+      "split": "test"
+    },
+    {
+      "action": "atomic",
+      "constraints": [
+        {
+          "direction": "any",
+          "entity": "caption_1",
+          "field": "text",
+          "index": 1,
+          "likely_numeric": false,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "diagnosis",
+      "path": "feasible/diagnosis/atomic/test/NLEB-DI-AT-040.yaml",
+      "scenario_id": "NLEB-DI-AT-040",
+      "split": "test"
+    },
+    {
+      "action": "compound",
+      "constraints": [
+        {
+          "direction": "any",
+          "entity": "caption_1",
+          "field": "text",
+          "index": 2,
+          "likely_numeric": false,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "diagnosis",
+      "path": "feasible/diagnosis/compound/test/NLEB-DI-CO-033.yaml",
+      "scenario_id": "NLEB-DI-CO-033",
+      "split": "test"
+    },
+    {
+      "action": "cumulative",
+      "constraints": [
+        {
+          "direction": "decrease",
+          "entity": "audio_clip_4",
+          "field": "audio.volume",
+          "index": 3,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "diagnosis",
+      "path": "feasible/diagnosis/cumulative/dev/NLEB-DI-CU-006.yaml",
+      "scenario_id": "NLEB-DI-CU-006",
+      "split": "dev"
+    },
+    {
+      "action": "cumulative",
+      "constraints": [
+        {
+          "direction": "increase",
+          "entity": "audio_clip_4",
+          "field": "audio.volume",
+          "index": 1,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "diagnosis",
+      "path": "feasible/diagnosis/cumulative/dev/NLEB-DI-CU-007.yaml",
+      "scenario_id": "NLEB-DI-CU-007",
+      "split": "dev"
+    },
+    {
+      "action": "cumulative",
+      "constraints": [
+        {
+          "direction": "decrease",
+          "entity": "audio_clip_4",
+          "field": "audio.volume",
+          "index": 1,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "diagnosis",
+      "path": "feasible/diagnosis/cumulative/dev/NLEB-DI-CU-009.yaml",
+      "scenario_id": "NLEB-DI-CU-009",
+      "split": "dev"
+    },
+    {
+      "action": "cumulative",
+      "constraints": [
+        {
+          "direction": "any",
+          "entity": "caption_1",
+          "field": "text",
+          "index": 0,
+          "likely_numeric": false,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "diagnosis",
+      "path": "feasible/diagnosis/cumulative/dev/NLEB-DI-CU-010.yaml",
+      "scenario_id": "NLEB-DI-CU-010",
+      "split": "dev"
+    },
+    {
+      "action": "cumulative",
+      "constraints": [
+        {
+          "direction": "decrease",
+          "entity": "audio_clip_4",
+          "field": "audio.volume",
+          "index": 1,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "diagnosis",
+      "path": "feasible/diagnosis/cumulative/test/NLEB-DI-CU-011.yaml",
+      "scenario_id": "NLEB-DI-CU-011",
+      "split": "test"
+    },
+    {
+      "action": "cumulative",
+      "constraints": [
+        {
+          "direction": "increase",
+          "entity": "vc_2",
+          "field": "audio.volume",
+          "index": 1,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "diagnosis",
+      "path": "feasible/diagnosis/cumulative/test/NLEB-DI-CU-018.yaml",
+      "scenario_id": "NLEB-DI-CU-018",
+      "split": "test"
+    },
+    {
+      "action": "cumulative",
+      "constraints": [
+        {
+          "direction": "increase",
+          "entity": "audio_clip_4",
+          "field": "audio.volume",
+          "index": 1,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "diagnosis",
+      "path": "feasible/diagnosis/cumulative/test/NLEB-DI-CU-025.yaml",
+      "scenario_id": "NLEB-DI-CU-025",
+      "split": "test"
+    },
+    {
+      "action": "cumulative",
+      "constraints": [
+        {
+          "direction": "decrease",
+          "entity": "audio_clip_4",
+          "field": "audio.volume",
+          "index": 1,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "diagnosis",
+      "path": "feasible/diagnosis/cumulative/test/NLEB-DI-CU-029.yaml",
+      "scenario_id": "NLEB-DI-CU-029",
+      "split": "test"
+    },
+    {
+      "action": "cumulative",
+      "constraints": [
+        {
+          "direction": "decrease",
+          "entity": "audio_clip_4",
+          "field": "audio.volume",
+          "index": 1,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "diagnosis",
+      "path": "feasible/diagnosis/cumulative/test/NLEB-DI-CU-030.yaml",
+      "scenario_id": "NLEB-DI-CU-030",
+      "split": "test"
+    },
+    {
+      "action": "cumulative",
+      "constraints": [
+        {
+          "direction": "increase",
+          "entity": "ac_1",
+          "field": "audio.volume",
+          "index": 1,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "diagnosis",
+      "path": "feasible/diagnosis/cumulative/test/NLEB-DI-CU-033.yaml",
+      "scenario_id": "NLEB-DI-CU-033",
+      "split": "test"
+    },
+    {
+      "action": "cumulative",
+      "constraints": [
+        {
+          "direction": "increase",
+          "entity": "video_clip_1",
+          "field": "audio.volume",
+          "index": 1,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "diagnosis",
+      "path": "feasible/diagnosis/cumulative/test/NLEB-DI-CU-035.yaml",
+      "scenario_id": "NLEB-DI-CU-035",
+      "split": "test"
+    },
+    {
+      "action": "cumulative",
+      "constraints": [
+        {
+          "direction": "decrease",
+          "entity": "audio_clip_4",
+          "field": "audio.volume",
+          "index": 3,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "diagnosis",
+      "path": "feasible/diagnosis/cumulative/test/NLEB-DI-CU-036.yaml",
+      "scenario_id": "NLEB-DI-CU-036",
+      "split": "test"
+    },
+    {
+      "action": "cumulative",
+      "constraints": [
+        {
+          "direction": "decrease",
+          "entity": "audio_clip_4",
+          "field": "audio.volume",
+          "index": 3,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "diagnosis",
+      "path": "feasible/diagnosis/cumulative/test/NLEB-DI-CU-037.yaml",
+      "scenario_id": "NLEB-DI-CU-037",
+      "split": "test"
+    },
+    {
+      "action": "cumulative",
+      "constraints": [
+        {
+          "direction": "decrease",
+          "entity": "audio_clip_4",
+          "field": "audio.volume",
+          "index": 3,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "diagnosis",
+      "path": "feasible/diagnosis/cumulative/test/NLEB-DI-CU-038.yaml",
+      "scenario_id": "NLEB-DI-CU-038",
+      "split": "test"
+    },
+    {
+      "action": "cumulative",
+      "constraints": [
+        {
+          "direction": "decrease",
+          "entity": "audio_clip_4",
+          "field": "audio.volume",
+          "index": 3,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "diagnosis",
+      "path": "feasible/diagnosis/cumulative/test/NLEB-DI-CU-040.yaml",
+      "scenario_id": "NLEB-DI-CU-040",
+      "split": "test"
+    },
+    {
+      "action": "dependent",
+      "constraints": [
+        {
+          "direction": "increase",
+          "entity": "audio_clip_1",
+          "field": "audio.volume",
+          "index": 1,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "diagnosis",
+      "path": "feasible/diagnosis/dependent/dev/NLEB-DI-DE-008.yaml",
+      "scenario_id": "NLEB-DI-DE-008",
+      "split": "dev"
+    },
+    {
+      "action": "dependent",
+      "constraints": [
+        {
+          "direction": "decrease",
+          "entity": "audio_clip_4",
+          "field": "audio.volume",
+          "index": 1,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "diagnosis",
+      "path": "feasible/diagnosis/dependent/test/NLEB-DI-DE-014.yaml",
+      "scenario_id": "NLEB-DI-DE-014",
+      "split": "test"
+    },
+    {
+      "action": "dependent",
+      "constraints": [
+        {
+          "direction": "increase",
+          "entity": "audio_clip_3",
+          "field": "audio.volume",
+          "index": 1,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "diagnosis",
+      "path": "feasible/diagnosis/dependent/test/NLEB-DI-DE-017.yaml",
+      "scenario_id": "NLEB-DI-DE-017",
+      "split": "test"
+    },
+    {
+      "action": "dependent",
+      "constraints": [
+        {
+          "direction": "decrease",
+          "entity": "audio_clip_1",
+          "field": "audio.volume",
+          "index": 0,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "diagnosis",
+      "path": "feasible/diagnosis/dependent/test/NLEB-DI-DE-025.yaml",
+      "scenario_id": "NLEB-DI-DE-025",
+      "split": "test"
+    },
+    {
+      "action": "dependent",
+      "constraints": [
+        {
+          "direction": "increase",
+          "entity": "audio_clip_3",
+          "field": "audio.volume",
+          "index": 3,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "diagnosis",
+      "path": "feasible/diagnosis/dependent/test/NLEB-DI-DE-039.yaml",
+      "scenario_id": "NLEB-DI-DE-039",
+      "split": "test"
+    },
+    {
+      "action": "cumulative",
+      "constraints": [
+        {
+          "direction": "increase",
+          "entity": "video_clip_5",
+          "field": "duration",
+          "index": 0,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "explicit",
+      "path": "feasible/explicit/cumulative/dev/NLEB-EX-CU-009.yaml",
+      "scenario_id": "NLEB-EX-CU-009",
+      "split": "dev"
+    },
+    {
+      "action": "cumulative",
+      "constraints": [
+        {
+          "direction": "decrease",
+          "entity": "video_clip_3",
+          "field": "timeline_start",
+          "index": 1,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "explicit",
+      "path": "feasible/explicit/cumulative/test/NLEB-EX-CU-014.yaml",
+      "scenario_id": "NLEB-EX-CU-014",
+      "split": "test"
+    },
+    {
+      "action": "cumulative",
+      "constraints": [
+        {
+          "direction": "increase",
+          "entity": "video_clip_2",
+          "field": "duration",
+          "index": 1,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "explicit",
+      "path": "feasible/explicit/cumulative/test/NLEB-EX-CU-025.yaml",
+      "scenario_id": "NLEB-EX-CU-025",
+      "split": "test"
+    },
+    {
+      "action": "cumulative",
+      "constraints": [
+        {
+          "direction": "decrease",
+          "entity": "video_clip_2",
+          "field": "timeline_start",
+          "index": 1,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "explicit",
+      "path": "feasible/explicit/cumulative/test/NLEB-EX-CU-026.yaml",
+      "scenario_id": "NLEB-EX-CU-026",
+      "split": "test"
+    },
+    {
+      "action": "cumulative",
+      "constraints": [
+        {
+          "direction": "increase",
+          "entity": "video_clip_4",
+          "field": "timeline_start",
+          "index": 2,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "explicit",
+      "path": "feasible/explicit/cumulative/test/NLEB-EX-CU-033.yaml",
+      "scenario_id": "NLEB-EX-CU-033",
+      "split": "test"
+    },
+    {
+      "action": "dependent",
+      "constraints": [
+        {
+          "direction": "increase",
+          "entity": "$new_clip_1",
+          "field": "timeline_start",
+          "index": 2,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "explicit",
+      "path": "feasible/explicit/dependent/dev/NLEB-EX-DE-001.yaml",
+      "scenario_id": "NLEB-EX-DE-001",
+      "split": "dev"
+    },
+    {
+      "action": "dependent",
+      "constraints": [
+        {
+          "direction": "increase",
+          "entity": "video_clip_3",
+          "field": "name",
+          "index": 1,
+          "likely_numeric": false,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "explicit",
+      "path": "feasible/explicit/dependent/dev/NLEB-EX-DE-004.yaml",
+      "scenario_id": "NLEB-EX-DE-004",
+      "split": "dev"
+    },
+    {
+      "action": "dependent",
+      "constraints": [
+        {
+          "direction": "decrease",
+          "entity": "vc_2",
+          "field": "timeline_start",
+          "index": 1,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "explicit",
+      "path": "feasible/explicit/dependent/dev/NLEB-EX-DE-007.yaml",
+      "scenario_id": "NLEB-EX-DE-007",
+      "split": "dev"
+    },
+    {
+      "action": "dependent",
+      "constraints": [
+        {
+          "direction": "increase",
+          "entity": "video_clip_2",
+          "field": "duration",
+          "index": 2,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "explicit",
+      "path": "feasible/explicit/dependent/dev/NLEB-EX-DE-009.yaml",
+      "scenario_id": "NLEB-EX-DE-009",
+      "split": "dev"
+    },
+    {
+      "action": "dependent",
+      "constraints": [
+        {
+          "direction": "decrease",
+          "entity": "video_clip_3",
+          "field": "timeline_start",
+          "index": 1,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "explicit",
+      "path": "feasible/explicit/dependent/test/NLEB-EX-DE-014.yaml",
+      "scenario_id": "NLEB-EX-DE-014",
+      "split": "test"
+    },
+    {
+      "action": "dependent",
+      "constraints": [
+        {
+          "direction": "decrease",
+          "entity": "vc_2",
+          "field": "timeline_start",
+          "index": 1,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "explicit",
+      "path": "feasible/explicit/dependent/test/NLEB-EX-DE-024.yaml",
+      "scenario_id": "NLEB-EX-DE-024",
+      "split": "test"
+    },
+    {
+      "action": "dependent",
+      "constraints": [
+        {
+          "direction": "decrease",
+          "entity": "video_clip_3",
+          "field": "timeline_start",
+          "index": 2,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "explicit",
+      "path": "feasible/explicit/dependent/test/NLEB-EX-DE-025.yaml",
+      "scenario_id": "NLEB-EX-DE-025",
+      "split": "test"
+    },
+    {
+      "action": "dependent",
+      "constraints": [
+        {
+          "direction": "decrease",
+          "entity": "video_clip_2",
+          "field": "timeline_start",
+          "index": 1,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "explicit",
+      "path": "feasible/explicit/dependent/test/NLEB-EX-DE-027.yaml",
+      "scenario_id": "NLEB-EX-DE-027",
+      "split": "test"
+    },
+    {
+      "action": "dependent",
+      "constraints": [
+        {
+          "direction": "increase",
+          "entity": "video_clip_1",
+          "field": "audio.volume",
+          "index": 1,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "explicit",
+      "path": "feasible/explicit/dependent/test/NLEB-EX-DE-030.yaml",
+      "scenario_id": "NLEB-EX-DE-030",
+      "split": "test"
+    },
+    {
+      "action": "dependent",
+      "constraints": [
+        {
+          "direction": "decrease",
+          "entity": "$new_clip_1",
+          "field": "timeline_start",
+          "index": 2,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "explicit",
+      "path": "feasible/explicit/dependent/test/NLEB-EX-DE-036.yaml",
+      "scenario_id": "NLEB-EX-DE-036",
+      "split": "test"
+    },
+    {
+      "action": "dependent",
+      "constraints": [
+        {
+          "direction": "decrease",
+          "entity": "vc_2",
+          "field": "timeline_start",
+          "index": 2,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "explicit",
+      "path": "feasible/explicit/dependent/test/NLEB-EX-DE-040.yaml",
+      "scenario_id": "NLEB-EX-DE-040",
+      "split": "test"
+    },
+    {
+      "action": "atomic",
+      "constraints": [
+        {
+          "direction": "decrease",
+          "entity": "audio_clip_4",
+          "field": "audio.volume",
+          "index": 1,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "state",
+      "path": "feasible/state/atomic/dev/NLEB-ST-AT-007.yaml",
+      "scenario_id": "NLEB-ST-AT-007",
+      "split": "dev"
+    },
+    {
+      "action": "atomic",
+      "constraints": [
+        {
+          "direction": "decrease",
+          "entity": "audio_clip_4",
+          "field": "audio.volume",
+          "index": 2,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "state",
+      "path": "feasible/state/atomic/dev/NLEB-ST-AT-009.yaml",
+      "scenario_id": "NLEB-ST-AT-009",
+      "split": "dev"
+    },
+    {
+      "action": "atomic",
+      "constraints": [
+        {
+          "direction": "increase",
+          "entity": "audio_clip_4",
+          "field": "audio.volume",
+          "index": 0,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "state",
+      "path": "feasible/state/atomic/test/NLEB-ST-AT-011.yaml",
+      "scenario_id": "NLEB-ST-AT-011",
+      "split": "test"
+    },
+    {
+      "action": "atomic",
+      "constraints": [
+        {
+          "direction": "decrease",
+          "entity": "ac_2",
+          "field": "audio.volume",
+          "index": 1,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "state",
+      "path": "feasible/state/atomic/test/NLEB-ST-AT-031.yaml",
+      "scenario_id": "NLEB-ST-AT-031",
+      "split": "test"
+    },
+    {
+      "action": "atomic",
+      "constraints": [
+        {
+          "direction": "increase",
+          "entity": "audio_clip_4",
+          "field": "audio.volume",
+          "index": 1,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "state",
+      "path": "feasible/state/atomic/test/NLEB-ST-AT-032.yaml",
+      "scenario_id": "NLEB-ST-AT-032",
+      "split": "test"
+    },
+    {
+      "action": "atomic",
+      "constraints": [
+        {
+          "direction": "decrease",
+          "entity": "ac_3",
+          "field": "audio.volume",
+          "index": 1,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "state",
+      "path": "feasible/state/atomic/test/NLEB-ST-AT-034.yaml",
+      "scenario_id": "NLEB-ST-AT-034",
+      "split": "test"
+    },
+    {
+      "action": "atomic",
+      "constraints": [
+        {
+          "direction": "decrease",
+          "entity": "ac_2",
+          "field": "audio.volume",
+          "index": 2,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "state",
+      "path": "feasible/state/atomic/test/NLEB-ST-AT-035.yaml",
+      "scenario_id": "NLEB-ST-AT-035",
+      "split": "test"
+    },
+    {
+      "action": "atomic",
+      "constraints": [
+        {
+          "direction": "increase",
+          "entity": "audio_clip_1",
+          "field": "audio.volume",
+          "index": 0,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "state",
+      "path": "feasible/state/atomic/test/NLEB-ST-AT-038.yaml",
+      "scenario_id": "NLEB-ST-AT-038",
+      "split": "test"
+    },
+    {
+      "action": "atomic",
+      "constraints": [
+        {
+          "direction": "increase",
+          "entity": "ac_1",
+          "field": "audio.volume",
+          "index": 0,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "state",
+      "path": "feasible/state/atomic/test/NLEB-ST-AT-039.yaml",
+      "scenario_id": "NLEB-ST-AT-039",
+      "split": "test"
+    },
+    {
+      "action": "compound",
+      "constraints": [
+        {
+          "direction": "decrease",
+          "entity": "audio_clip_3",
+          "field": "audio.volume",
+          "index": 1,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "state",
+      "path": "feasible/state/compound/dev/NLEB-ST-CO-005.yaml",
+      "scenario_id": "NLEB-ST-CO-005",
+      "split": "dev"
+    },
+    {
+      "action": "compound",
+      "constraints": [
+        {
+          "direction": "increase",
+          "entity": "audio_clip_1",
+          "field": "audio.volume",
+          "index": 1,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "state",
+      "path": "feasible/state/compound/dev/NLEB-ST-CO-007.yaml",
+      "scenario_id": "NLEB-ST-CO-007",
+      "split": "dev"
+    },
+    {
+      "action": "compound",
+      "constraints": [
+        {
+          "direction": "decrease",
+          "entity": "audio_clip_4",
+          "field": "audio.volume",
+          "index": 3,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "state",
+      "path": "feasible/state/compound/test/NLEB-ST-CO-039.yaml",
+      "scenario_id": "NLEB-ST-CO-039",
+      "split": "test"
+    },
+    {
+      "action": "cumulative",
+      "constraints": [
+        {
+          "direction": "increase",
+          "entity": "audio_clip_4",
+          "field": "audio.volume",
+          "index": 0,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "state",
+      "path": "feasible/state/cumulative/dev/NLEB-ST-CU-001.yaml",
+      "scenario_id": "NLEB-ST-CU-001",
+      "split": "dev"
+    },
+    {
+      "action": "cumulative",
+      "constraints": [
+        {
+          "direction": "decrease",
+          "entity": "audio_clip_4",
+          "field": "audio.volume",
+          "index": 1,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "state",
+      "path": "feasible/state/cumulative/dev/NLEB-ST-CU-004.yaml",
+      "scenario_id": "NLEB-ST-CU-004",
+      "split": "dev"
+    },
+    {
+      "action": "cumulative",
+      "constraints": [
+        {
+          "direction": "increase",
+          "entity": "audio_clip_3",
+          "field": "audio.volume",
+          "index": 1,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "state",
+      "path": "feasible/state/cumulative/test/NLEB-ST-CU-011.yaml",
+      "scenario_id": "NLEB-ST-CU-011",
+      "split": "test"
+    },
+    {
+      "action": "cumulative",
+      "constraints": [
+        {
+          "direction": "decrease",
+          "entity": "audio_clip_4",
+          "field": "audio.volume",
+          "index": 1,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "state",
+      "path": "feasible/state/cumulative/test/NLEB-ST-CU-016.yaml",
+      "scenario_id": "NLEB-ST-CU-016",
+      "split": "test"
+    },
+    {
+      "action": "cumulative",
+      "constraints": [
+        {
+          "direction": "increase",
+          "entity": "audio_clip_3",
+          "field": "audio.volume",
+          "index": 3,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "state",
+      "path": "feasible/state/cumulative/test/NLEB-ST-CU-019.yaml",
+      "scenario_id": "NLEB-ST-CU-019",
+      "split": "test"
+    },
+    {
+      "action": "cumulative",
+      "constraints": [
+        {
+          "direction": "increase",
+          "entity": "audio_clip_3",
+          "field": "audio.volume",
+          "index": 2,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "state",
+      "path": "feasible/state/cumulative/test/NLEB-ST-CU-024.yaml",
+      "scenario_id": "NLEB-ST-CU-024",
+      "split": "test"
+    },
+    {
+      "action": "cumulative",
+      "constraints": [
+        {
+          "direction": "increase",
+          "entity": "audio_clip_4",
+          "field": "audio.volume",
+          "index": 2,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "state",
+      "path": "feasible/state/cumulative/test/NLEB-ST-CU-030.yaml",
+      "scenario_id": "NLEB-ST-CU-030",
+      "split": "test"
+    },
+    {
+      "action": "cumulative",
+      "constraints": [
+        {
+          "direction": "increase",
+          "entity": "audio_clip_4",
+          "field": "audio.volume",
+          "index": 0,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "state",
+      "path": "feasible/state/cumulative/test/NLEB-ST-CU-037.yaml",
+      "scenario_id": "NLEB-ST-CU-037",
+      "split": "test"
+    },
+    {
+      "action": "dependent",
+      "constraints": [
+        {
+          "direction": "decrease",
+          "entity": "video_clip_3",
+          "field": "timeline_start",
+          "index": 1,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "state",
+      "path": "feasible/state/dependent/dev/NLEB-ST-DE-001.yaml",
+      "scenario_id": "NLEB-ST-DE-001",
+      "split": "dev"
+    },
+    {
+      "action": "dependent",
+      "constraints": [
+        {
+          "direction": "decrease",
+          "entity": "video_clip_2",
+          "field": "timeline_start",
+          "index": 1,
+          "likely_numeric": true,
+          "section": "required"
+        },
+        {
+          "direction": "decrease",
+          "entity": "video_clip_3",
+          "field": "timeline_start",
+          "index": 2,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "state",
+      "path": "feasible/state/dependent/dev/NLEB-ST-DE-004.yaml",
+      "scenario_id": "NLEB-ST-DE-004",
+      "split": "dev"
+    },
+    {
+      "action": "dependent",
+      "constraints": [
+        {
+          "direction": "increase",
+          "entity": "video_clip_3",
+          "field": "audio.volume",
+          "index": 1,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "state",
+      "path": "feasible/state/dependent/dev/NLEB-ST-DE-005.yaml",
+      "scenario_id": "NLEB-ST-DE-005",
+      "split": "dev"
+    },
+    {
+      "action": "dependent",
+      "constraints": [
+        {
+          "direction": "decrease",
+          "entity": "video_clip_2",
+          "field": "timeline_start",
+          "index": 1,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "state",
+      "path": "feasible/state/dependent/dev/NLEB-ST-DE-007.yaml",
+      "scenario_id": "NLEB-ST-DE-007",
+      "split": "dev"
+    },
+    {
+      "action": "dependent",
+      "constraints": [
+        {
+          "direction": "decrease",
+          "entity": "video_clip_2",
+          "field": "timeline_start",
+          "index": 1,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "state",
+      "path": "feasible/state/dependent/test/NLEB-ST-DE-011.yaml",
+      "scenario_id": "NLEB-ST-DE-011",
+      "split": "test"
+    },
+    {
+      "action": "dependent",
+      "constraints": [
+        {
+          "direction": "increase",
+          "entity": "video_clip_1",
+          "field": "audio.volume",
+          "index": 1,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "state",
+      "path": "feasible/state/dependent/test/NLEB-ST-DE-014.yaml",
+      "scenario_id": "NLEB-ST-DE-014",
+      "split": "test"
+    },
+    {
+      "action": "dependent",
+      "constraints": [
+        {
+          "direction": "decrease",
+          "entity": "vc_3",
+          "field": "timeline_start",
+          "index": 1,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "state",
+      "path": "feasible/state/dependent/test/NLEB-ST-DE-018.yaml",
+      "scenario_id": "NLEB-ST-DE-018",
+      "split": "test"
+    },
+    {
+      "action": "dependent",
+      "constraints": [
+        {
+          "direction": "decrease",
+          "entity": "video_clip_3",
+          "field": "timeline_start",
+          "index": 1,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "state",
+      "path": "feasible/state/dependent/test/NLEB-ST-DE-019.yaml",
+      "scenario_id": "NLEB-ST-DE-019",
+      "split": "test"
+    },
+    {
+      "action": "dependent",
+      "constraints": [
+        {
+          "direction": "increase",
+          "entity": "video_clip_2",
+          "field": "audio.volume",
+          "index": 1,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "state",
+      "path": "feasible/state/dependent/test/NLEB-ST-DE-021.yaml",
+      "scenario_id": "NLEB-ST-DE-021",
+      "split": "test"
+    },
+    {
+      "action": "dependent",
+      "constraints": [
+        {
+          "direction": "decrease",
+          "entity": "audio_clip_4",
+          "field": "audio.volume",
+          "index": 0,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "state",
+      "path": "feasible/state/dependent/test/NLEB-ST-DE-026.yaml",
+      "scenario_id": "NLEB-ST-DE-026",
+      "split": "test"
+    },
+    {
+      "action": "dependent",
+      "constraints": [
+        {
+          "direction": "increase",
+          "entity": "video_clip_1",
+          "field": "timeline_start",
+          "index": 0,
+          "likely_numeric": true,
+          "section": "required"
+        },
+        {
+          "direction": "increase",
+          "entity": "video_clip_2",
+          "field": "timeline_start",
+          "index": 1,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "state",
+      "path": "feasible/state/dependent/test/NLEB-ST-DE-027.yaml",
+      "scenario_id": "NLEB-ST-DE-027",
+      "split": "test"
+    },
+    {
+      "action": "dependent",
+      "constraints": [
+        {
+          "direction": "increase",
+          "entity": "vc_2",
+          "field": "timeline_start",
+          "index": 1,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "state",
+      "path": "feasible/state/dependent/test/NLEB-ST-DE-030.yaml",
+      "scenario_id": "NLEB-ST-DE-030",
+      "split": "test"
+    },
+    {
+      "action": "dependent",
+      "constraints": [
+        {
+          "direction": "decrease",
+          "entity": "ac_3",
+          "field": "timeline_start",
+          "index": 1,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "state",
+      "path": "feasible/state/dependent/test/NLEB-ST-DE-031.yaml",
+      "scenario_id": "NLEB-ST-DE-031",
+      "split": "test"
+    },
+    {
+      "action": "dependent",
+      "constraints": [
+        {
+          "direction": "decrease",
+          "entity": "video_clip_2",
+          "field": "timeline_start",
+          "index": 1,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "state",
+      "path": "feasible/state/dependent/test/NLEB-ST-DE-035.yaml",
+      "scenario_id": "NLEB-ST-DE-035",
+      "split": "test"
+    },
+    {
+      "action": "dependent",
+      "constraints": [
+        {
+          "direction": "increase",
+          "entity": "video_clip_3",
+          "field": "audio.volume",
+          "index": 1,
+          "likely_numeric": true,
+          "section": "required"
+        },
+        {
+          "direction": "increase",
+          "entity": "video_clip_5",
+          "field": "audio.volume",
+          "index": 2,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "state",
+      "path": "feasible/state/dependent/test/NLEB-ST-DE-037.yaml",
+      "scenario_id": "NLEB-ST-DE-037",
+      "split": "test"
+    },
+    {
+      "action": "dependent",
+      "constraints": [
+        {
+          "direction": "decrease",
+          "entity": "video_clip_2",
+          "field": "timeline_start",
+          "index": 1,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "state",
+      "path": "feasible/state/dependent/test/NLEB-ST-DE-038.yaml",
+      "scenario_id": "NLEB-ST-DE-038",
+      "split": "test"
+    },
+    {
+      "action": "dependent",
+      "constraints": [
+        {
+          "direction": "decrease",
+          "entity": "vc_3",
+          "field": "timeline_start",
+          "index": 1,
+          "likely_numeric": true,
+          "section": "required"
+        },
+        {
+          "direction": "decrease",
+          "entity": "ac_3",
+          "field": "timeline_start",
+          "index": 2,
+          "likely_numeric": true,
+          "section": "required"
+        }
+      ],
+      "feasibility": "feasible",
+      "information": "state",
+      "path": "feasible/state/dependent/test/NLEB-ST-DE-040.yaml",
+      "scenario_id": "NLEB-ST-DE-040",
+      "split": "test"
+    }
+  ],
+  "summary": {
+    "affected_constraints": 116,
+    "affected_scenarios": 112,
+    "cell_counts": {
+      "context/atomic": 5,
+      "context/compound": 5,
+      "context/cumulative": 10,
+      "context/dependent": 13,
+      "diagnosis/atomic": 5,
+      "diagnosis/compound": 1,
+      "diagnosis/cumulative": 15,
+      "diagnosis/dependent": 5,
+      "explicit/cumulative": 5,
+      "explicit/dependent": 11,
+      "state/atomic": 9,
+      "state/compound": 3,
+      "state/cumulative": 8,
+      "state/dependent": 17
+    },
+    "direction_counts": {
+      "any": 7,
+      "decrease": 71,
+      "increase": 38
+    },
+    "field_counts": {
+      "audio.volume": 64,
+      "duration": 6,
+      "name": 1,
+      "text": 7,
+      "timeline_start": 38
+    },
+    "invalid_direction_constraints": 0,
+    "likely_numeric_constraints": 108,
+    "nonnumeric_or_unknown_constraints": 8,
+    "split_counts": {
+      "dev": 30,
+      "test": 82
+    }
+  }
+}

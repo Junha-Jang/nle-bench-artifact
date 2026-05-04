@@ -1,0 +1,51 @@
+id: NLEB-ST-CU-013
+legacy_id: NLB-v3-ST-CU-013
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L1
+  feasibility: feasible
+  information: state
+  action: cumulative
+split: test
+canary: NLE-BENCH-V3-TEST-700f56ba
+fixture: simple_sequence
+turns:
+- instruction: 'Longest audio clip: volume -6 dB.'
+- instruction: 'First video clip: scale 1.1. Keep the volume.'
+constraints:
+  required:
+  - attribute_equals:
+      entity: audio_clip_4
+      field: audio.volume
+      value: -6.0
+  - attribute_equals:
+      entity: video_clip_1
+      field: transform.scale_x
+      value: 1.1
+  - unchanged_except:
+      changed:
+      - audio_clip_4
+      - video_clip_1
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- audio_clip_4
+- video_clip_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L1 fragment. update_clip + update_clip. Explicit preservation.
+  cell: state × cumulative

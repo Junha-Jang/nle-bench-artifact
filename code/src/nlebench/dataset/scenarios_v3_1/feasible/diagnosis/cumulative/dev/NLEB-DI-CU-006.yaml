@@ -1,0 +1,64 @@
+id: NLEB-DI-CU-006
+legacy_id: NLB-v3-DI-CU-006
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L3
+  feasibility: feasible
+  information: diagnosis
+  action: cumulative
+split: dev
+canary: NLE-BENCH-V3-DEV-b8744504
+fixture:
+  base: simple_sequence
+  patch:
+  - op: link_clips
+    params:
+      video_clip_id: video_clip_2
+      audio_clip_id: audio_clip_4
+turns:
+- instruction: A video clip got linked to the wrong audio — can you break that link?
+- instruction: Now set the first video clip's opacity to 0.8.
+- instruction: And reduce the longest audio's volume by 3 dB — keep the unlink from earlier.
+constraints:
+  required:
+  - not_linked:
+      entity: video_clip_2
+  - not_linked:
+      entity: audio_clip_4
+  - attribute_equals:
+      entity: video_clip_1
+      field: transform.opacity
+      value: 0.8
+  - attribute_changed:
+      entity: audio_clip_4
+      field: audio.volume
+      direction: decrease
+  - unchanged_except:
+      changed:
+      - video_clip_2
+      - video_clip_1
+      - audio_clip_4
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_2
+- video_clip_1
+- audio_clip_4
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: 'L3. T1: unlink_clips. T2: update_clip. T3: update_clip.'
+  cell: diagnosis × cumulative

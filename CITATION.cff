@@ -1,0 +1,38 @@
+cff-version: 1.2.0
+title: "NLE-Bench: Feasibility-Aware Tool Use in Symbolic Non-Linear Video Editing"
+message: "If you use this benchmark in your research, please cite the paper."
+type: dataset
+authors:
+  - name: "Anonymous (identity withheld for double-blind review)"
+abstract: |
+  NLE-Bench is an 800-scenario benchmark for evaluating tool-use agents on
+  symbolic non-linear editing project states. Scenarios are organized as
+  a 4 (perception) x 4 (execution) factorial of feasible scenarios (640)
+  plus 80 infeasible and 80 ambiguous calibration scenarios. Each scenario provides a
+  natural-language instruction, an initial EditProject state (JSON), a
+  constraint set (YAML) for deterministic scoring, and taxonomy labels.
+  This artifact release uses the frozen v3.1 scenario-corpus snapshot,
+  where v3.1 is a corpus provenance label rather than the public benchmark
+  release number.
+keywords:
+  - tool-use agents
+  - LLM evaluation
+  - benchmark
+  - agent calibration
+  - abstention
+  - clarification
+  - video editing
+  - constraint satisfaction
+  - refusal
+version: "1.0.0"
+date-released: "2026-05-04"
+license: "CC-BY-4.0"
+license-url: "https://creativecommons.org/licenses/by/4.0/"
+preferred-citation:
+  type: conference-paper
+  title: "NLE-Bench: Feasibility-Aware Tool Use in Symbolic Non-Linear Video Editing"
+  authors:
+    - name: "Anonymous"
+  year: 2026
+  collection-title: "NeurIPS 2026 Evaluations and Datasets Track"
+  notes: "Anonymous submission; full citation to be added at camera-ready."

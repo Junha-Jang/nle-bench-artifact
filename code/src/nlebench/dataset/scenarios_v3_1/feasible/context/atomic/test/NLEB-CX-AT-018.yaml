@@ -1,0 +1,42 @@
+id: NLEB-CX-AT-018
+legacy_id: NLB-v3-CX-AT-018
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L1
+  feasibility: feasible
+  information: context
+  action: atomic
+split: test
+canary: NLE-BENCH-V3-TEST-92fdffa6
+fixture: simple_sequence
+turns:
+- instruction: Link the intro shot with its dialogue track so they move together.
+constraints:
+  required:
+  - has_link:
+      clip_ids:
+      - video_clip_1
+      - audio_clip_1
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_1
+- audio_clip_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L1. Intro=vc1, dialogue=ac1. link_clips.
+  cell: context × atomic

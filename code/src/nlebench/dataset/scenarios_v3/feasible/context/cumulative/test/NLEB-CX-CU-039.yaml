@@ -1,0 +1,57 @@
+id: NLEB-CX-CU-039
+legacy_id: NLB-v3-CX-CU-039
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L3
+  feasibility: feasible
+  information: context
+  action: cumulative
+split: test
+canary: NLE-BENCH-V3-TEST-144abf3d
+fixture: complex_sequence
+turns:
+- instruction: Slow the hero shot to 0.8x.
+- instruction: Link the hero with its dialogue track. Keep the speed.
+- instruction: Add a saturation effect to the hero. Preserve link and speed.
+- instruction: Lower BGM by 5 dB. Keep everything.
+constraints:
+  required:
+  - attribute_equals:
+      entity: video_clip_3
+      field: speed
+      value: 0.8
+  - has_link:
+      clip_ids:
+      - video_clip_3
+      - audio_clip_3
+  - has_effect:
+      entity: video_clip_3
+      effect_type: saturation
+  - attribute_changed:
+      entity: audio_clip_4
+      field: audio.volume
+      direction: decrease
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_3
+- audio_clip_3
+- audio_clip_4
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L3. update + link + add_effect + update, preserve all.
+  cell: context × cumulative

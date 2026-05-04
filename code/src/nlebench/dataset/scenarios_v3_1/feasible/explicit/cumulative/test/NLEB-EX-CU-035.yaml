@@ -1,0 +1,58 @@
+id: NLEB-EX-CU-035
+legacy_id: NLB-v3-EX-CU-035
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: explicit
+  action: cumulative
+split: test
+canary: NLE-BENCH-V3-TEST-db9953d8
+fixture: complex_sequence
+turns:
+- instruction: Scale video_clip_5 to 0.6 for picture-in-picture.
+- instruction: Add a caption 'PiP' near video_clip_5. Keep the scale.
+- instruction: Set the caption font size to 24. Preserve all prior.
+constraints:
+  required:
+  - attribute_equals:
+      entity: video_clip_5
+      field: transform.scale_x
+      value: 0.6
+  - entity_exists:
+      entity: $new_caption_1
+  - attribute_equals:
+      entity: $new_caption_1
+      field: text
+      value: PiP
+  - attribute_equals:
+      entity: $new_caption_1
+      field: caption.style.font_size
+      value: 24
+  - unchanged_except:
+      changed:
+      - video_clip_5
+      - $new_caption_1
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_5
+- $new_caption_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2. update_clip -> add_caption -> update_caption.
+  cell: explicit × cumulative

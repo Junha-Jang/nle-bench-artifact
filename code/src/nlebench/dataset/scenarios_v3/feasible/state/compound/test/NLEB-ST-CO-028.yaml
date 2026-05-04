@@ -1,0 +1,62 @@
+id: NLEB-ST-CO-028
+legacy_id: NLB-v3-ST-CO-028
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: state
+  action: compound
+split: test
+canary: NLE-BENCH-V3-TEST-acdb27e7
+fixture: simple_sequence
+turns:
+- instruction: 'Longest video: rotation 2 degrees, scale 1.05, opacity 0.95.'
+- instruction: 'Shortest video: scale 0.95, add a fade-in effect.'
+constraints:
+  required:
+  - attribute_equals:
+      entity: video_clip_2
+      field: transform.rotation
+      value: 2.0
+  - attribute_equals:
+      entity: video_clip_2
+      field: transform.scale_x
+      value: 1.05
+  - attribute_equals:
+      entity: video_clip_2
+      field: transform.opacity
+      value: 0.95
+  - attribute_equals:
+      entity: video_clip_1
+      field: transform.scale_x
+      value: 0.95
+  - has_effect:
+      entity: video_clip_1
+      effect_type: fade_in
+  - unchanged_except:
+      changed:
+      - video_clip_2
+      - video_clip_1
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_2
+- video_clip_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2 fragment.
+  cell: state × compound

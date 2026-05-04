@@ -1,0 +1,48 @@
+id: NLEB-ST-AT-030
+legacy_id: NLB-v3-ST-AT-030
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: state
+  action: atomic
+split: test
+canary: NLE-BENCH-V3-TEST-78c10554
+fixture: complex_sequence
+turns:
+- instruction: Link the longest V1 clip with the audio clip playing at the same time.
+- instruction: Add a blur effect to the shortest V2 clip.
+constraints:
+  required:
+  - has_link:
+      clip_ids:
+      - video_clip_3
+      - audio_clip_3
+  - has_effect:
+      entity: video_clip_5
+      effect_type: blur
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_3
+- audio_clip_3
+- video_clip_5
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2 link_clips + add_effect. Longest V1=vc3 (18-30), audio at same time=ac3.
+    Shortest V2=vc5.
+  cell: state × atomic

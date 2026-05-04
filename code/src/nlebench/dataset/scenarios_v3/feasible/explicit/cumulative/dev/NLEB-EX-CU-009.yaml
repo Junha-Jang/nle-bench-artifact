@@ -1,0 +1,50 @@
+id: NLEB-EX-CU-009
+legacy_id: NLB-v3-EX-CU-009
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: explicit
+  action: cumulative
+split: dev
+canary: NLE-BENCH-V3-DEV-f6532097
+fixture: complex_sequence
+turns:
+- instruction: Extend video_clip_5 by 2 seconds.
+- instruction: Add a caption 'The End' at the new end of video_clip_5. Keep the duration
+    change.
+constraints:
+  required:
+  - attribute_changed:
+      entity: video_clip_5
+      field: duration
+      direction: increase
+  - entity_exists:
+      entity: $new_caption_1
+  - unchanged_except:
+      changed:
+      - video_clip_5
+      - $new_caption_1
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_5
+- $new_caption_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2. update_clip -> add_caption, preserve duration.
+  cell: explicit × cumulative

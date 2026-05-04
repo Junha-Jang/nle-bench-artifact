@@ -1,0 +1,49 @@
+id: NLEB-CX-CU-034
+legacy_id: NLB-v3-CX-CU-034
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: context
+  action: cumulative
+split: test
+canary: NLE-BENCH-V3-TEST-83aa8a53
+fixture: simple_sequence
+turns:
+- instruction: Import new footage 'broll.mp4'.
+- instruction: Add a clip from it on V1 after the outro. Keep the import.
+- instruction: Lower the BGM by 3 dB. Preserve everything.
+constraints:
+  required:
+  - entity_exists:
+      entity: $new_media_1
+  - entity_exists:
+      entity: $new_clip_1
+  - attribute_changed:
+      entity: audio_clip_4
+      field: audio.volume
+      direction: decrease
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- $new_media_1
+- $new_clip_1
+- audio_clip_4
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2. import_media + add_clip + update_clip, preserve all.
+  cell: context × cumulative

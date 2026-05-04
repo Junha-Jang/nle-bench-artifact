@@ -1,0 +1,53 @@
+id: NLEB-CX-CU-024
+legacy_id: NLB-v3-CX-CU-024
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: context
+  action: cumulative
+split: test
+canary: NLE-BENCH-V3-TEST-606b2200
+fixture: complex_sequence
+turns:
+- instruction: 'Hero shot: scale 1.05.'
+- instruction: 'Hero shot: opacity 0.9. Keep scale.'
+- instruction: 'Hero shot: blur effect. Preserve all.'
+constraints:
+  required:
+  - attribute_equals:
+      entity: video_clip_3
+      field: transform.scale_x
+      value: 1.05
+  - attribute_equals:
+      entity: video_clip_3
+      field: transform.opacity
+      value: 0.9
+  - has_effect:
+      entity: video_clip_3
+      effect_type: blur
+  - unchanged_except:
+      changed:
+      - video_clip_3
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_3
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2. Hero=vc3. update x2 + add_effect, preserve all.
+  cell: context × cumulative

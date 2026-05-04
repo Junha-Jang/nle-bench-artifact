@@ -1,0 +1,220 @@
+{
+  "@context": {
+    "@language": "en",
+    "@vocab": "https://schema.org/",
+    "citeAs": "cr:citeAs",
+    "column": "cr:column",
+    "conformsTo": "dct:conformsTo",
+    "cr": "http://mlcommons.org/croissant/",
+    "rai": "http://mlcommons.org/croissant/RAI/",
+    "data": {
+      "@id": "cr:data",
+      "@type": "@json"
+    },
+    "dataType": {
+      "@id": "cr:dataType",
+      "@type": "@vocab"
+    },
+    "dct": "http://purl.org/dc/terms/",
+    "equivalentProperty": "cr:equivalentProperty",
+    "examples": {
+      "@id": "cr:examples",
+      "@type": "@json"
+    },
+    "extract": "cr:extract",
+    "field": "cr:field",
+    "fileProperty": "cr:fileProperty",
+    "fileObject": "cr:fileObject",
+    "fileSet": "cr:fileSet",
+    "format": "cr:format",
+    "includes": "cr:includes",
+    "isLiveDataset": "cr:isLiveDataset",
+    "jsonPath": "cr:jsonPath",
+    "key": "cr:key",
+    "md5": "cr:md5",
+    "parentField": "cr:parentField",
+    "path": "cr:path",
+    "recordSet": "cr:recordSet",
+    "references": "cr:references",
+    "regex": "cr:regex",
+    "repeated": "cr:repeated",
+    "replace": "cr:replace",
+    "samplingRate": "cr:samplingRate",
+    "sc": "https://schema.org/",
+    "separator": "cr:separator",
+    "source": "cr:source",
+    "subField": "cr:subField",
+    "transform": "cr:transform"
+  },
+  "@type": "sc:Dataset",
+  "name": "NLE-Bench",
+  "description": "NLE-Bench is an 800-scenario benchmark for evaluating tool-use agents on symbolic non-linear editing project states. Scenarios are organized as a 4 (perception) x 4 (execution) factorial of feasible scenarios (640) plus 80 infeasible and 80 ambiguous calibration scenarios. Each scenario provides a natural-language instruction, an initial EditProject state (JSON), a constraint set (YAML) for deterministic scoring, and taxonomy labels. No real media files or copyrighted content; fixtures reference media via abstract IDs. This artifact release uses the frozen v3.1 scenario-corpus snapshot; v3.1 is a corpus provenance label rather than the public benchmark release number.",
+  "conformsTo": "http://mlcommons.org/croissant/1.0",
+  "version": "1.0.0",
+  "datePublished": "2026-05-04",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "url": "https://anonymous.4open.science/r/nle-bench-artifact/",
+  "citeAs": "@inproceedings{nlebench2026, title={NLE-Bench: Feasibility-Aware Tool Use in Symbolic Non-Linear Video Editing}, booktitle={NeurIPS 2026 Evaluations and Datasets Track}, year={2026}, note={Anonymous; identity withheld for double-blind review}}",
+  "keywords": [
+    "tool-use agents",
+    "benchmark",
+    "video editing",
+    "calibration",
+    "refusal",
+    "clarification",
+    "abstention",
+    "constraint satisfaction"
+  ],
+  "creator": {
+    "@type": "Organization",
+    "name": "Anonymous (identity withheld for double-blind review)"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Anonymous (identity withheld for double-blind review)"
+  },
+  "isLiveDataset": false,
+  "rai:hasSyntheticData": true,
+  "rai:dataCollection": "Scenarios authored by the anonymous paper authors with commercial LLM assistance; all LLM outputs manually reviewed, edited, and checked. Authoring was informed by semi-structured feedback from three non-author professional video editors from a single convenience pool and analysis of 200+ editing-forum posts. All scenarios pass an automated linter for schema and fixture compatibility. Three non-author professional video editors from the same convenience pool rated 200 scenarios in the L1 pilot study. In the v3.1 refinement pass, all 800 YAML file hashes changed because every file received global metadata.annotators anonymization/normalization; after removing only that metadata field, 456 files are identical and 344 unique scenario YAMLs contain non-metadata content changes from Diagnosis/AM-Diagnosis rewrites plus targeted constraint, fixture, wording, and hygiene fixes. v3.1 has not yet received an independent model-blind external re-rating pass.",
+  "rai:dataPreprocessingProtocol": "Scenarios stored as YAML files with JSON Schema validation. Per-scenario canary strings derived from sha256(\"NLE-BENCH-V3::<id>::<split>\"). Dataset-level canary NLE-BENCH-V3-DATASET-7a3f9e2b included in repository README, license metadata, and this Croissant manifest for contamination detection.",
+  "rai:dataAnnotationProtocol": "L1 (Scenario Validation): three non-author professional video editors from a single convenience pool rated 200 scenarios on realism (5-point Likert) and feasibility (3-class) and received KRW 20,000 each, set by rounding up an estimated 20-second-per-item task-time wage calculation. L2 (Human-Metric Correlation): three non-author raters from the same coordinated annotator pool scored model outputs on intent fulfillment (5-point Likert) for 80 scenarios. L3 (Mixed-Expertise Decision Reference): the same L2 raters provided execute/clarify/refuse decisions on 80 scenarios. Each L2/L3 rater received KRW 70,000 for the combined L2+L3 bundle, set by rounding up an estimated 2 minutes per L2 item plus 3 minutes per L3 item. Written informed consent obtained from all participants. All six raters were non-author participants from a single convenience pool, so the annotation pool is not independent external validation.",
+  "rai:dataAnnotationPlatform": "Custom internal web UI (identity withheld for double-blind review)",
+  "rai:dataAnnotationAnalysis": "L1: Fleiss kappa = 0.35 pooled (200 scenarios x 3 raters; ordinal Krippendorff alpha = 0.51); bifurcation at kappa = 0.37 on 107 scenarios retained in v3.1 vs kappa = 0.22 on 93 scenarios rewritten. L2: Krippendorff alpha = 0.47 (full 80-scenario x 3-rater design, interval); Spearman rho = 0.55 (per-rating SR vs human score). L3: Fleiss kappa = 0.43 (categorical decision: execute/clarify/refuse).",
+  "rai:dataReleaseMaintenancePlan": "The anonymous review bundle contains all 800 scenarios for confidential audit. Public release will expose the 200-scenario dev split with the harness and retain the 600-scenario test split for server-side leaderboard evaluation. Private-test leaderboard responses are aggregate-only, with no per-scenario private feedback, raw private outputs, prompts, constraints, or private state/tool traces returned to submitters; planned leakage controls include submission/rate limits, private canary monitoring, and private-set rotation/versioning. Versioning: minor version bumps for constraint-logic changes; issues tracked via GitHub after public release; annual review cycle.",
+  "rai:personalSensitiveInformation": "None. Dataset does not contain personal information. Annotator identities are pseudonymized via codenames (annotator_a, annotator_b, ...). Scenario metadata role labels such as v3-sprint and author_pi are anonymous provenance labels retained to preserve v3/v3.1 corpus hashes.",
+  "rai:dataUseCases": "Recommended: tool-use agent evaluation, calibration/refusal/clarification research, difficulty-taxonomy studies, agent-framework comparison, direct-generation baselines for structured-state editing. Not recommended: video understanding evaluation, VLM/audio-LM benchmarking (text-only scope), training data for production NLE products (contamination concern).",
+  "rai:dataBiases": "Authoring was informed by feedback from three non-author professional video editors from a single convenience pool and analysis of editing-forum posts. The 4x4 factorial design ensures coverage of qualitatively different cognitive demands but does not claim universal coverage of NLE practice. English-only; multilingual extension left for future work. LLM-generated scenario templates were cross-checked against an operation-category codebook to mitigate bias toward LLM-solvable patterns.",
+  "rai:dataLimitations": "Text-only scope: scenarios that would require video or audio analysis are deliberately assigned to the infeasible taxonomy when the symbolic tool/state interface cannot support them; the legacy required_capability slot is not populated in the submitted v3.1 corpus. The four direct base fixtures used by the scenario corpus (simple_sequence, complex_sequence, multi_sequence, with_transitions) and their YAML-level patched variants are abstract; real-world editing projects are more complex. Synthetic instruction text may not cover the full distribution of professional editor utterances.",
+  "rai:dataSocialImpact": "Positive: enables systematic, reproducible evaluation of tool-use agents in a structured creative-tool domain; promotes calibrated agent behavior (appropriate refusal/clarification) over over-execution. Negative: as with any benchmark, risk of overfitting to NLE-Bench-specific patterns; mitigated via a public-dev/private-test release policy, server-side test evaluation, contamination canaries, and capability-gated rewrite policy.",
+  "distribution": [
+    {
+      "@type": "cr:FileObject",
+      "@id": "scenarios-archive",
+      "name": "scenarios_v3_1.zip",
+      "description": "Confidential review zip archive containing all 800 scenario YAML files organized as feasible/{perception}/{execution}/{dev,test}/, infeasible/{perception}/{dev,test}/, and ambiguous/{perception}/{dev,test}/. Public release is intended to expose the dev split and keep test server-evaluated.",
+      "contentUrl": "scenarios_v3_1.zip",
+      "encodingFormat": "application/zip",
+      "sha256": "PLACEHOLDER_FOR_CAMERA_READY"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "scenario-yamls",
+      "name": "scenario-yamls",
+      "description": "All scenario YAML files in scenarios_v3_1/.",
+      "containedIn": {
+        "@id": "scenarios-archive"
+      },
+      "encodingFormat": "application/x-yaml",
+      "includes": "scenarios_v3_1/**/*.yaml"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "human-study-records",
+      "name": "human_study.json",
+      "description": "Anonymized human study records (n=1,796) covering L1 scenario validation, L2 human-metric correlation, and L3 mixed-expertise decision reference. Schema documented in human_study_README.md.",
+      "contentUrl": "human_study.json",
+      "encodingFormat": "application/json",
+      "sha256": "PLACEHOLDER_FOR_CAMERA_READY"
+    }
+  ],
+  "recordSet": [
+    {
+      "@type": "cr:RecordSet",
+      "@id": "scenarios",
+      "name": "scenarios",
+      "description": "One record per scenario (n=800).",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "scenarios/id",
+          "name": "id",
+          "description": "Public scenario identifier of the form NLEB-{XX}-{YY}-{NNN} where XX is perception or calibration class (EX/CX/ST/DI/IN/AM), and YY is execution (AT/CO/DE/CU) for feasible cells.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "scenario-yamls"
+            },
+            "extract": {
+              "fileProperty": "fullpath"
+            },
+            "transform": {
+              "regex": "NLEB-[A-Z]{2}-[A-Z]{2}-\\d{3}"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "scenarios/legacy_id",
+          "name": "legacy_id",
+          "description": "Legacy pre-release scenario identifier retained for joining older run manifests and provenance files.",
+          "dataType": "sc:Text"
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "scenarios/perception",
+          "name": "perception",
+          "description": "Perception level: explicit / state / context / diagnosis / infeasible / ambiguous.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "scenario-yamls"
+            },
+            "extract": {
+              "fileProperty": "fullpath"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "scenarios/execution",
+          "name": "execution",
+          "description": "Execution structure (for feasible cells only): atomic / compound / dependent / cumulative.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "scenario-yamls"
+            },
+            "extract": {
+              "fileProperty": "fullpath"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "scenarios/feasibility",
+          "name": "feasibility",
+          "description": "Feasibility class: feasible / infeasible / ambiguous.",
+          "dataType": "sc:Text"
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "scenarios/split",
+          "name": "split",
+          "description": "Train/eval split: dev (200 scenarios) / test (600 scenarios).",
+          "dataType": "sc:Text"
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "scenarios/fixture",
+          "name": "fixture",
+          "description": "Initial-state template identifier (one of 5 deterministic fixtures).",
+          "dataType": "sc:Text"
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "scenarios/instruction",
+          "name": "instruction",
+          "description": "Natural-language editing instruction (English).",
+          "dataType": "sc:Text"
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "scenarios/canary",
+          "name": "canary",
+          "description": "Per-scenario canary string of the form NLE-BENCH-V3-{DEV|TEST}-<8hex> for contamination detection.",
+          "dataType": "sc:Text"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+id: NLEB-ST-DE-039
+legacy_id: NLB-v3-ST-DE-039
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L3
+  feasibility: feasible
+  information: state
+  action: dependent
+split: test
+canary: NLE-BENCH-V3-TEST-1398a24f
+fixture: complex_sequence
+turns:
+- instruction: Split the longest V1 clip at its midpoint.
+- instruction: Remove the second half since it has poor footage.
+- instruction: Add a fade-out to the remaining first half.
+constraints:
+  required:
+  - entity_count_changed:
+      type: video_clip
+      direction: increase
+  - has_effect:
+      entity: video_clip_3
+      effect_type: fade_out
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_3
+- $new_video_clip_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L3 split_clip → remove_clip → add_effect. Longest V1=vc3.
+  cell: state × dependent

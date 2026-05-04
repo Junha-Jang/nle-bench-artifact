@@ -1,0 +1,55 @@
+id: NLEB-DI-DE-023
+legacy_id: NLB-v3-DI-DE-023
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: diagnosis
+  action: dependent
+split: test
+canary: NLE-BENCH-V3-TEST-8acb11a0
+fixture:
+  base: complex_sequence
+  patch:
+  - op: set_attribute
+    params:
+      entity: video_clip_1
+      field: speed
+      value: 3.0
+turns:
+- instruction: A clip has a playback timing issue. Find it, restore normal speed,
+    then add a brightness effect to differentiate it visually.
+constraints:
+  required:
+  - attribute_equals:
+      entity: video_clip_1
+      field: speed
+      value: 1.0
+  - has_effect:
+      entity: video_clip_1
+      effect_type: brightness
+  - unchanged_except:
+      changed:
+      - video_clip_1
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2. update_clip -> add_effect.
+  cell: diagnosis × dependent

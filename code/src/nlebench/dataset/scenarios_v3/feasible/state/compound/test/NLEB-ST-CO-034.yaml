@@ -1,0 +1,44 @@
+id: NLEB-ST-CO-034
+legacy_id: NLB-v3-ST-CO-034
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: state
+  action: compound
+split: test
+canary: NLE-BENCH-V3-TEST-9b4d7d8c
+fixture: simple_sequence
+turns:
+- instruction: Add a caption 'Intro' at the start of the first video clip and set
+    it to 2 seconds long.
+- instruction: Add a caption 'Outro' at the start of the last video clip and set it
+    to 2 seconds long.
+constraints:
+  required:
+  - entity_count_changed:
+      type: caption
+      direction: increase
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- $new_caption_1
+- $new_caption_2
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2 add_caption + add_caption. First=vc1 (start 0). Last=vc3 (start 15).
+  cell: state × compound

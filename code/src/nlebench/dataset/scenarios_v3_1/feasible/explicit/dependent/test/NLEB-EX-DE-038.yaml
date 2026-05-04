@@ -1,0 +1,49 @@
+id: NLEB-EX-DE-038
+legacy_id: NLB-v3-EX-DE-038
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L3
+  feasibility: feasible
+  information: explicit
+  action: dependent
+split: test
+canary: NLE-BENCH-V3-TEST-1465fc55
+fixture: simple_sequence
+turns:
+- instruction: Unlink video_clip_1 from audio_clip_1.
+- instruction: Split video_clip_1 at 3 seconds and delete the first half.
+- instruction: Re-link the remaining half with audio_clip_1.
+constraints:
+  required:
+  - entity_not_exists:
+      entity: video_clip_1
+  - entity_exists:
+      entity: $new_clip_1
+  - has_link:
+      clip_ids:
+      - $new_clip_1
+      - audio_clip_1
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_1
+- $new_clip_1
+- audio_clip_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L3. unlink -> split -> remove -> link.
+  cell: explicit × dependent

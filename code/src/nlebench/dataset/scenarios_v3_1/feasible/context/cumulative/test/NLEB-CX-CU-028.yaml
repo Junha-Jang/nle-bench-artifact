@@ -1,0 +1,55 @@
+id: NLEB-CX-CU-028
+legacy_id: NLB-v3-CX-CU-028
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: context
+  action: cumulative
+split: test
+canary: NLE-BENCH-V3-TEST-9b22e27b
+fixture: complex_sequence
+turns:
+- instruction: Organize the project — move unused clips to a bin called 'Unused'.
+- instruction: Scale the hero shot to 1.1. Keep the bin.
+- instruction: Add a brightness effect to the hero. Preserve all.
+constraints:
+  required:
+  - attribute_equals:
+      entity: $bin_1
+      field: name
+      value: Unused
+  - attribute_equals:
+      entity: video_clip_3
+      field: transform.scale_x
+      value: 1.1
+  - has_effect:
+      entity: video_clip_3
+      effect_type: brightness
+  - unchanged_except:
+      changed:
+      - $bin_1
+      - video_clip_3
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- $bin_1
+- video_clip_3
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2. manage_bin + update_clip + add_effect, preserve all.
+  cell: context × cumulative

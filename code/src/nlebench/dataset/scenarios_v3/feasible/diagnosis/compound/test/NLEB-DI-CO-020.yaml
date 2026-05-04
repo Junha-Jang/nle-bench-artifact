@@ -1,0 +1,61 @@
+id: NLEB-DI-CO-020
+legacy_id: NLB-v3-DI-CO-020
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L1
+  feasibility: feasible
+  information: diagnosis
+  action: compound
+split: test
+canary: NLE-BENCH-V3-TEST-8116b5d8
+fixture:
+  base: multi_sequence
+  patch:
+  - op: set_attribute
+    params:
+      entity: vc_2
+      field: audio.muted
+      value: true
+  - op: add_effect
+    params:
+      clip_id: vc_2
+      effect_type: brightness
+      params:
+        amount: -90
+turns:
+- instruction: On tl1, the second video clip has issues. Diagnose and fix them all.
+constraints:
+  required:
+  - attribute_equals:
+      entity: vc_2
+      field: audio.muted
+      value: false
+  - entity_not_exists:
+      type: effect
+      parent: vc_2
+      effect_type: brightness
+  - unchanged_except:
+      changed:
+      - vc_2
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- vc_2
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L1 multi. update_clip + remove_effect.
+  cell: diagnosis × compound

@@ -1,0 +1,47 @@
+id: NLEB-ST-CU-034
+legacy_id: NLB-v3-ST-CU-034
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: state
+  action: cumulative
+split: test
+canary: NLE-BENCH-V3-TEST-ce72ff2c
+fixture: multi_sequence
+turns:
+- instruction: On timeline 1, set the longest video clip's opacity to 0.8.
+- instruction: Also on timeline 1, add a caption 'Scene 1' at that clip's start. Preserve
+    the opacity.
+constraints:
+  required:
+  - attribute_equals:
+      entity: vc_2
+      field: transform.opacity
+      value: 0.8
+  - entity_count_changed:
+      type: caption
+      direction: increase
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- vc_2
+- $new_caption_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2 multi. update_clip + add_caption. Explicit.
+  cell: state × cumulative

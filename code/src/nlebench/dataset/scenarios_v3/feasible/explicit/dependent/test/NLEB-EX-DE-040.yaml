@@ -1,0 +1,54 @@
+id: NLEB-EX-DE-040
+legacy_id: NLB-v3-EX-DE-040
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L3
+  feasibility: feasible
+  information: explicit
+  action: dependent
+split: test
+canary: NLE-BENCH-V3-TEST-8dc5174d
+fixture: multi_sequence
+turns:
+- instruction: Remove the existing effect on vc_1.
+- instruction: Speed vc_1 to 1.5x and shift vc_2 earlier to close the gap.
+- instruction: Add a cross-dissolve transition between vc_1 and vc_2.
+constraints:
+  required:
+  - entity_count_changed:
+      type: effect
+      direction: decrease
+  - attribute_equals:
+      entity: vc_1
+      field: speed
+      value: 1.5
+  - attribute_changed:
+      entity: vc_2
+      field: timeline_start
+      direction: decrease
+  - entity_exists:
+      entity: $new_transition_1
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- vc_1
+- vc_2
+- $new_transition_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L3 multi. remove_effect -> update x2 -> add_transition.
+  cell: explicit × dependent

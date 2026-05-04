@@ -1,0 +1,42 @@
+id: NLEB-EX-AT-029
+legacy_id: NLB-v3-EX-AT-029
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L1
+  feasibility: feasible
+  information: explicit
+  action: atomic
+split: test
+canary: NLE-BENCH-V3-TEST-6a7e7c37
+fixture: simple_sequence
+turns:
+- instruction: Add a new audio track named A3 to the sequence.
+constraints:
+  required:
+  - entity_count_changed:
+      type: track
+      direction: increase
+  - entity_exists:
+      entity: $new_track_1
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- $new_track_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L1 add_track.
+  cell: explicit × atomic

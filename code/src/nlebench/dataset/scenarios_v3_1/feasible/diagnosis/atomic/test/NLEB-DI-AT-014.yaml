@@ -1,0 +1,51 @@
+id: NLEB-DI-AT-014
+legacy_id: NLB-v3-DI-AT-014
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L1
+  feasibility: feasible
+  information: diagnosis
+  action: atomic
+split: test
+canary: NLE-BENCH-V3-TEST-37c5d943
+fixture:
+  base: simple_sequence
+  patch:
+  - op: set_attribute
+    params:
+      entity: video_clip_2
+      field: transform.scale_x
+      value: 0.1
+turns:
+- instruction: The second clip got squished horizontally — can you restore its normal width?
+constraints:
+  required:
+  - attribute_equals:
+      entity: video_clip_2
+      field: transform.scale_x
+      value: 1.0
+  - unchanged_except:
+      changed:
+      - video_clip_2
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_2
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L1. update_clip.
+  cell: diagnosis × atomic

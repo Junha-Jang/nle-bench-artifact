@@ -1,0 +1,51 @@
+id: NLEB-CX-CO-016
+legacy_id: NLB-v3-CX-CO-016
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L1
+  feasibility: feasible
+  information: context
+  action: compound
+split: test
+canary: NLE-BENCH-V3-TEST-2a6bee1c
+fixture:
+  base: complex_sequence
+  patch:
+  - op: add_effect
+    params:
+      clip_id: video_clip_4
+      effect_type: blur
+turns:
+- instruction: Remove the blur effect on the B-roll overlay and set its opacity to
+    0.7.
+constraints:
+  required:
+  - entity_count_changed:
+      type: effect
+      direction: decrease
+  - attribute_equals:
+      entity: video_clip_4
+      field: transform.opacity
+      value: 0.7
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_4
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L1. B-roll=earlier V2=vc4. remove_effect + update_clip.
+  cell: context × compound

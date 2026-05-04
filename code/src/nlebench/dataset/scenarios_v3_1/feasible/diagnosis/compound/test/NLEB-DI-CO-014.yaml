@@ -1,0 +1,60 @@
+id: NLEB-DI-CO-014
+legacy_id: NLB-v3-DI-CO-014
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L1
+  feasibility: feasible
+  information: diagnosis
+  action: compound
+split: test
+canary: NLE-BENCH-V3-TEST-bc9be6d7
+fixture:
+  base: simple_sequence
+  patch:
+  - op: set_attribute
+    params:
+      entity: audio_clip_1
+      field: audio.muted
+      value: true
+  - op: set_attribute
+    params:
+      entity: audio_clip_1
+      field: audio.pan
+      value: -1.0
+turns:
+- instruction: The first audio clip is silent and stuck fully on the left — restore both.
+constraints:
+  required:
+  - attribute_equals:
+      entity: audio_clip_1
+      field: audio.muted
+      value: false
+  - attribute_equals:
+      entity: audio_clip_1
+      field: audio.pan
+      value: 0.0
+  - unchanged_except:
+      changed:
+      - audio_clip_1
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- audio_clip_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L1. Bundled update_clip.
+  cell: diagnosis × compound

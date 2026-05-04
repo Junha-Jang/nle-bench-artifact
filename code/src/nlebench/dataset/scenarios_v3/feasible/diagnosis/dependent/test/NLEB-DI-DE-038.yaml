@@ -1,0 +1,66 @@
+id: NLEB-DI-DE-038
+legacy_id: NLB-v3-DI-DE-038
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L3
+  feasibility: feasible
+  information: diagnosis
+  action: dependent
+split: test
+canary: NLE-BENCH-V3-TEST-f13b8595
+fixture:
+  base: multi_sequence
+  patch:
+  - op: set_attribute
+    params:
+      entity: ac_1
+      field: audio.muted
+      value: true
+  - op: set_attribute
+    params:
+      entity: ac_2
+      field: audio.volume
+      value: 10.0
+turns:
+- instruction: On timeline 1, two audio clips have different issues. Find both. Fix
+    the first one, then set the second one's volume to -3 dB, then add brightness
+    effects to both.
+constraints:
+  required:
+  - attribute_equals:
+      entity: ac_1
+      field: audio.muted
+      value: false
+  - attribute_equals:
+      entity: ac_2
+      field: audio.volume
+      value: -3.0
+  - has_effect:
+      entity: ac_1
+      effect_type: brightness
+  - has_effect:
+      entity: ac_2
+      effect_type: contrast
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- ac_1
+- ac_2
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: 'L3: update_clip x2 + add_effect x2.'
+  cell: diagnosis × dependent

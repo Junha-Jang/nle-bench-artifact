@@ -1,0 +1,50 @@
+id: NLEB-EX-DE-020
+legacy_id: NLB-v3-EX-DE-020
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: explicit
+  action: dependent
+split: test
+canary: NLE-BENCH-V3-TEST-2ffbefb6
+fixture: complex_sequence
+turns:
+- instruction: Add a brightness effect to video_clip_1.
+- instruction: Set the brightness value to 1.3.
+constraints:
+  required:
+  - has_effect:
+      entity: video_clip_1
+      effect_type: brightness
+  - attribute_equals:
+      entity: $new_effect_1
+      field: params.value
+      value: 1.3
+  - unchanged_except:
+      changed:
+      - video_clip_1
+      - $new_effect_1
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_1
+- $new_effect_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2. add_effect -> update_effect.
+  cell: explicit × dependent

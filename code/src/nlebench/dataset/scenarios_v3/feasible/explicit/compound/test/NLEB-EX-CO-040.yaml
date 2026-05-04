@@ -1,0 +1,65 @@
+id: NLEB-EX-CO-040
+legacy_id: NLB-v3-EX-CO-040
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L3
+  feasibility: feasible
+  information: explicit
+  action: compound
+split: test
+canary: NLE-BENCH-V3-TEST-c581a787
+fixture: multi_sequence
+turns:
+- instruction: Create a video track 'composite', add a clip from bin_media at 0.0s
+    for 3.0s, and add another clip from bin_media at 3.0s for 4.0s on it.
+- instruction: Link the first new clip with ac_1, add a dissolve transition between
+    the two new clips with duration 0.5s, and add a blur effect to the second new
+    clip.
+constraints:
+  required:
+  - entity_exists:
+      type: track
+      where:
+        field: name
+        value: composite
+  - entity_count_changed:
+      type: video_clip
+      direction: increase
+  - has_link:
+      clip_ids:
+      - $new_clip_1
+      - ac_1
+  - has_transition:
+      between:
+      - $new_clip_1
+      - $new_clip_2
+      type: dissolve
+  - has_effect:
+      entity: $new_clip_2
+      effect_type: blur
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- $new_track_1
+- $new_clip_1
+- $new_clip_2
+- ac_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: 'L3. Two turns: (add_track + add_clip + add_clip) then (link_clips + add_transition
+    + add_effect).'
+  cell: explicit × compound

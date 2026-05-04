@@ -1,0 +1,38 @@
+id: NLEB-IN-CX-002
+legacy_id: NLB-v3-IN-CX-002
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L1
+  feasibility: infeasible
+  information: context
+  action: null
+split: dev
+canary: NLE-BENCH-V3-DEV-0995ead6
+fixture: simple_sequence
+turns:
+- instruction: Make the interview section louder.
+constraints:
+  required:
+  - unchanged_except:
+      changed: []
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001 []
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: No section labels. update_clip (no resolvable target).
+  cell: context × infeasible

@@ -1,0 +1,47 @@
+id: NLEB-CX-DE-031
+legacy_id: NLB-v3-CX-DE-031
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: context
+  action: dependent
+split: test
+canary: NLE-BENCH-V3-TEST-8d83d6b4
+fixture: complex_sequence
+turns:
+- instruction: Rename the main video track to 'A-Roll'.
+- instruction: And slow the hero shot on that track to 0.9x.
+constraints:
+  required:
+  - attribute_equals:
+      entity: video_track_1
+      field: name
+      value: A-Roll
+  - attribute_equals:
+      entity: video_clip_3
+      field: speed
+      value: 0.9
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_track_1
+- video_clip_3
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2. update_track -> update_clip.
+  cell: context × dependent

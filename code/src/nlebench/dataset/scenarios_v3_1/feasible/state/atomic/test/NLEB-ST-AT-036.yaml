@@ -1,0 +1,57 @@
+id: NLEB-ST-AT-036
+legacy_id: NLB-v3-ST-AT-036
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L3
+  feasibility: feasible
+  information: state
+  action: atomic
+split: test
+canary: NLE-BENCH-V3-TEST-32880c21
+fixture: complex_sequence
+turns:
+- instruction: Import a media file called 'outro.mp4' into the bin.
+- instruction: Add a caption 'Credits' at the timeline position where the longest
+    V1 clip ends.
+- instruction: Remove the shortest caption currently on the timeline.
+constraints:
+  required:
+  - entity_count_changed:
+      type: media
+      direction: increase
+  - entity_count_changed:
+      type: caption
+      direction: increase
+  - entity_exists:
+      entity: $new_caption_1
+  - attribute_equals:
+      entity: $new_caption_1
+      field: text
+      value: Credits
+  - entity_not_exists:
+      entity: caption_1
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- $new_media_1
+- $new_caption_1
+- caption_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L3. import_media + add_caption + remove_caption. Longest V1=vc3 ends at 30.
+    Shorter caption=caption_1.
+  cell: state × atomic

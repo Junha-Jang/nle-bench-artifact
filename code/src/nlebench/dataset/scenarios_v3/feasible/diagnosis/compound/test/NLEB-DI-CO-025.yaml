@@ -1,0 +1,69 @@
+id: NLEB-DI-CO-025
+legacy_id: NLB-v3-DI-CO-025
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: diagnosis
+  action: compound
+split: test
+canary: NLE-BENCH-V3-TEST-548f8823
+fixture:
+  base: complex_sequence
+  patch:
+  - op: set_attribute
+    params:
+      entity: audio_clip_4
+      field: audio.volume
+      value: 18.0
+  - op: set_attribute
+    params:
+      entity: audio_clip_4
+      field: audio.pan
+      value: -1.0
+  - op: set_attribute
+    params:
+      entity: audio_clip_4
+      field: audio.muted
+      value: true
+turns:
+- instruction: The BGM has multiple things wrong with it. Restore it to normal.
+constraints:
+  required:
+  - attribute_equals:
+      entity: audio_clip_4
+      field: audio.muted
+      value: false
+  - attribute_equals:
+      entity: audio_clip_4
+      field: audio.volume
+      value: 0.0
+  - attribute_equals:
+      entity: audio_clip_4
+      field: audio.pan
+      value: 0.0
+  - unchanged_except:
+      changed:
+      - audio_clip_4
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- audio_clip_4
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2. Bundled update_clip.
+  cell: diagnosis × compound

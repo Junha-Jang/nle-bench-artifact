@@ -1,0 +1,63 @@
+id: NLEB-DI-CU-024
+legacy_id: NLB-v3-DI-CU-024
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: diagnosis
+  action: cumulative
+split: test
+canary: NLE-BENCH-V3-TEST-0eb4ea07
+fixture:
+  base: complex_sequence
+  patch:
+  - op: set_attribute
+    params:
+      entity: video_clip_5
+      field: transform.opacity
+      value: 0.0
+turns:
+- instruction: A V2 clip is completely invisible — can you bring it back?
+- instruction: Now rotate it 8 degrees.
+- instruction: And scale the longest V1 clip to 1.05 — keep everything from before.
+constraints:
+  required:
+  - attribute_equals:
+      entity: video_clip_5
+      field: transform.opacity
+      value: 1.0
+  - attribute_equals:
+      entity: video_clip_5
+      field: transform.rotation
+      value: 8.0
+  - attribute_equals:
+      entity: video_clip_3
+      field: transform.scale_x
+      value: 1.05
+  - unchanged_except:
+      changed:
+      - video_clip_5
+      - video_clip_3
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_5
+- video_clip_3
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: 'L2. T1-T3: update_clip x3.'
+  cell: diagnosis × cumulative

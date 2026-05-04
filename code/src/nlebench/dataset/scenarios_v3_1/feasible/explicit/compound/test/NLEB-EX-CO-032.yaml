@@ -1,0 +1,55 @@
+id: NLEB-EX-CO-032
+legacy_id: NLB-v3-EX-CO-032
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: explicit
+  action: compound
+split: test
+canary: NLE-BENCH-V3-TEST-016f04f1
+fixture: with_transitions
+turns:
+- instruction: Add a cross-dissolve transition between vc_1 and vc_2 lasting 1.2s,
+    add a saturation effect to vc_2, and set vc_2 scale to 0.95.
+constraints:
+  required:
+  - has_transition:
+      between:
+      - vc_1
+      - vc_2
+      type: cross_dissolve
+  - has_effect:
+      entity: vc_2
+      effect_type: saturation
+  - attribute_equals:
+      entity: vc_2
+      field: transform.scale_x
+      value: 0.95
+  - unchanged_except:
+      changed:
+      - vc_1
+      - vc_2
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- vc_1
+- vc_2
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2. add_transition + add_effect + update_clip.
+  cell: explicit × compound

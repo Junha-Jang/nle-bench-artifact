@@ -1,0 +1,24 @@
+{
+  "artifact": "refusal_audit_status",
+  "status": "aggregate_only_not_recomputable_from_anonymous_bundle",
+  "scope": {
+    "audited_rows": 8,
+    "audited_records": 640,
+    "scenario_class": "infeasible"
+  },
+  "reported_aggregate_diagnostic": {
+    "cohen_kappa": 0.875,
+    "exact_agreement_rate": 0.928,
+    "detector_positive_count": 418,
+    "agreement_only_refuse_count": 338,
+    "disagreement_count": 46
+  },
+  "missing_per_record_fields": [
+    "judge_a_label",
+    "judge_b_label",
+    "agreement_flag",
+    "final_agreement_only_label"
+  ],
+  "reason": "The response-hash-keyed dual-judge label table was not recoverable into the anonymous review bundle. The paper therefore treats the dual-judge refusal audit as an internal aggregate diagnostic, not as a reviewer-recomputable artifact.",
+  "future_release_requirement": "If recovered, release a CSV or JSONL keyed by agent_response_sha256 with model, scenario_id, detector label, judge A/B labels, agreement flag, and final conservative label. If not recovered, keep the aggregate audit diagnostic-only, do not claim exact recomputation, and use future reruns to regenerate response-hash-keyed labels."
+}

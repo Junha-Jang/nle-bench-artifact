@@ -1,0 +1,52 @@
+id: NLEB-ST-CU-032
+legacy_id: NLB-v3-ST-CU-032
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: state
+  action: cumulative
+split: test
+canary: NLE-BENCH-V3-TEST-dff01029
+fixture: complex_sequence
+turns:
+- instruction: Set the first caption's opacity to 0.8.
+- instruction: Now find the caption that appears later and reduce its opacity to 0.6.
+- instruction: Keep the first caption's opacity unchanged.
+constraints:
+  required:
+  - attribute_equals:
+      entity: caption_1
+      field: transform.opacity
+      value: 0.8
+  - attribute_equals:
+      entity: caption_2
+      field: transform.opacity
+      value: 0.6
+  - unchanged_except:
+      changed:
+      - caption_1
+      - caption_2
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- caption_1
+- caption_2
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2 update_caption + update_caption. Caption state query. Explicit.
+  cell: state × cumulative

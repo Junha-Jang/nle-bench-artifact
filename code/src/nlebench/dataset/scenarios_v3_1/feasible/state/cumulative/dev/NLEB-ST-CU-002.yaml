@@ -1,0 +1,65 @@
+id: NLEB-ST-CU-002
+legacy_id: NLB-v3-ST-CU-002
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: state
+  action: cumulative
+split: dev
+canary: NLE-BENCH-V3-DEV-fc4cbb3c
+fixture: complex_sequence
+turns:
+- instruction: Find the shortest video clip on track V2 and scale it up to 110%.
+- instruction: Add a caption 'Featured' spanning the timeline of that clip. Don't
+    lose the scale change.
+- instruction: Update the earlier caption's text to 'Intro'. Preserve everything.
+constraints:
+  required:
+  - attribute_equals:
+      entity: video_clip_5
+      field: transform.scale_x
+      value: 1.1
+  - entity_count_changed:
+      type: caption
+      direction: increase
+  - entity_exists:
+      entity: $new_caption_1
+  - attribute_equals:
+      entity: $new_caption_1
+      field: text
+      value: Featured
+  - attribute_equals:
+      entity: caption_1
+      field: text
+      value: Intro
+  - unchanged_except:
+      changed:
+      - video_clip_5
+      - $new_caption_1
+      - caption_1
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_5
+- $new_caption_1
+- caption_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2. update_clip + add_caption + update_caption. Shortest V2=vc5. Explicit
+    preservation.
+  cell: state × cumulative

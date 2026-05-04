@@ -1,0 +1,55 @@
+id: NLEB-EX-DE-028
+legacy_id: NLB-v3-EX-DE-028
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: explicit
+  action: dependent
+split: test
+canary: NLE-BENCH-V3-TEST-13d3e06c
+fixture: complex_sequence
+turns:
+- instruction: Add a contrast effect and a saturation effect to video_clip_3.
+- instruction: Set the saturation intensity to 1.4.
+constraints:
+  required:
+  - has_effect:
+      entity: video_clip_3
+      effect_type: contrast
+  - has_effect:
+      entity: video_clip_3
+      effect_type: saturation
+  - attribute_equals:
+      entity: $new_effect_2
+      field: params.intensity
+      value: 1.4
+  - unchanged_except:
+      changed:
+      - video_clip_3
+      - $new_effect_1
+      - $new_effect_2
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_3
+- $new_effect_1
+- $new_effect_2
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2. add_effect x2 -> update_effect.
+  cell: explicit × dependent

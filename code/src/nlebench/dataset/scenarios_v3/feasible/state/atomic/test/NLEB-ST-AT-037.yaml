@@ -1,0 +1,44 @@
+id: NLEB-ST-AT-037
+legacy_id: NLB-v3-ST-AT-037
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L1
+  feasibility: feasible
+  information: state
+  action: atomic
+split: test
+canary: NLE-BENCH-V3-TEST-30ad9169
+fixture: simple_sequence
+turns:
+- instruction: 'Longest video: opacity 0.55.'
+constraints:
+  required:
+  - attribute_equals:
+      entity: video_clip_2
+      field: transform.opacity
+      value: 0.55
+  - unchanged_except:
+      changed:
+      - video_clip_2
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_2
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L1 fragment update_clip.
+  cell: state × atomic

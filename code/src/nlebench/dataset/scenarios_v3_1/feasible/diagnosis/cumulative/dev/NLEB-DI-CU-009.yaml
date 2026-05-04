@@ -1,0 +1,58 @@
+id: NLEB-DI-CU-009
+legacy_id: NLB-v3-DI-CU-009
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L1
+  feasibility: feasible
+  information: diagnosis
+  action: cumulative
+split: dev
+canary: NLE-BENCH-V3-DEV-2fa92d07
+fixture:
+  base: simple_sequence
+  patch:
+  - op: set_attribute
+    params:
+      entity: video_clip_3
+      field: transform.position_y
+      value: 400
+turns:
+- instruction: The third clip got pushed way down off-center — can you bring it back to normal?
+- instruction: Now reduce the BGM volume by 3 dB — keep the position fix.
+constraints:
+  required:
+  - attribute_equals:
+      entity: video_clip_3
+      field: transform.position_y
+      value: 0.5
+  - attribute_changed:
+      entity: audio_clip_4
+      field: audio.volume
+      direction: decrease
+  - unchanged_except:
+      changed:
+      - video_clip_3
+      - audio_clip_4
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_3
+- audio_clip_4
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: 'L1. T1: update_clip (position). T2: update_clip (volume).'
+  cell: diagnosis × cumulative

@@ -1,0 +1,52 @@
+id: NLEB-CX-CO-037
+legacy_id: NLB-v3-CX-CO-037
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L3
+  feasibility: feasible
+  information: context
+  action: compound
+split: test
+canary: NLE-BENCH-V3-TEST-b7837858
+fixture: complex_sequence
+turns:
+- instruction: 'The opening V1 clip: scale 1.05 and add a blur effect.'
+- instruction: Smooth the cut into the bridge with a wipe transition.
+- instruction: And add a scene label 'Part 1' at 0s.
+constraints:
+  required:
+  - attribute_equals:
+      entity: video_clip_1
+      field: transform.scale_x
+      value: 1.05
+  - has_effect:
+      entity: video_clip_1
+      effect_type: blur
+  - entity_exists:
+      entity: $new_transition_1
+  - entity_exists:
+      entity: $new_caption_1
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_1
+- $new_transition_1
+- $new_caption_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L3. update_clip + add_effect + add_transition + add_caption.
+  cell: context × compound

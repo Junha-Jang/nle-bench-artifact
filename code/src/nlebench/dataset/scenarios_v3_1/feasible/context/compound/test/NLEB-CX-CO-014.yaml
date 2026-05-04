@@ -1,0 +1,45 @@
+id: NLEB-CX-CO-014
+legacy_id: NLB-v3-CX-CO-014
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L1
+  feasibility: feasible
+  information: context
+  action: compound
+split: test
+canary: NLE-BENCH-V3-TEST-e52f47ea
+fixture: simple_sequence
+turns:
+- instruction: The outro is too long — split it at 2 seconds and slow the second half
+    to 0.7x for a dreamy ending.
+constraints:
+  required:
+  - entity_exists:
+      entity: $new_clip_1
+  - attribute_equals:
+      entity: $new_clip_1
+      field: speed
+      value: 0.7
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_3
+- $new_clip_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L1. Outro=vc3. split_clip + update_clip.
+  cell: context × compound

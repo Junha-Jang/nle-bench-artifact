@@ -1,0 +1,51 @@
+id: NLEB-EX-CU-006
+legacy_id: NLB-v3-EX-CU-006
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: explicit
+  action: cumulative
+split: dev
+canary: NLE-BENCH-V3-DEV-968bc9c4
+fixture: simple_sequence
+turns:
+- instruction: Link video_clip_3 with audio_clip_3.
+- instruction: Shift both to start at 6s. The link must be preserved.
+constraints:
+  required:
+  - has_link:
+      clip_ids:
+      - video_clip_3
+      - audio_clip_3
+  - attribute_equals:
+      entity: video_clip_3
+      field: timeline_start
+      value: 6.0
+  - attribute_equals:
+      entity: audio_clip_3
+      field: timeline_start
+      value: 6.0
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_3
+- audio_clip_3
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2. link_clips -> update_clip, preserve link.
+  cell: explicit × cumulative

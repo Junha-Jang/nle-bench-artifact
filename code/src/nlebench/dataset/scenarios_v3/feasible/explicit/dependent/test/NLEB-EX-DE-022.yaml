@@ -1,0 +1,47 @@
+id: NLEB-EX-DE-022
+legacy_id: NLB-v3-EX-DE-022
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: explicit
+  action: dependent
+split: test
+canary: NLE-BENCH-V3-TEST-bf69dcfb
+fixture: simple_sequence
+turns:
+- instruction: Import 'logo.png' as new media.
+- instruction: Add it as a clip at 0s and scale it to 0.3 for a watermark.
+constraints:
+  required:
+  - entity_exists:
+      entity: $new_media_1
+  - entity_exists:
+      entity: $new_clip_1
+  - attribute_equals:
+      entity: $new_clip_1
+      field: transform.scale_x
+      value: 0.3
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- $new_media_1
+- $new_clip_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2. import_media -> add_clip -> update_clip.
+  cell: explicit × dependent

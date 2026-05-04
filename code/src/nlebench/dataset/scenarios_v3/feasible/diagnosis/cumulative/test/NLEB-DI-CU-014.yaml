@@ -1,0 +1,58 @@
+id: NLEB-DI-CU-014
+legacy_id: NLB-v3-DI-CU-014
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L1
+  feasibility: feasible
+  information: diagnosis
+  action: cumulative
+split: test
+canary: NLE-BENCH-V3-TEST-27130c09
+fixture:
+  base: simple_sequence
+  patch:
+  - op: set_attribute
+    params:
+      entity: video_clip_3
+      field: transform.rotation
+      value: 270.0
+turns:
+- instruction: A clip has a transform issue. Find and correct it.
+- instruction: Also scale the shortest video to 0.9. Don't undo your earlier fix.
+constraints:
+  required:
+  - attribute_equals:
+      entity: video_clip_3
+      field: transform.rotation
+      value: 0.0
+  - attribute_equals:
+      entity: video_clip_1
+      field: transform.scale_x
+      value: 0.9
+  - unchanged_except:
+      changed:
+      - video_clip_3
+      - video_clip_1
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_3
+- video_clip_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: 'L1. T1: update_clip. T2: update_clip.'
+  cell: diagnosis × cumulative

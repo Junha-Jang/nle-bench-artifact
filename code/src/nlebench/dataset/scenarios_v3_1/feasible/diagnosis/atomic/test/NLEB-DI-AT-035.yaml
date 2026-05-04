@@ -1,0 +1,63 @@
+id: NLEB-DI-AT-035
+legacy_id: NLB-v3-DI-AT-035
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: diagnosis
+  action: atomic
+split: test
+canary: NLE-BENCH-V3-TEST-681a0845
+fixture:
+  base: simple_sequence
+  patch:
+  - op: set_attribute
+    params:
+      entity: video_clip_1
+      field: speed
+      value: 2.5
+  - op: add_transition
+    params:
+      track_id: video_track_1
+      clip_id_1: video_clip_2
+      clip_id_2: video_clip_3
+      transition_type: slide
+      duration: 1.0
+turns:
+- instruction: The first clip is running too fast — get it back to normal speed.
+- instruction: Now kill that slide transition between the last two clips.
+constraints:
+  required:
+  - attribute_equals:
+      entity: video_clip_1
+      field: speed
+      value: 1.0
+  - entity_not_exists:
+      entity: transition_1
+  - unchanged_except:
+      changed:
+      - video_clip_1
+      - transition_1
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_1
+- transition_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2 fragment. update_clip + remove_transition.
+  cell: diagnosis × atomic

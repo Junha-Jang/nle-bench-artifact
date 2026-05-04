@@ -1,0 +1,48 @@
+id: NLEB-DI-AT-006
+legacy_id: NLB-v3-DI-AT-006
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L1
+  feasibility: feasible
+  information: diagnosis
+  action: atomic
+split: dev
+canary: NLE-BENCH-V3-DEV-69f3bb32
+fixture:
+  base: simple_sequence
+  patch:
+  - op: link_clips
+    params:
+      video_clip_id: video_clip_1
+      audio_clip_id: audio_clip_4
+turns:
+- instruction: One of the clips is linked to the wrong audio — can you separate them?
+constraints:
+  required:
+  - not_linked:
+      entity: video_clip_1
+  - not_linked:
+      entity: audio_clip_4
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_1
+- audio_clip_4
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L1. Detect wrong link->unlink_clips. vc1 should not be linked to ac4 (BGM).
+  cell: diagnosis × atomic

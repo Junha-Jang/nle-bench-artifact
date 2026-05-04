@@ -1,0 +1,42 @@
+id: NLEB-CX-AT-023
+legacy_id: NLB-v3-CX-AT-023
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L1
+  feasibility: feasible
+  information: context
+  action: atomic
+split: test
+canary: NLE-BENCH-V3-TEST-8b51c1a9
+fixture: simple_sequence
+turns:
+- instruction: We have new background music — import 'ambient_bg.mp3' into the project.
+constraints:
+  required:
+  - entity_exists:
+      entity: $new_media_1
+  - entity_count_changed:
+      type: media
+      direction: increase
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- $new_media_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L1. import_media.
+  cell: context × atomic

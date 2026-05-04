@@ -1,0 +1,52 @@
+id: NLEB-ST-DE-027
+legacy_id: NLB-v3-ST-DE-027
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: state
+  action: dependent
+split: test
+canary: NLE-BENCH-V3-TEST-66f43c96
+fixture: simple_sequence
+turns:
+- instruction: Shift the first V1 clip to start 2 seconds later.
+- instruction: Shift the clip that follows it later by the same amount so the sequence
+    stays contiguous.
+constraints:
+  required:
+  - attribute_changed:
+      entity: video_clip_1
+      field: timeline_start
+      direction: increase
+  - attribute_changed:
+      entity: video_clip_2
+      field: timeline_start
+      direction: increase
+  - unchanged_except:
+      changed:
+      - video_clip_1
+      - video_clip_2
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_1
+- video_clip_2
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2 update_clip cascade. Shortest=vc1, next=vc2.
+  cell: state × dependent

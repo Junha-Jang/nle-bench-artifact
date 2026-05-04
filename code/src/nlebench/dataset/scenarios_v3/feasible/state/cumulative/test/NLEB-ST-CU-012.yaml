@@ -1,0 +1,49 @@
+id: NLEB-ST-CU-012
+legacy_id: NLB-v3-ST-CU-012
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L1
+  feasibility: feasible
+  information: state
+  action: cumulative
+split: test
+canary: NLE-BENCH-V3-TEST-453735a6
+fixture: simple_sequence
+turns:
+- instruction: Set the opacity of the longest video clip to 0.75.
+- instruction: Now rotate it 20 degrees.
+constraints:
+  required:
+  - attribute_equals:
+      entity: video_clip_2
+      field: transform.opacity
+      value: 0.75
+  - attribute_equals:
+      entity: video_clip_2
+      field: transform.rotation
+      value: 20.0
+  - unchanged_except:
+      changed:
+      - video_clip_2
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_2
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L1 update_clip + update_clip. Same clip cumulative.
+  cell: state × cumulative

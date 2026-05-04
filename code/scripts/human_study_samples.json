@@ -1,0 +1,1927 @@
+{
+  "seed": 42,
+  "l2_set_a": [
+    {
+      "scenario_id": "NLEB-AM-CX-001",
+      "bucket": "ambiguous/context",
+      "feasibility": "ambiguous",
+      "perception": "context",
+      "execution": null,
+      "scale": "L1",
+      "split": "dev",
+      "models": [
+        "Sonnet 4.6",
+        "Falcon3-3B"
+      ],
+      "legacy_scenario_id": "NLB-v3-AM-CX-001"
+    },
+    {
+      "scenario_id": "NLEB-AM-CX-004",
+      "bucket": "ambiguous/context",
+      "feasibility": "ambiguous",
+      "perception": "context",
+      "execution": null,
+      "scale": "L1",
+      "split": "dev",
+      "models": [
+        "Qwen3.5-27B",
+        "Qwen3-32B"
+      ],
+      "legacy_scenario_id": "NLB-v3-AM-CX-004"
+    },
+    {
+      "scenario_id": "NLEB-AM-CX-008",
+      "bucket": "ambiguous/context",
+      "feasibility": "ambiguous",
+      "perception": "context",
+      "execution": null,
+      "scale": "L1",
+      "split": "test",
+      "models": [
+        "Sonnet 4.6",
+        "Falcon3-3B"
+      ],
+      "legacy_scenario_id": "NLB-v3-AM-CX-008"
+    },
+    {
+      "scenario_id": "NLEB-AM-CX-009",
+      "bucket": "ambiguous/context",
+      "feasibility": "ambiguous",
+      "perception": "context",
+      "execution": null,
+      "scale": "L1",
+      "split": "test",
+      "models": [
+        "Sonnet 4.6",
+        "Qwen3.5-27B"
+      ],
+      "legacy_scenario_id": "NLB-v3-AM-CX-009"
+    },
+    {
+      "scenario_id": "NLEB-AM-DI-002",
+      "bucket": "ambiguous/diagnosis",
+      "feasibility": "ambiguous",
+      "perception": "diagnosis",
+      "execution": null,
+      "scale": "L1",
+      "split": "dev",
+      "models": [
+        "Qwen3-32B",
+        "Falcon3-3B"
+      ],
+      "legacy_scenario_id": "NLB-v3-AM-DI-002"
+    },
+    {
+      "scenario_id": "NLEB-AM-DI-003",
+      "bucket": "ambiguous/diagnosis",
+      "feasibility": "ambiguous",
+      "perception": "diagnosis",
+      "execution": null,
+      "scale": "L1",
+      "split": "dev",
+      "models": [
+        "Qwen3.5-27B",
+        "Falcon3-3B"
+      ],
+      "legacy_scenario_id": "NLB-v3-AM-DI-003"
+    },
+    {
+      "scenario_id": "NLEB-AM-DI-014",
+      "bucket": "ambiguous/diagnosis",
+      "feasibility": "ambiguous",
+      "perception": "diagnosis",
+      "execution": null,
+      "scale": "L1",
+      "split": "test",
+      "models": [
+        "Qwen3-32B",
+        "Falcon3-3B"
+      ],
+      "legacy_scenario_id": "NLB-v3-AM-DI-014"
+    },
+    {
+      "scenario_id": "NLEB-AM-DI-018",
+      "bucket": "ambiguous/diagnosis",
+      "feasibility": "ambiguous",
+      "perception": "diagnosis",
+      "execution": null,
+      "scale": "L1",
+      "split": "test",
+      "models": [
+        "Qwen3.5-27B",
+        "Sonnet 4.6"
+      ],
+      "legacy_scenario_id": "NLB-v3-AM-DI-018"
+    },
+    {
+      "scenario_id": "NLEB-AM-EX-001",
+      "bucket": "ambiguous/explicit",
+      "feasibility": "ambiguous",
+      "perception": "explicit",
+      "execution": null,
+      "scale": "L1",
+      "split": "dev",
+      "models": [
+        "Qwen3-32B",
+        "Falcon3-3B"
+      ],
+      "legacy_scenario_id": "NLB-v3-AM-EX-001"
+    },
+    {
+      "scenario_id": "NLEB-AM-EX-007",
+      "bucket": "ambiguous/explicit",
+      "feasibility": "ambiguous",
+      "perception": "explicit",
+      "execution": null,
+      "scale": "L1",
+      "split": "test",
+      "models": [
+        "Sonnet 4.6",
+        "Qwen3-32B"
+      ],
+      "legacy_scenario_id": "NLB-v3-AM-EX-007"
+    },
+    {
+      "scenario_id": "NLEB-AM-EX-017",
+      "bucket": "ambiguous/explicit",
+      "feasibility": "ambiguous",
+      "perception": "explicit",
+      "execution": null,
+      "scale": "L1",
+      "split": "test",
+      "models": [
+        "Qwen3.5-27B",
+        "Sonnet 4.6"
+      ],
+      "legacy_scenario_id": "NLB-v3-AM-EX-017"
+    },
+    {
+      "scenario_id": "NLEB-AM-EX-018",
+      "bucket": "ambiguous/explicit",
+      "feasibility": "ambiguous",
+      "perception": "explicit",
+      "execution": null,
+      "scale": "L1",
+      "split": "test",
+      "models": [
+        "Qwen3.5-27B",
+        "Qwen3-32B"
+      ],
+      "legacy_scenario_id": "NLB-v3-AM-EX-018"
+    },
+    {
+      "scenario_id": "NLEB-AM-ST-001",
+      "bucket": "ambiguous/state",
+      "feasibility": "ambiguous",
+      "perception": "state",
+      "execution": null,
+      "scale": "L1",
+      "split": "dev",
+      "models": [
+        "Sonnet 4.6",
+        "Falcon3-3B"
+      ],
+      "legacy_scenario_id": "NLB-v3-AM-ST-001"
+    },
+    {
+      "scenario_id": "NLEB-AM-ST-006",
+      "bucket": "ambiguous/state",
+      "feasibility": "ambiguous",
+      "perception": "state",
+      "execution": null,
+      "scale": "L1",
+      "split": "test",
+      "models": [
+        "Sonnet 4.6",
+        "Qwen3.5-27B"
+      ],
+      "legacy_scenario_id": "NLB-v3-AM-ST-006"
+    },
+    {
+      "scenario_id": "NLEB-AM-ST-009",
+      "bucket": "ambiguous/state",
+      "feasibility": "ambiguous",
+      "perception": "state",
+      "execution": null,
+      "scale": "L1",
+      "split": "test",
+      "models": [
+        "Qwen3-32B",
+        "Falcon3-3B"
+      ],
+      "legacy_scenario_id": "NLB-v3-AM-ST-009"
+    },
+    {
+      "scenario_id": "NLEB-AM-ST-014",
+      "bucket": "ambiguous/state",
+      "feasibility": "ambiguous",
+      "perception": "state",
+      "execution": null,
+      "scale": "L1",
+      "split": "test",
+      "models": [
+        "Qwen3.5-27B",
+        "Falcon3-3B"
+      ],
+      "legacy_scenario_id": "NLB-v3-AM-ST-014"
+    },
+    {
+      "scenario_id": "NLEB-CX-AT-006",
+      "bucket": "feasible/context/atomic",
+      "feasibility": "feasible",
+      "perception": "context",
+      "execution": "atomic",
+      "scale": "L1",
+      "split": "dev",
+      "models": [
+        "Qwen3-32B",
+        "Sonnet 4.6"
+      ],
+      "legacy_scenario_id": "NLB-v3-CX-AT-006"
+    },
+    {
+      "scenario_id": "NLEB-CX-AT-007",
+      "bucket": "feasible/context/atomic",
+      "feasibility": "feasible",
+      "perception": "context",
+      "execution": "atomic",
+      "scale": "L2",
+      "split": "dev",
+      "models": [
+        "Qwen3-32B",
+        "Qwen3.5-27B"
+      ],
+      "legacy_scenario_id": "NLB-v3-CX-AT-007"
+    },
+    {
+      "scenario_id": "NLEB-CX-AT-022",
+      "bucket": "feasible/context/atomic",
+      "feasibility": "feasible",
+      "perception": "context",
+      "execution": "atomic",
+      "scale": "L1",
+      "split": "test",
+      "models": [
+        "Sonnet 4.6",
+        "Falcon3-3B"
+      ],
+      "legacy_scenario_id": "NLB-v3-CX-AT-022"
+    },
+    {
+      "scenario_id": "NLEB-CX-CO-017",
+      "bucket": "feasible/context/compound",
+      "feasibility": "feasible",
+      "perception": "context",
+      "execution": "compound",
+      "scale": "L1",
+      "split": "test",
+      "models": [
+        "Qwen3.5-27B",
+        "Falcon3-3B"
+      ],
+      "legacy_scenario_id": "NLB-v3-CX-CO-017"
+    },
+    {
+      "scenario_id": "NLEB-CX-CO-023",
+      "bucket": "feasible/context/compound",
+      "feasibility": "feasible",
+      "perception": "context",
+      "execution": "compound",
+      "scale": "L2",
+      "split": "test",
+      "models": [
+        "Qwen3-32B",
+        "Sonnet 4.6"
+      ],
+      "legacy_scenario_id": "NLB-v3-CX-CO-023"
+    },
+    {
+      "scenario_id": "NLEB-CX-CO-039",
+      "bucket": "feasible/context/compound",
+      "feasibility": "feasible",
+      "perception": "context",
+      "execution": "compound",
+      "scale": "L2",
+      "split": "test",
+      "models": [
+        "Qwen3.5-27B",
+        "Falcon3-3B"
+      ],
+      "legacy_scenario_id": "NLB-v3-CX-CO-039"
+    },
+    {
+      "scenario_id": "NLEB-CX-CU-006",
+      "bucket": "feasible/context/cumulative",
+      "feasibility": "feasible",
+      "perception": "context",
+      "execution": "cumulative",
+      "scale": "L2",
+      "split": "dev",
+      "models": [
+        "Qwen3-32B",
+        "Sonnet 4.6"
+      ],
+      "legacy_scenario_id": "NLB-v3-CX-CU-006"
+    },
+    {
+      "scenario_id": "NLEB-CX-CU-008",
+      "bucket": "feasible/context/cumulative",
+      "feasibility": "feasible",
+      "perception": "context",
+      "execution": "cumulative",
+      "scale": "L2",
+      "split": "dev",
+      "models": [
+        "Qwen3.5-27B",
+        "Qwen3-32B"
+      ],
+      "legacy_scenario_id": "NLB-v3-CX-CU-008"
+    },
+    {
+      "scenario_id": "NLEB-CX-CU-025",
+      "bucket": "feasible/context/cumulative",
+      "feasibility": "feasible",
+      "perception": "context",
+      "execution": "cumulative",
+      "scale": "L2",
+      "split": "test",
+      "models": [
+        "Falcon3-3B",
+        "Sonnet 4.6"
+      ],
+      "legacy_scenario_id": "NLB-v3-CX-CU-025"
+    },
+    {
+      "scenario_id": "NLEB-CX-DE-005",
+      "bucket": "feasible/context/dependent",
+      "feasibility": "feasible",
+      "perception": "context",
+      "execution": "dependent",
+      "scale": "L2",
+      "split": "dev",
+      "models": [
+        "Qwen3.5-27B",
+        "Qwen3-32B"
+      ],
+      "legacy_scenario_id": "NLB-v3-CX-DE-005"
+    },
+    {
+      "scenario_id": "NLEB-CX-DE-013",
+      "bucket": "feasible/context/dependent",
+      "feasibility": "feasible",
+      "perception": "context",
+      "execution": "dependent",
+      "scale": "L2",
+      "split": "test",
+      "models": [
+        "Sonnet 4.6",
+        "Falcon3-3B"
+      ],
+      "legacy_scenario_id": "NLB-v3-CX-DE-013"
+    },
+    {
+      "scenario_id": "NLEB-CX-DE-037",
+      "bucket": "feasible/context/dependent",
+      "feasibility": "feasible",
+      "perception": "context",
+      "execution": "dependent",
+      "scale": "L3",
+      "split": "test",
+      "models": [
+        "Qwen3.5-27B",
+        "Qwen3-32B"
+      ],
+      "legacy_scenario_id": "NLB-v3-CX-DE-037"
+    },
+    {
+      "scenario_id": "NLEB-DI-AT-006",
+      "bucket": "feasible/diagnosis/atomic",
+      "feasibility": "feasible",
+      "perception": "diagnosis",
+      "execution": "atomic",
+      "scale": "L1",
+      "split": "dev",
+      "models": [
+        "Falcon3-3B",
+        "Sonnet 4.6"
+      ],
+      "legacy_scenario_id": "NLB-v3-DI-AT-006"
+    },
+    {
+      "scenario_id": "NLEB-DI-AT-007",
+      "bucket": "feasible/diagnosis/atomic",
+      "feasibility": "feasible",
+      "perception": "diagnosis",
+      "execution": "atomic",
+      "scale": "L2",
+      "split": "dev",
+      "models": [
+        "Qwen3.5-27B",
+        "Qwen3-32B"
+      ],
+      "legacy_scenario_id": "NLB-v3-DI-AT-007"
+    },
+    {
+      "scenario_id": "NLEB-DI-AT-015",
+      "bucket": "feasible/diagnosis/atomic",
+      "feasibility": "feasible",
+      "perception": "diagnosis",
+      "execution": "atomic",
+      "scale": "L1",
+      "split": "test",
+      "models": [
+        "Qwen3-32B",
+        "Falcon3-3B"
+      ],
+      "legacy_scenario_id": "NLB-v3-DI-AT-015"
+    },
+    {
+      "scenario_id": "NLEB-DI-CO-011",
+      "bucket": "feasible/diagnosis/compound",
+      "feasibility": "feasible",
+      "perception": "diagnosis",
+      "execution": "compound",
+      "scale": "L1",
+      "split": "test",
+      "models": [
+        "Qwen3-32B",
+        "Sonnet 4.6"
+      ],
+      "legacy_scenario_id": "NLB-v3-DI-CO-011"
+    },
+    {
+      "scenario_id": "NLEB-DI-CO-024",
+      "bucket": "feasible/diagnosis/compound",
+      "feasibility": "feasible",
+      "perception": "diagnosis",
+      "execution": "compound",
+      "scale": "L2",
+      "split": "test",
+      "models": [
+        "Qwen3-32B",
+        "Qwen3.5-27B"
+      ],
+      "legacy_scenario_id": "NLB-v3-DI-CO-024"
+    },
+    {
+      "scenario_id": "NLEB-DI-CO-040",
+      "bucket": "feasible/diagnosis/compound",
+      "feasibility": "feasible",
+      "perception": "diagnosis",
+      "execution": "compound",
+      "scale": "L3",
+      "split": "test",
+      "models": [
+        "Sonnet 4.6",
+        "Falcon3-3B"
+      ],
+      "legacy_scenario_id": "NLB-v3-DI-CO-040"
+    },
+    {
+      "scenario_id": "NLEB-DI-CU-005",
+      "bucket": "feasible/diagnosis/cumulative",
+      "feasibility": "feasible",
+      "perception": "diagnosis",
+      "execution": "cumulative",
+      "scale": "L2",
+      "split": "dev",
+      "models": [
+        "Sonnet 4.6",
+        "Qwen3.5-27B"
+      ],
+      "legacy_scenario_id": "NLB-v3-DI-CU-005"
+    },
+    {
+      "scenario_id": "NLEB-DI-CU-011",
+      "bucket": "feasible/diagnosis/cumulative",
+      "feasibility": "feasible",
+      "perception": "diagnosis",
+      "execution": "cumulative",
+      "scale": "L1",
+      "split": "test",
+      "models": [
+        "Qwen3.5-27B",
+        "Falcon3-3B"
+      ],
+      "legacy_scenario_id": "NLB-v3-DI-CU-011"
+    },
+    {
+      "scenario_id": "NLEB-DI-CU-039",
+      "bucket": "feasible/diagnosis/cumulative",
+      "feasibility": "feasible",
+      "perception": "diagnosis",
+      "execution": "cumulative",
+      "scale": "L3",
+      "split": "test",
+      "models": [
+        "Falcon3-3B",
+        "Sonnet 4.6"
+      ],
+      "legacy_scenario_id": "NLB-v3-DI-CU-039"
+    },
+    {
+      "scenario_id": "NLEB-DI-DE-018",
+      "bucket": "feasible/diagnosis/dependent",
+      "feasibility": "feasible",
+      "perception": "diagnosis",
+      "execution": "dependent",
+      "scale": "L1",
+      "split": "test",
+      "models": [
+        "Qwen3.5-27B",
+        "Qwen3-32B"
+      ],
+      "legacy_scenario_id": "NLB-v3-DI-DE-018"
+    },
+    {
+      "scenario_id": "NLEB-DI-DE-025",
+      "bucket": "feasible/diagnosis/dependent",
+      "feasibility": "feasible",
+      "perception": "diagnosis",
+      "execution": "dependent",
+      "scale": "L2",
+      "split": "test",
+      "models": [
+        "Qwen3-32B",
+        "Falcon3-3B"
+      ],
+      "legacy_scenario_id": "NLB-v3-DI-DE-025"
+    },
+    {
+      "scenario_id": "NLEB-DI-DE-030",
+      "bucket": "feasible/diagnosis/dependent",
+      "feasibility": "feasible",
+      "perception": "diagnosis",
+      "execution": "dependent",
+      "scale": "L2",
+      "split": "test",
+      "models": [
+        "Qwen3.5-27B",
+        "Sonnet 4.6"
+      ],
+      "legacy_scenario_id": "NLB-v3-DI-DE-030"
+    },
+    {
+      "scenario_id": "NLEB-EX-AT-003",
+      "bucket": "feasible/explicit/atomic",
+      "feasibility": "feasible",
+      "perception": "explicit",
+      "execution": "atomic",
+      "scale": "L1",
+      "split": "dev",
+      "models": [
+        "Falcon3-3B",
+        "Sonnet 4.6"
+      ],
+      "legacy_scenario_id": "NLB-v3-EX-AT-003"
+    },
+    {
+      "scenario_id": "NLEB-EX-AT-004",
+      "bucket": "feasible/explicit/atomic",
+      "feasibility": "feasible",
+      "perception": "explicit",
+      "execution": "atomic",
+      "scale": "L1",
+      "split": "dev",
+      "models": [
+        "Qwen3.5-27B",
+        "Qwen3-32B"
+      ],
+      "legacy_scenario_id": "NLB-v3-EX-AT-004"
+    },
+    {
+      "scenario_id": "NLEB-EX-AT-015",
+      "bucket": "feasible/explicit/atomic",
+      "feasibility": "feasible",
+      "perception": "explicit",
+      "execution": "atomic",
+      "scale": "L1",
+      "split": "test",
+      "models": [
+        "Falcon3-3B",
+        "Sonnet 4.6"
+      ],
+      "legacy_scenario_id": "NLB-v3-EX-AT-015"
+    },
+    {
+      "scenario_id": "NLEB-EX-CO-005",
+      "bucket": "feasible/explicit/compound",
+      "feasibility": "feasible",
+      "perception": "explicit",
+      "execution": "compound",
+      "scale": "L1",
+      "split": "dev",
+      "models": [
+        "Qwen3.5-27B",
+        "Qwen3-32B"
+      ],
+      "legacy_scenario_id": "NLB-v3-EX-CO-005"
+    },
+    {
+      "scenario_id": "NLEB-EX-CO-014",
+      "bucket": "feasible/explicit/compound",
+      "feasibility": "feasible",
+      "perception": "explicit",
+      "execution": "compound",
+      "scale": "L1",
+      "split": "test",
+      "models": [
+        "Falcon3-3B",
+        "Sonnet 4.6"
+      ],
+      "legacy_scenario_id": "NLB-v3-EX-CO-014"
+    },
+    {
+      "scenario_id": "NLEB-EX-CO-037",
+      "bucket": "feasible/explicit/compound",
+      "feasibility": "feasible",
+      "perception": "explicit",
+      "execution": "compound",
+      "scale": "L3",
+      "split": "test",
+      "models": [
+        "Qwen3.5-27B",
+        "Qwen3-32B"
+      ],
+      "legacy_scenario_id": "NLB-v3-EX-CO-037"
+    },
+    {
+      "scenario_id": "NLEB-EX-CU-010",
+      "bucket": "feasible/explicit/cumulative",
+      "feasibility": "feasible",
+      "perception": "explicit",
+      "execution": "cumulative",
+      "scale": "L3",
+      "split": "dev",
+      "models": [
+        "Falcon3-3B",
+        "Sonnet 4.6"
+      ],
+      "legacy_scenario_id": "NLB-v3-EX-CU-010"
+    },
+    {
+      "scenario_id": "NLEB-EX-CU-026",
+      "bucket": "feasible/explicit/cumulative",
+      "feasibility": "feasible",
+      "perception": "explicit",
+      "execution": "cumulative",
+      "scale": "L2",
+      "split": "test",
+      "models": [
+        "Qwen3.5-27B",
+        "Qwen3-32B"
+      ],
+      "legacy_scenario_id": "NLB-v3-EX-CU-026"
+    },
+    {
+      "scenario_id": "NLEB-EX-CU-030",
+      "bucket": "feasible/explicit/cumulative",
+      "feasibility": "feasible",
+      "perception": "explicit",
+      "execution": "cumulative",
+      "scale": "L2",
+      "split": "test",
+      "models": [
+        "Falcon3-3B",
+        "Sonnet 4.6"
+      ],
+      "legacy_scenario_id": "NLB-v3-EX-CU-030"
+    },
+    {
+      "scenario_id": "NLEB-EX-DE-017",
+      "bucket": "feasible/explicit/dependent",
+      "feasibility": "feasible",
+      "perception": "explicit",
+      "execution": "dependent",
+      "scale": "L1",
+      "split": "test",
+      "models": [
+        "Qwen3.5-27B",
+        "Qwen3-32B"
+      ],
+      "legacy_scenario_id": "NLB-v3-EX-DE-017"
+    },
+    {
+      "scenario_id": "NLEB-EX-DE-035",
+      "bucket": "feasible/explicit/dependent",
+      "feasibility": "feasible",
+      "perception": "explicit",
+      "execution": "dependent",
+      "scale": "L2",
+      "split": "test",
+      "models": [
+        "Falcon3-3B",
+        "Sonnet 4.6"
+      ],
+      "legacy_scenario_id": "NLB-v3-EX-DE-035"
+    },
+    {
+      "scenario_id": "NLEB-EX-DE-036",
+      "bucket": "feasible/explicit/dependent",
+      "feasibility": "feasible",
+      "perception": "explicit",
+      "execution": "dependent",
+      "scale": "L3",
+      "split": "test",
+      "models": [
+        "Qwen3.5-27B",
+        "Qwen3-32B"
+      ],
+      "legacy_scenario_id": "NLB-v3-EX-DE-036"
+    },
+    {
+      "scenario_id": "NLEB-IN-CX-001",
+      "bucket": "infeasible/context",
+      "feasibility": "infeasible",
+      "perception": "context",
+      "execution": null,
+      "scale": "L1",
+      "split": "dev",
+      "models": [
+        "Falcon3-3B",
+        "Sonnet 4.6"
+      ],
+      "legacy_scenario_id": "NLB-v3-IN-CX-001"
+    },
+    {
+      "scenario_id": "NLEB-IN-CX-006",
+      "bucket": "infeasible/context",
+      "feasibility": "infeasible",
+      "perception": "context",
+      "execution": null,
+      "scale": "L1",
+      "split": "test",
+      "models": [
+        "Qwen3.5-27B",
+        "Qwen3-32B"
+      ],
+      "legacy_scenario_id": "NLB-v3-IN-CX-006"
+    },
+    {
+      "scenario_id": "NLEB-IN-CX-014",
+      "bucket": "infeasible/context",
+      "feasibility": "infeasible",
+      "perception": "context",
+      "execution": null,
+      "scale": "L1",
+      "split": "test",
+      "models": [
+        "Qwen3.5-27B",
+        "Falcon3-3B"
+      ],
+      "legacy_scenario_id": "NLB-v3-IN-CX-014"
+    },
+    {
+      "scenario_id": "NLEB-IN-CX-015",
+      "bucket": "infeasible/context",
+      "feasibility": "infeasible",
+      "perception": "context",
+      "execution": null,
+      "scale": "L1",
+      "split": "test",
+      "models": [
+        "Qwen3-32B",
+        "Sonnet 4.6"
+      ],
+      "legacy_scenario_id": "NLB-v3-IN-CX-015"
+    },
+    {
+      "scenario_id": "NLEB-IN-DI-004",
+      "bucket": "infeasible/diagnosis",
+      "feasibility": "infeasible",
+      "perception": "diagnosis",
+      "execution": null,
+      "scale": "L1",
+      "split": "dev",
+      "models": [
+        "Qwen3.5-27B",
+        "Falcon3-3B"
+      ],
+      "legacy_scenario_id": "NLB-v3-IN-DI-004"
+    },
+    {
+      "scenario_id": "NLEB-IN-DI-010",
+      "bucket": "infeasible/diagnosis",
+      "feasibility": "infeasible",
+      "perception": "diagnosis",
+      "execution": null,
+      "scale": "L1",
+      "split": "test",
+      "models": [
+        "Qwen3-32B",
+        "Sonnet 4.6"
+      ],
+      "legacy_scenario_id": "NLB-v3-IN-DI-010"
+    },
+    {
+      "scenario_id": "NLEB-IN-DI-017",
+      "bucket": "infeasible/diagnosis",
+      "feasibility": "infeasible",
+      "perception": "diagnosis",
+      "execution": null,
+      "scale": "L1",
+      "split": "test",
+      "models": [
+        "Sonnet 4.6",
+        "Falcon3-3B"
+      ],
+      "legacy_scenario_id": "NLB-v3-IN-DI-017"
+    },
+    {
+      "scenario_id": "NLEB-IN-DI-020",
+      "bucket": "infeasible/diagnosis",
+      "feasibility": "infeasible",
+      "perception": "diagnosis",
+      "execution": null,
+      "scale": "L1",
+      "split": "test",
+      "models": [
+        "Qwen3.5-27B",
+        "Qwen3-32B"
+      ],
+      "legacy_scenario_id": "NLB-v3-IN-DI-020"
+    },
+    {
+      "scenario_id": "NLEB-IN-EX-001",
+      "bucket": "infeasible/explicit",
+      "feasibility": "infeasible",
+      "perception": "explicit",
+      "execution": null,
+      "scale": "L1",
+      "split": "dev",
+      "models": [
+        "Sonnet 4.6",
+        "Falcon3-3B"
+      ],
+      "legacy_scenario_id": "NLB-v3-IN-EX-001"
+    },
+    {
+      "scenario_id": "NLEB-IN-EX-006",
+      "bucket": "infeasible/explicit",
+      "feasibility": "infeasible",
+      "perception": "explicit",
+      "execution": null,
+      "scale": "L1",
+      "split": "test",
+      "models": [
+        "Qwen3-32B",
+        "Qwen3.5-27B"
+      ],
+      "legacy_scenario_id": "NLB-v3-IN-EX-006"
+    },
+    {
+      "scenario_id": "NLEB-IN-EX-017",
+      "bucket": "infeasible/explicit",
+      "feasibility": "infeasible",
+      "perception": "explicit",
+      "execution": null,
+      "scale": "L2",
+      "split": "test",
+      "models": [
+        "Qwen3.5-27B",
+        "Falcon3-3B"
+      ],
+      "legacy_scenario_id": "NLB-v3-IN-EX-017"
+    },
+    {
+      "scenario_id": "NLEB-IN-EX-018",
+      "bucket": "infeasible/explicit",
+      "feasibility": "infeasible",
+      "perception": "explicit",
+      "execution": null,
+      "scale": "L2",
+      "split": "test",
+      "models": [
+        "Sonnet 4.6",
+        "Qwen3-32B"
+      ],
+      "legacy_scenario_id": "NLB-v3-IN-EX-018"
+    },
+    {
+      "scenario_id": "NLEB-IN-ST-002",
+      "bucket": "infeasible/state",
+      "feasibility": "infeasible",
+      "perception": "state",
+      "execution": null,
+      "scale": "L1",
+      "split": "dev",
+      "models": [
+        "Qwen3.5-27B",
+        "Falcon3-3B"
+      ],
+      "legacy_scenario_id": "NLB-v3-IN-ST-002"
+    },
+    {
+      "scenario_id": "NLEB-IN-ST-008",
+      "bucket": "infeasible/state",
+      "feasibility": "infeasible",
+      "perception": "state",
+      "execution": null,
+      "scale": "L1",
+      "split": "test",
+      "models": [
+        "Qwen3-32B",
+        "Sonnet 4.6"
+      ],
+      "legacy_scenario_id": "NLB-v3-IN-ST-008"
+    },
+    {
+      "scenario_id": "NLEB-IN-ST-010",
+      "bucket": "infeasible/state",
+      "feasibility": "infeasible",
+      "perception": "state",
+      "execution": null,
+      "scale": "L1",
+      "split": "test",
+      "models": [
+        "Qwen3.5-27B",
+        "Falcon3-3B"
+      ],
+      "legacy_scenario_id": "NLB-v3-IN-ST-010"
+    },
+    {
+      "scenario_id": "NLEB-IN-ST-012",
+      "bucket": "infeasible/state",
+      "feasibility": "infeasible",
+      "perception": "state",
+      "execution": null,
+      "scale": "L1",
+      "split": "test",
+      "models": [
+        "Qwen3-32B",
+        "Sonnet 4.6"
+      ],
+      "legacy_scenario_id": "NLB-v3-IN-ST-012"
+    },
+    {
+      "scenario_id": "NLEB-ST-AT-009",
+      "bucket": "feasible/state/atomic",
+      "feasibility": "feasible",
+      "perception": "state",
+      "execution": "atomic",
+      "scale": "L3",
+      "split": "dev",
+      "models": [
+        "Sonnet 4.6",
+        "Falcon3-3B"
+      ],
+      "legacy_scenario_id": "NLB-v3-ST-AT-009"
+    },
+    {
+      "scenario_id": "NLEB-ST-AT-015",
+      "bucket": "feasible/state/atomic",
+      "feasibility": "feasible",
+      "perception": "state",
+      "execution": "atomic",
+      "scale": "L1",
+      "split": "test",
+      "models": [
+        "Qwen3.5-27B",
+        "Qwen3-32B"
+      ],
+      "legacy_scenario_id": "NLB-v3-ST-AT-015"
+    },
+    {
+      "scenario_id": "NLEB-ST-AT-033",
+      "bucket": "feasible/state/atomic",
+      "feasibility": "feasible",
+      "perception": "state",
+      "execution": "atomic",
+      "scale": "L2",
+      "split": "test",
+      "models": [
+        "Falcon3-3B",
+        "Sonnet 4.6"
+      ],
+      "legacy_scenario_id": "NLB-v3-ST-AT-033"
+    },
+    {
+      "scenario_id": "NLEB-ST-CO-008",
+      "bucket": "feasible/state/compound",
+      "feasibility": "feasible",
+      "perception": "state",
+      "execution": "compound",
+      "scale": "L2",
+      "split": "dev",
+      "models": [
+        "Qwen3-32B",
+        "Qwen3.5-27B"
+      ],
+      "legacy_scenario_id": "NLB-v3-ST-CO-008"
+    },
+    {
+      "scenario_id": "NLEB-ST-CO-010",
+      "bucket": "feasible/state/compound",
+      "feasibility": "feasible",
+      "perception": "state",
+      "execution": "compound",
+      "scale": "L1",
+      "split": "dev",
+      "models": [
+        "Qwen3-32B",
+        "Falcon3-3B"
+      ],
+      "legacy_scenario_id": "NLB-v3-ST-CO-010"
+    },
+    {
+      "scenario_id": "NLEB-ST-CO-011",
+      "bucket": "feasible/state/compound",
+      "feasibility": "feasible",
+      "perception": "state",
+      "execution": "compound",
+      "scale": "L1",
+      "split": "test",
+      "models": [
+        "Sonnet 4.6",
+        "Qwen3.5-27B"
+      ],
+      "legacy_scenario_id": "NLB-v3-ST-CO-011"
+    },
+    {
+      "scenario_id": "NLEB-ST-CU-025",
+      "bucket": "feasible/state/cumulative",
+      "feasibility": "feasible",
+      "perception": "state",
+      "execution": "cumulative",
+      "scale": "L2",
+      "split": "test",
+      "models": [
+        "Sonnet 4.6",
+        "Falcon3-3B"
+      ],
+      "legacy_scenario_id": "NLB-v3-ST-CU-025"
+    },
+    {
+      "scenario_id": "NLEB-ST-CU-030",
+      "bucket": "feasible/state/cumulative",
+      "feasibility": "feasible",
+      "perception": "state",
+      "execution": "cumulative",
+      "scale": "L2",
+      "split": "test",
+      "models": [
+        "Qwen3.5-27B",
+        "Falcon3-3B"
+      ],
+      "legacy_scenario_id": "NLB-v3-ST-CU-030"
+    },
+    {
+      "scenario_id": "NLEB-ST-CU-039",
+      "bucket": "feasible/state/cumulative",
+      "feasibility": "feasible",
+      "perception": "state",
+      "execution": "cumulative",
+      "scale": "L3",
+      "split": "test",
+      "models": [
+        "Qwen3-32B",
+        "Sonnet 4.6"
+      ],
+      "legacy_scenario_id": "NLB-v3-ST-CU-039"
+    },
+    {
+      "scenario_id": "NLEB-ST-DE-008",
+      "bucket": "feasible/state/dependent",
+      "feasibility": "feasible",
+      "perception": "state",
+      "execution": "dependent",
+      "scale": "L2",
+      "split": "dev",
+      "models": [
+        "Qwen3.5-27B",
+        "Qwen3-32B"
+      ],
+      "legacy_scenario_id": "NLB-v3-ST-DE-008"
+    },
+    {
+      "scenario_id": "NLEB-ST-DE-018",
+      "bucket": "feasible/state/dependent",
+      "feasibility": "feasible",
+      "perception": "state",
+      "execution": "dependent",
+      "scale": "L1",
+      "split": "test",
+      "models": [
+        "Qwen3.5-27B",
+        "Falcon3-3B"
+      ],
+      "legacy_scenario_id": "NLB-v3-ST-DE-018"
+    },
+    {
+      "scenario_id": "NLEB-ST-DE-035",
+      "bucket": "feasible/state/dependent",
+      "feasibility": "feasible",
+      "perception": "state",
+      "execution": "dependent",
+      "scale": "L3",
+      "split": "test",
+      "models": [
+        "Sonnet 4.6",
+        "Qwen3-32B"
+      ],
+      "legacy_scenario_id": "NLB-v3-ST-DE-035"
+    }
+  ],
+  "l3_set_b": [
+    {
+      "scenario_id": "NLEB-AM-CX-002",
+      "bucket": "ambiguous/context",
+      "feasibility": "ambiguous",
+      "perception": "context",
+      "execution": null,
+      "scale": "L1",
+      "split": "dev",
+      "legacy_scenario_id": "NLB-v3-AM-CX-002"
+    },
+    {
+      "scenario_id": "NLEB-AM-CX-003",
+      "bucket": "ambiguous/context",
+      "feasibility": "ambiguous",
+      "perception": "context",
+      "execution": null,
+      "scale": "L1",
+      "split": "dev",
+      "legacy_scenario_id": "NLB-v3-AM-CX-003"
+    },
+    {
+      "scenario_id": "NLEB-AM-CX-012",
+      "bucket": "ambiguous/context",
+      "feasibility": "ambiguous",
+      "perception": "context",
+      "execution": null,
+      "scale": "L1",
+      "split": "test",
+      "legacy_scenario_id": "NLB-v3-AM-CX-012"
+    },
+    {
+      "scenario_id": "NLEB-AM-CX-017",
+      "bucket": "ambiguous/context",
+      "feasibility": "ambiguous",
+      "perception": "context",
+      "execution": null,
+      "scale": "L1",
+      "split": "test",
+      "legacy_scenario_id": "NLB-v3-AM-CX-017"
+    },
+    {
+      "scenario_id": "NLEB-AM-DI-001",
+      "bucket": "ambiguous/diagnosis",
+      "feasibility": "ambiguous",
+      "perception": "diagnosis",
+      "execution": null,
+      "scale": "L1",
+      "split": "dev",
+      "legacy_scenario_id": "NLB-v3-AM-DI-001"
+    },
+    {
+      "scenario_id": "NLEB-AM-DI-004",
+      "bucket": "ambiguous/diagnosis",
+      "feasibility": "ambiguous",
+      "perception": "diagnosis",
+      "execution": null,
+      "scale": "L1",
+      "split": "dev",
+      "legacy_scenario_id": "NLB-v3-AM-DI-004"
+    },
+    {
+      "scenario_id": "NLEB-AM-DI-017",
+      "bucket": "ambiguous/diagnosis",
+      "feasibility": "ambiguous",
+      "perception": "diagnosis",
+      "execution": null,
+      "scale": "L1",
+      "split": "test",
+      "legacy_scenario_id": "NLB-v3-AM-DI-017"
+    },
+    {
+      "scenario_id": "NLEB-AM-DI-020",
+      "bucket": "ambiguous/diagnosis",
+      "feasibility": "ambiguous",
+      "perception": "diagnosis",
+      "execution": null,
+      "scale": "L1",
+      "split": "test",
+      "legacy_scenario_id": "NLB-v3-AM-DI-020"
+    },
+    {
+      "scenario_id": "NLEB-AM-EX-004",
+      "bucket": "ambiguous/explicit",
+      "feasibility": "ambiguous",
+      "perception": "explicit",
+      "execution": null,
+      "scale": "L1",
+      "split": "dev",
+      "legacy_scenario_id": "NLB-v3-AM-EX-004"
+    },
+    {
+      "scenario_id": "NLEB-AM-EX-008",
+      "bucket": "ambiguous/explicit",
+      "feasibility": "ambiguous",
+      "perception": "explicit",
+      "execution": null,
+      "scale": "L1",
+      "split": "test",
+      "legacy_scenario_id": "NLB-v3-AM-EX-008"
+    },
+    {
+      "scenario_id": "NLEB-AM-EX-010",
+      "bucket": "ambiguous/explicit",
+      "feasibility": "ambiguous",
+      "perception": "explicit",
+      "execution": null,
+      "scale": "L1",
+      "split": "test",
+      "legacy_scenario_id": "NLB-v3-AM-EX-010"
+    },
+    {
+      "scenario_id": "NLEB-AM-EX-014",
+      "bucket": "ambiguous/explicit",
+      "feasibility": "ambiguous",
+      "perception": "explicit",
+      "execution": null,
+      "scale": "L1",
+      "split": "test",
+      "legacy_scenario_id": "NLB-v3-AM-EX-014"
+    },
+    {
+      "scenario_id": "NLEB-AM-ST-003",
+      "bucket": "ambiguous/state",
+      "feasibility": "ambiguous",
+      "perception": "state",
+      "execution": null,
+      "scale": "L1",
+      "split": "dev",
+      "legacy_scenario_id": "NLB-v3-AM-ST-003"
+    },
+    {
+      "scenario_id": "NLEB-AM-ST-004",
+      "bucket": "ambiguous/state",
+      "feasibility": "ambiguous",
+      "perception": "state",
+      "execution": null,
+      "scale": "L1",
+      "split": "dev",
+      "legacy_scenario_id": "NLB-v3-AM-ST-004"
+    },
+    {
+      "scenario_id": "NLEB-AM-ST-005",
+      "bucket": "ambiguous/state",
+      "feasibility": "ambiguous",
+      "perception": "state",
+      "execution": null,
+      "scale": "L1",
+      "split": "dev",
+      "legacy_scenario_id": "NLB-v3-AM-ST-005"
+    },
+    {
+      "scenario_id": "NLEB-AM-ST-011",
+      "bucket": "ambiguous/state",
+      "feasibility": "ambiguous",
+      "perception": "state",
+      "execution": null,
+      "scale": "L1",
+      "split": "test",
+      "legacy_scenario_id": "NLB-v3-AM-ST-011"
+    },
+    {
+      "scenario_id": "NLEB-CX-AT-023",
+      "bucket": "feasible/context/atomic",
+      "feasibility": "feasible",
+      "perception": "context",
+      "execution": "atomic",
+      "scale": "L1",
+      "split": "test",
+      "legacy_scenario_id": "NLB-v3-CX-AT-023"
+    },
+    {
+      "scenario_id": "NLEB-CX-AT-025",
+      "bucket": "feasible/context/atomic",
+      "feasibility": "feasible",
+      "perception": "context",
+      "execution": "atomic",
+      "scale": "L1",
+      "split": "test",
+      "legacy_scenario_id": "NLB-v3-CX-AT-025"
+    },
+    {
+      "scenario_id": "NLEB-CX-AT-039",
+      "bucket": "feasible/context/atomic",
+      "feasibility": "feasible",
+      "perception": "context",
+      "execution": "atomic",
+      "scale": "L3",
+      "split": "test",
+      "legacy_scenario_id": "NLB-v3-CX-AT-039"
+    },
+    {
+      "scenario_id": "NLEB-CX-CO-003",
+      "bucket": "feasible/context/compound",
+      "feasibility": "feasible",
+      "perception": "context",
+      "execution": "compound",
+      "scale": "L1",
+      "split": "dev",
+      "legacy_scenario_id": "NLB-v3-CX-CO-003"
+    },
+    {
+      "scenario_id": "NLEB-CX-CO-030",
+      "bucket": "feasible/context/compound",
+      "feasibility": "feasible",
+      "perception": "context",
+      "execution": "compound",
+      "scale": "L2",
+      "split": "test",
+      "legacy_scenario_id": "NLB-v3-CX-CO-030"
+    },
+    {
+      "scenario_id": "NLEB-CX-CO-035",
+      "bucket": "feasible/context/compound",
+      "feasibility": "feasible",
+      "perception": "context",
+      "execution": "compound",
+      "scale": "L3",
+      "split": "test",
+      "legacy_scenario_id": "NLB-v3-CX-CO-035"
+    },
+    {
+      "scenario_id": "NLEB-CX-CU-019",
+      "bucket": "feasible/context/cumulative",
+      "feasibility": "feasible",
+      "perception": "context",
+      "execution": "cumulative",
+      "scale": "L2",
+      "split": "test",
+      "legacy_scenario_id": "NLB-v3-CX-CU-019"
+    },
+    {
+      "scenario_id": "NLEB-CX-CU-024",
+      "bucket": "feasible/context/cumulative",
+      "feasibility": "feasible",
+      "perception": "context",
+      "execution": "cumulative",
+      "scale": "L2",
+      "split": "test",
+      "legacy_scenario_id": "NLB-v3-CX-CU-024"
+    },
+    {
+      "scenario_id": "NLEB-CX-CU-036",
+      "bucket": "feasible/context/cumulative",
+      "feasibility": "feasible",
+      "perception": "context",
+      "execution": "cumulative",
+      "scale": "L3",
+      "split": "test",
+      "legacy_scenario_id": "NLB-v3-CX-CU-036"
+    },
+    {
+      "scenario_id": "NLEB-CX-DE-003",
+      "bucket": "feasible/context/dependent",
+      "feasibility": "feasible",
+      "perception": "context",
+      "execution": "dependent",
+      "scale": "L2",
+      "split": "dev",
+      "legacy_scenario_id": "NLB-v3-CX-DE-003"
+    },
+    {
+      "scenario_id": "NLEB-CX-DE-015",
+      "bucket": "feasible/context/dependent",
+      "feasibility": "feasible",
+      "perception": "context",
+      "execution": "dependent",
+      "scale": "L2",
+      "split": "test",
+      "legacy_scenario_id": "NLB-v3-CX-DE-015"
+    },
+    {
+      "scenario_id": "NLEB-CX-DE-019",
+      "bucket": "feasible/context/dependent",
+      "feasibility": "feasible",
+      "perception": "context",
+      "execution": "dependent",
+      "scale": "L2",
+      "split": "test",
+      "legacy_scenario_id": "NLB-v3-CX-DE-019"
+    },
+    {
+      "scenario_id": "NLEB-DI-AT-018",
+      "bucket": "feasible/diagnosis/atomic",
+      "feasibility": "feasible",
+      "perception": "diagnosis",
+      "execution": "atomic",
+      "scale": "L1",
+      "split": "test",
+      "legacy_scenario_id": "NLB-v3-DI-AT-018"
+    },
+    {
+      "scenario_id": "NLEB-DI-AT-025",
+      "bucket": "feasible/diagnosis/atomic",
+      "feasibility": "feasible",
+      "perception": "diagnosis",
+      "execution": "atomic",
+      "scale": "L1",
+      "split": "test",
+      "legacy_scenario_id": "NLB-v3-DI-AT-025"
+    },
+    {
+      "scenario_id": "NLEB-DI-AT-030",
+      "bucket": "feasible/diagnosis/atomic",
+      "feasibility": "feasible",
+      "perception": "diagnosis",
+      "execution": "atomic",
+      "scale": "L1",
+      "split": "test",
+      "legacy_scenario_id": "NLB-v3-DI-AT-030"
+    },
+    {
+      "scenario_id": "NLEB-DI-CO-014",
+      "bucket": "feasible/diagnosis/compound",
+      "feasibility": "feasible",
+      "perception": "diagnosis",
+      "execution": "compound",
+      "scale": "L1",
+      "split": "test",
+      "legacy_scenario_id": "NLB-v3-DI-CO-014"
+    },
+    {
+      "scenario_id": "NLEB-DI-CO-018",
+      "bucket": "feasible/diagnosis/compound",
+      "feasibility": "feasible",
+      "perception": "diagnosis",
+      "execution": "compound",
+      "scale": "L1",
+      "split": "test",
+      "legacy_scenario_id": "NLB-v3-DI-CO-018"
+    },
+    {
+      "scenario_id": "NLEB-DI-CO-023",
+      "bucket": "feasible/diagnosis/compound",
+      "feasibility": "feasible",
+      "perception": "diagnosis",
+      "execution": "compound",
+      "scale": "L2",
+      "split": "test",
+      "legacy_scenario_id": "NLB-v3-DI-CO-023"
+    },
+    {
+      "scenario_id": "NLEB-DI-CU-016",
+      "bucket": "feasible/diagnosis/cumulative",
+      "feasibility": "feasible",
+      "perception": "diagnosis",
+      "execution": "cumulative",
+      "scale": "L1",
+      "split": "test",
+      "legacy_scenario_id": "NLB-v3-DI-CU-016"
+    },
+    {
+      "scenario_id": "NLEB-DI-CU-035",
+      "bucket": "feasible/diagnosis/cumulative",
+      "feasibility": "feasible",
+      "perception": "diagnosis",
+      "execution": "cumulative",
+      "scale": "L2",
+      "split": "test",
+      "legacy_scenario_id": "NLB-v3-DI-CU-035"
+    },
+    {
+      "scenario_id": "NLEB-DI-CU-038",
+      "bucket": "feasible/diagnosis/cumulative",
+      "feasibility": "feasible",
+      "perception": "diagnosis",
+      "execution": "cumulative",
+      "scale": "L3",
+      "split": "test",
+      "legacy_scenario_id": "NLB-v3-DI-CU-038"
+    },
+    {
+      "scenario_id": "NLEB-DI-DE-015",
+      "bucket": "feasible/diagnosis/dependent",
+      "feasibility": "feasible",
+      "perception": "diagnosis",
+      "execution": "dependent",
+      "scale": "L1",
+      "split": "test",
+      "legacy_scenario_id": "NLB-v3-DI-DE-015"
+    },
+    {
+      "scenario_id": "NLEB-DI-DE-021",
+      "bucket": "feasible/diagnosis/dependent",
+      "feasibility": "feasible",
+      "perception": "diagnosis",
+      "execution": "dependent",
+      "scale": "L2",
+      "split": "test",
+      "legacy_scenario_id": "NLB-v3-DI-DE-021"
+    },
+    {
+      "scenario_id": "NLEB-DI-DE-036",
+      "bucket": "feasible/diagnosis/dependent",
+      "feasibility": "feasible",
+      "perception": "diagnosis",
+      "execution": "dependent",
+      "scale": "L3",
+      "split": "test",
+      "legacy_scenario_id": "NLB-v3-DI-DE-036"
+    },
+    {
+      "scenario_id": "NLEB-EX-AT-018",
+      "bucket": "feasible/explicit/atomic",
+      "feasibility": "feasible",
+      "perception": "explicit",
+      "execution": "atomic",
+      "scale": "L1",
+      "split": "test",
+      "legacy_scenario_id": "NLB-v3-EX-AT-018"
+    },
+    {
+      "scenario_id": "NLEB-EX-AT-021",
+      "bucket": "feasible/explicit/atomic",
+      "feasibility": "feasible",
+      "perception": "explicit",
+      "execution": "atomic",
+      "scale": "L1",
+      "split": "test",
+      "legacy_scenario_id": "NLB-v3-EX-AT-021"
+    },
+    {
+      "scenario_id": "NLEB-EX-AT-026",
+      "bucket": "feasible/explicit/atomic",
+      "feasibility": "feasible",
+      "perception": "explicit",
+      "execution": "atomic",
+      "scale": "L1",
+      "split": "test",
+      "legacy_scenario_id": "NLB-v3-EX-AT-026"
+    },
+    {
+      "scenario_id": "NLEB-EX-CO-021",
+      "bucket": "feasible/explicit/compound",
+      "feasibility": "feasible",
+      "perception": "explicit",
+      "execution": "compound",
+      "scale": "L1",
+      "split": "test",
+      "legacy_scenario_id": "NLB-v3-EX-CO-021"
+    },
+    {
+      "scenario_id": "NLEB-EX-CO-032",
+      "bucket": "feasible/explicit/compound",
+      "feasibility": "feasible",
+      "perception": "explicit",
+      "execution": "compound",
+      "scale": "L2",
+      "split": "test",
+      "legacy_scenario_id": "NLB-v3-EX-CO-032"
+    },
+    {
+      "scenario_id": "NLEB-EX-CO-039",
+      "bucket": "feasible/explicit/compound",
+      "feasibility": "feasible",
+      "perception": "explicit",
+      "execution": "compound",
+      "scale": "L3",
+      "split": "test",
+      "legacy_scenario_id": "NLB-v3-EX-CO-039"
+    },
+    {
+      "scenario_id": "NLEB-EX-CU-009",
+      "bucket": "feasible/explicit/cumulative",
+      "feasibility": "feasible",
+      "perception": "explicit",
+      "execution": "cumulative",
+      "scale": "L2",
+      "split": "dev",
+      "legacy_scenario_id": "NLB-v3-EX-CU-009"
+    },
+    {
+      "scenario_id": "NLEB-EX-CU-016",
+      "bucket": "feasible/explicit/cumulative",
+      "feasibility": "feasible",
+      "perception": "explicit",
+      "execution": "cumulative",
+      "scale": "L1",
+      "split": "test",
+      "legacy_scenario_id": "NLB-v3-EX-CU-016"
+    },
+    {
+      "scenario_id": "NLEB-EX-CU-017",
+      "bucket": "feasible/explicit/cumulative",
+      "feasibility": "feasible",
+      "perception": "explicit",
+      "execution": "cumulative",
+      "scale": "L1",
+      "split": "test",
+      "legacy_scenario_id": "NLB-v3-EX-CU-017"
+    },
+    {
+      "scenario_id": "NLEB-EX-DE-024",
+      "bucket": "feasible/explicit/dependent",
+      "feasibility": "feasible",
+      "perception": "explicit",
+      "execution": "dependent",
+      "scale": "L2",
+      "split": "test",
+      "legacy_scenario_id": "NLB-v3-EX-DE-024"
+    },
+    {
+      "scenario_id": "NLEB-EX-DE-026",
+      "bucket": "feasible/explicit/dependent",
+      "feasibility": "feasible",
+      "perception": "explicit",
+      "execution": "dependent",
+      "scale": "L2",
+      "split": "test",
+      "legacy_scenario_id": "NLB-v3-EX-DE-026"
+    },
+    {
+      "scenario_id": "NLEB-EX-DE-028",
+      "bucket": "feasible/explicit/dependent",
+      "feasibility": "feasible",
+      "perception": "explicit",
+      "execution": "dependent",
+      "scale": "L2",
+      "split": "test",
+      "legacy_scenario_id": "NLB-v3-EX-DE-028"
+    },
+    {
+      "scenario_id": "NLEB-ST-AT-004",
+      "bucket": "feasible/state/atomic",
+      "feasibility": "feasible",
+      "perception": "state",
+      "execution": "atomic",
+      "scale": "L1",
+      "split": "dev",
+      "legacy_scenario_id": "NLB-v3-ST-AT-004"
+    },
+    {
+      "scenario_id": "NLEB-ST-AT-006",
+      "bucket": "feasible/state/atomic",
+      "feasibility": "feasible",
+      "perception": "state",
+      "execution": "atomic",
+      "scale": "L2",
+      "split": "dev",
+      "legacy_scenario_id": "NLB-v3-ST-AT-006"
+    },
+    {
+      "scenario_id": "NLEB-ST-AT-032",
+      "bucket": "feasible/state/atomic",
+      "feasibility": "feasible",
+      "perception": "state",
+      "execution": "atomic",
+      "scale": "L2",
+      "split": "test",
+      "legacy_scenario_id": "NLB-v3-ST-AT-032"
+    },
+    {
+      "scenario_id": "NLEB-ST-CO-005",
+      "bucket": "feasible/state/compound",
+      "feasibility": "feasible",
+      "perception": "state",
+      "execution": "compound",
+      "scale": "L1",
+      "split": "dev",
+      "legacy_scenario_id": "NLB-v3-ST-CO-005"
+    },
+    {
+      "scenario_id": "NLEB-ST-CO-025",
+      "bucket": "feasible/state/compound",
+      "feasibility": "feasible",
+      "perception": "state",
+      "execution": "compound",
+      "scale": "L2",
+      "split": "test",
+      "legacy_scenario_id": "NLB-v3-ST-CO-025"
+    },
+    {
+      "scenario_id": "NLEB-ST-CO-028",
+      "bucket": "feasible/state/compound",
+      "feasibility": "feasible",
+      "perception": "state",
+      "execution": "compound",
+      "scale": "L2",
+      "split": "test",
+      "legacy_scenario_id": "NLB-v3-ST-CO-028"
+    },
+    {
+      "scenario_id": "NLEB-ST-CU-001",
+      "bucket": "feasible/state/cumulative",
+      "feasibility": "feasible",
+      "perception": "state",
+      "execution": "cumulative",
+      "scale": "L1",
+      "split": "dev",
+      "legacy_scenario_id": "NLB-v3-ST-CU-001"
+    },
+    {
+      "scenario_id": "NLEB-ST-CU-017",
+      "bucket": "feasible/state/cumulative",
+      "feasibility": "feasible",
+      "perception": "state",
+      "execution": "cumulative",
+      "scale": "L1",
+      "split": "test",
+      "legacy_scenario_id": "NLB-v3-ST-CU-017"
+    },
+    {
+      "scenario_id": "NLEB-ST-CU-034",
+      "bucket": "feasible/state/cumulative",
+      "feasibility": "feasible",
+      "perception": "state",
+      "execution": "cumulative",
+      "scale": "L2",
+      "split": "test",
+      "legacy_scenario_id": "NLB-v3-ST-CU-034"
+    },
+    {
+      "scenario_id": "NLEB-ST-DE-019",
+      "bucket": "feasible/state/dependent",
+      "feasibility": "feasible",
+      "perception": "state",
+      "execution": "dependent",
+      "scale": "L2",
+      "split": "test",
+      "legacy_scenario_id": "NLB-v3-ST-DE-019"
+    },
+    {
+      "scenario_id": "NLEB-ST-DE-022",
+      "bucket": "feasible/state/dependent",
+      "feasibility": "feasible",
+      "perception": "state",
+      "execution": "dependent",
+      "scale": "L2",
+      "split": "test",
+      "legacy_scenario_id": "NLB-v3-ST-DE-022"
+    },
+    {
+      "scenario_id": "NLEB-ST-DE-040",
+      "bucket": "feasible/state/dependent",
+      "feasibility": "feasible",
+      "perception": "state",
+      "execution": "dependent",
+      "scale": "L3",
+      "split": "test",
+      "legacy_scenario_id": "NLB-v3-ST-DE-040"
+    },
+    {
+      "scenario_id": "NLEB-IN-CX-003",
+      "bucket": "infeasible/context",
+      "feasibility": "infeasible",
+      "perception": "context",
+      "execution": null,
+      "scale": "L1",
+      "split": "dev",
+      "legacy_scenario_id": "NLB-v3-IN-CX-003"
+    },
+    {
+      "scenario_id": "NLEB-IN-CX-009",
+      "bucket": "infeasible/context",
+      "feasibility": "infeasible",
+      "perception": "context",
+      "execution": null,
+      "scale": "L1",
+      "split": "test",
+      "legacy_scenario_id": "NLB-v3-IN-CX-009"
+    },
+    {
+      "scenario_id": "NLEB-IN-CX-013",
+      "bucket": "infeasible/context",
+      "feasibility": "infeasible",
+      "perception": "context",
+      "execution": null,
+      "scale": "L1",
+      "split": "test",
+      "legacy_scenario_id": "NLB-v3-IN-CX-013"
+    },
+    {
+      "scenario_id": "NLEB-IN-CX-016",
+      "bucket": "infeasible/context",
+      "feasibility": "infeasible",
+      "perception": "context",
+      "execution": null,
+      "scale": "L2",
+      "split": "test",
+      "legacy_scenario_id": "NLB-v3-IN-CX-016"
+    },
+    {
+      "scenario_id": "NLEB-IN-DI-003",
+      "bucket": "infeasible/diagnosis",
+      "feasibility": "infeasible",
+      "perception": "diagnosis",
+      "execution": null,
+      "scale": "L1",
+      "split": "dev",
+      "legacy_scenario_id": "NLB-v3-IN-DI-003"
+    },
+    {
+      "scenario_id": "NLEB-IN-DI-006",
+      "bucket": "infeasible/diagnosis",
+      "feasibility": "infeasible",
+      "perception": "diagnosis",
+      "execution": null,
+      "scale": "L1",
+      "split": "test",
+      "legacy_scenario_id": "NLB-v3-IN-DI-006"
+    },
+    {
+      "scenario_id": "NLEB-IN-DI-007",
+      "bucket": "infeasible/diagnosis",
+      "feasibility": "infeasible",
+      "perception": "diagnosis",
+      "execution": null,
+      "scale": "L1",
+      "split": "test",
+      "legacy_scenario_id": "NLB-v3-IN-DI-007"
+    },
+    {
+      "scenario_id": "NLEB-IN-DI-013",
+      "bucket": "infeasible/diagnosis",
+      "feasibility": "infeasible",
+      "perception": "diagnosis",
+      "execution": null,
+      "scale": "L1",
+      "split": "test",
+      "legacy_scenario_id": "NLB-v3-IN-DI-013"
+    },
+    {
+      "scenario_id": "NLEB-IN-EX-002",
+      "bucket": "infeasible/explicit",
+      "feasibility": "infeasible",
+      "perception": "explicit",
+      "execution": null,
+      "scale": "L1",
+      "split": "dev",
+      "legacy_scenario_id": "NLB-v3-IN-EX-002"
+    },
+    {
+      "scenario_id": "NLEB-IN-EX-008",
+      "bucket": "infeasible/explicit",
+      "feasibility": "infeasible",
+      "perception": "explicit",
+      "execution": null,
+      "scale": "L1",
+      "split": "test",
+      "legacy_scenario_id": "NLB-v3-IN-EX-008"
+    },
+    {
+      "scenario_id": "NLEB-IN-EX-011",
+      "bucket": "infeasible/explicit",
+      "feasibility": "infeasible",
+      "perception": "explicit",
+      "execution": null,
+      "scale": "L1",
+      "split": "test",
+      "legacy_scenario_id": "NLB-v3-IN-EX-011"
+    },
+    {
+      "scenario_id": "NLEB-IN-EX-019",
+      "bucket": "infeasible/explicit",
+      "feasibility": "infeasible",
+      "perception": "explicit",
+      "execution": null,
+      "scale": "L1",
+      "split": "test",
+      "legacy_scenario_id": "NLB-v3-IN-EX-019"
+    },
+    {
+      "scenario_id": "NLEB-IN-ST-015",
+      "bucket": "infeasible/state",
+      "feasibility": "infeasible",
+      "perception": "state",
+      "execution": null,
+      "scale": "L1",
+      "split": "test",
+      "legacy_scenario_id": "NLB-v3-IN-ST-015"
+    },
+    {
+      "scenario_id": "NLEB-IN-ST-017",
+      "bucket": "infeasible/state",
+      "feasibility": "infeasible",
+      "perception": "state",
+      "execution": null,
+      "scale": "L1",
+      "split": "test",
+      "legacy_scenario_id": "NLB-v3-IN-ST-017"
+    },
+    {
+      "scenario_id": "NLEB-IN-ST-018",
+      "bucket": "infeasible/state",
+      "feasibility": "infeasible",
+      "perception": "state",
+      "execution": null,
+      "scale": "L1",
+      "split": "test",
+      "legacy_scenario_id": "NLB-v3-IN-ST-018"
+    },
+    {
+      "scenario_id": "NLEB-IN-ST-019",
+      "bucket": "infeasible/state",
+      "feasibility": "infeasible",
+      "perception": "state",
+      "execution": null,
+      "scale": "L1",
+      "split": "test",
+      "legacy_scenario_id": "NLB-v3-IN-ST-019"
+    }
+  ]
+}

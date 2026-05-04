@@ -1,0 +1,69 @@
+id: NLEB-ST-CU-036
+legacy_id: NLB-v3-ST-CU-036
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L3
+  feasibility: feasible
+  information: state
+  action: cumulative
+split: test
+canary: NLE-BENCH-V3-TEST-2188c8bb
+fixture: complex_sequence
+turns:
+- instruction: Add a cross-dissolve transition between the first two V1 clips.
+- instruction: Set the longest V1 clip's opacity to 0.85. Keep the transition.
+- instruction: Remove the shorter caption and add a new one saying 'Revised' in its
+    place. Preserve everything.
+constraints:
+  required:
+  - has_transition:
+      between:
+      - video_clip_1
+      - video_clip_2
+      type: cross_dissolve
+  - attribute_equals:
+      entity: video_clip_3
+      field: transform.opacity
+      value: 0.85
+  - entity_not_exists:
+      entity: caption_1
+  - entity_count_changed:
+      type: caption
+      direction: increase
+  - entity_exists:
+      entity: $new_caption_1
+  - attribute_equals:
+      entity: $new_caption_1
+      field: text
+      value: Revised
+  - unchanged_except:
+      changed:
+      - $new_transition_1
+      - video_clip_3
+      - caption_1
+      - $new_caption_1
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- $new_transition_1
+- video_clip_3
+- caption_1
+- $new_caption_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L3. add_transition + update_clip + remove_caption + add_caption. Explicit.
+  cell: state × cumulative

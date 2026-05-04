@@ -1,0 +1,60 @@
+id: NLEB-DI-CO-013
+legacy_id: NLB-v3-DI-CO-013
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L1
+  feasibility: feasible
+  information: diagnosis
+  action: compound
+split: test
+canary: NLE-BENCH-V3-TEST-d2ff8029
+fixture:
+  base: simple_sequence
+  patch:
+  - op: set_attribute
+    params:
+      entity: video_clip_3
+      field: speed
+      value: 0.1
+  - op: set_attribute
+    params:
+      entity: video_clip_3
+      field: transform.scale_x
+      value: 3.0
+turns:
+- instruction: The third clip is crawling along way too slow and looks stretched out — get both back to normal.
+constraints:
+  required:
+  - attribute_equals:
+      entity: video_clip_3
+      field: speed
+      value: 1.0
+  - attribute_equals:
+      entity: video_clip_3
+      field: transform.scale_x
+      value: 1.0
+  - unchanged_except:
+      changed:
+      - video_clip_3
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_3
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L1. Bundled update_clip.
+  cell: diagnosis × compound

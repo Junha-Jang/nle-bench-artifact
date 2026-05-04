@@ -1,0 +1,53 @@
+id: NLEB-CX-CO-039
+legacy_id: NLB-v3-CX-CO-039
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: context
+  action: compound
+split: test
+canary: NLE-BENCH-V3-TEST-93f5131d
+fixture: multi_sequence
+turns:
+- instruction: 'On tl1, the intro: scale 1.1 and saturation effect.'
+- instruction: 'On tl1, the outro: scale 1.05 and contrast effect.'
+constraints:
+  required:
+  - attribute_equals:
+      entity: vc_1
+      field: transform.scale_x
+      value: 1.1
+  - has_effect:
+      entity: vc_1
+      effect_type: saturation
+  - attribute_equals:
+      entity: vc_3
+      field: transform.scale_x
+      value: 1.05
+  - has_effect:
+      entity: vc_3
+      effect_type: contrast
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- vc_1
+- vc_3
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2 multi. update_clip + add_effect bundle.
+  cell: context × compound

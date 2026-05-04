@@ -1,0 +1,69 @@
+id: NLEB-DI-CU-040
+legacy_id: NLB-v3-DI-CU-040
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L3
+  feasibility: feasible
+  information: diagnosis
+  action: cumulative
+split: test
+canary: NLE-BENCH-V3-TEST-b6a1f5d3
+fixture:
+  base: complex_sequence
+  patch:
+  - op: set_attribute
+    params:
+      entity: video_clip_5
+      field: audio.muted
+      value: true
+turns:
+- instruction: A V2 clip has gone silent — can you unmute it?
+- instruction: Now set its volume to -3 dB.
+- instruction: Add a brightness effect to the longest V1 clip.
+- instruction: And lower the BGM by 2 dB — keep everything from before.
+constraints:
+  required:
+  - attribute_equals:
+      entity: video_clip_5
+      field: audio.muted
+      value: false
+  - attribute_equals:
+      entity: video_clip_5
+      field: audio.volume
+      value: -3.0
+  - has_effect:
+      entity: video_clip_3
+      effect_type: brightness
+  - attribute_changed:
+      entity: audio_clip_4
+      field: audio.volume
+      direction: decrease
+  - unchanged_except:
+      changed:
+      - video_clip_5
+      - video_clip_3
+      - audio_clip_4
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_5
+- video_clip_3
+- audio_clip_4
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L3. update_clip x2 -> add_effect -> update_clip.
+  cell: diagnosis × cumulative

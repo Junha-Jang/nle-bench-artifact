@@ -1,0 +1,65 @@
+id: NLEB-DI-CU-026
+legacy_id: NLB-v3-DI-CU-026
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: diagnosis
+  action: cumulative
+split: test
+canary: NLE-BENCH-V3-TEST-1caebb65
+fixture:
+  base: simple_sequence
+  patch:
+  - op: set_attribute
+    params:
+      entity: video_clip_1
+      field: transform.rotation
+      value: 45.0
+turns:
+- instruction: The first clip is tilted at an angle — can you straighten it out?
+- instruction: Now scale the longest video to 1.1.
+- instruction: And set the shortest audio's volume to -2 dB — keep everything before intact.
+constraints:
+  required:
+  - attribute_equals:
+      entity: video_clip_1
+      field: transform.rotation
+      value: 0.0
+  - attribute_equals:
+      entity: video_clip_2
+      field: transform.scale_x
+      value: 1.1
+  - attribute_equals:
+      entity: audio_clip_1
+      field: audio.volume
+      value: -2.0
+  - unchanged_except:
+      changed:
+      - video_clip_1
+      - video_clip_2
+      - audio_clip_1
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_1
+- video_clip_2
+- audio_clip_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: 'L2 fragment. T1-T3: update_clip x3.'
+  cell: diagnosis × cumulative

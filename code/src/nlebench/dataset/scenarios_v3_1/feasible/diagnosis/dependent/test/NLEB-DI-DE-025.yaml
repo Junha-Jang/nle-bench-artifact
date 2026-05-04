@@ -1,0 +1,51 @@
+id: NLEB-DI-DE-025
+legacy_id: NLB-v3-DI-DE-025
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: diagnosis
+  action: dependent
+split: test
+canary: NLE-BENCH-V3-TEST-73bf1277
+fixture:
+  base: simple_sequence
+  patch:
+  - op: set_attribute
+    params:
+      entity: audio_clip_1
+      field: audio.volume
+      value: 10.0
+turns:
+- instruction: The first audio clip is blown out loud — bring the volume back to normal, then split it at its midpoint to isolate the problem section.
+constraints:
+  required:
+  - attribute_changed:
+      entity: audio_clip_1
+      field: audio.volume
+      direction: decrease
+  - entity_count_changed:
+      type: audio_clip
+      direction: increase
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- audio_clip_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2. update_clip -> split_clip.
+  cell: diagnosis × dependent

@@ -1,0 +1,50 @@
+id: NLEB-CX-DE-038
+legacy_id: NLB-v3-CX-DE-038
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L3
+  feasibility: feasible
+  information: context
+  action: dependent
+split: test
+canary: NLE-BENCH-V3-TEST-96a64408
+fixture: with_transitions
+turns:
+- instruction: The transition between the intro and bridge is distracting — remove
+    it.
+- instruction: Put a contrast effect on the bridge clip as a cleaner handoff.
+- instruction: And shift the bridge earlier to tighten the edit.
+constraints:
+  required:
+  - entity_not_exists:
+      entity: vt_trans_1
+  - has_effect:
+      entity: vc_2
+      effect_type: contrast
+  - attribute_changed:
+      entity: vc_2
+      field: timeline_start
+      direction: decrease
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- vt_trans_1
+- vc_2
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L3. remove_transition -> add_effect -> update_clip.
+  cell: context × dependent
