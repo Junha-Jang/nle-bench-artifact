@@ -1,0 +1,50 @@
+id: NLEB-ST-CO-003
+legacy_id: NLB-v3-ST-CO-003
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L1
+  feasibility: feasible
+  information: state
+  action: compound
+split: dev
+canary: NLE-BENCH-V3-DEV-755d346d
+fixture: complex_sequence
+turns:
+- instruction: Add a caption 'Hero Shot' over the longest clip on V1 and set that
+    clip's opacity to 0.9.
+constraints:
+  required:
+  - entity_count_changed:
+      type: caption
+      direction: increase
+  - attribute_equals:
+      entity: video_clip_3
+      field: transform.opacity
+      value: 0.9
+  - unchanged_except:
+      changed:
+      - video_clip_3
+      - $new_caption_1
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- $new_caption_1
+- video_clip_3
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L1 add_caption + update_clip. Longest V1=vc3.
+  cell: state × compound

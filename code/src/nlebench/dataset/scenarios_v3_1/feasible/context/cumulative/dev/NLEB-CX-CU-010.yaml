@@ -1,0 +1,57 @@
+id: NLEB-CX-CU-010
+legacy_id: NLB-v3-CX-CU-010
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L3
+  feasibility: feasible
+  information: context
+  action: cumulative
+split: dev
+canary: NLE-BENCH-V3-DEV-2af98389
+fixture: complex_sequence
+turns:
+- instruction: Split the hero shot at 5 seconds.
+- instruction: Add a saturation effect to the second half. Keep the split.
+- instruction: Add a chapter caption 'Part 2' at the split point. Preserve everything.
+constraints:
+  required:
+  - entity_exists:
+      entity: $new_clip_1
+  - has_effect:
+      entity: $new_clip_1
+      effect_type: saturation
+  - entity_exists:
+      entity: $new_caption_1
+  - attribute_equals:
+      entity: $new_caption_1
+      field: text
+      value: Part 2
+  - unchanged_except:
+      changed:
+      - video_clip_3
+      - $new_clip_1
+      - $new_caption_1
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_3
+- $new_clip_1
+- $new_caption_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L3. Hero=vc3. split then add_effect then add_caption, preserve all.
+  cell: context × cumulative

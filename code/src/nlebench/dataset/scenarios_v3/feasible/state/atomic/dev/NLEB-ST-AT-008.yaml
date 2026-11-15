@@ -1,0 +1,46 @@
+id: NLEB-ST-AT-008
+legacy_id: NLB-v3-ST-AT-008
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: state
+  action: atomic
+split: dev
+canary: NLE-BENCH-V3-DEV-f14402b9
+fixture: simple_sequence
+turns:
+- instruction: Import a new media file called 'overlay.png' into the project bin.
+- instruction: Add a new 3-second video clip using that media right after the longest
+    video clip ends.
+constraints:
+  required:
+  - entity_count_changed:
+      type: media
+      direction: increase
+  - entity_count_changed:
+      type: video_clip
+      direction: increase
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- $new_media_1
+- $new_video_clip_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2 import_media + add_clip. Longest video=vc2 ends at 15.
+  cell: state × atomic

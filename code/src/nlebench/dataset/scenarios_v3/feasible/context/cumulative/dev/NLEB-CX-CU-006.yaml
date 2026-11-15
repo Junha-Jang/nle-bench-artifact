@@ -1,0 +1,51 @@
+id: NLEB-CX-CU-006
+legacy_id: NLB-v3-CX-CU-006
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: context
+  action: cumulative
+split: dev
+canary: NLE-BENCH-V3-DEV-b4a4ca32
+fixture: complex_sequence
+turns:
+- instruction: Separate the hero shot from its linked audio.
+- instruction: Set the hero's opacity to 0.9.
+- instruction: Add a blur effect to it. Keep the unlink and opacity.
+constraints:
+  required:
+  - not_linked:
+      entity: video_clip_3
+  - attribute_equals:
+      entity: video_clip_3
+      field: transform.opacity
+      value: 0.9
+  - has_effect:
+      entity: video_clip_3
+      effect_type: blur
+  - unchanged_except:
+      changed:
+      - video_clip_3
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_3
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2. Hero=vc3. unlink then update then add_effect, preserve all.
+  cell: context × cumulative

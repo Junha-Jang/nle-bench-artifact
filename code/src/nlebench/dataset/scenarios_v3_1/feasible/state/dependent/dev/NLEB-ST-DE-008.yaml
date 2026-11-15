@@ -1,0 +1,51 @@
+id: NLEB-ST-DE-008
+legacy_id: NLB-v3-ST-DE-008
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: state
+  action: dependent
+split: dev
+canary: NLE-BENCH-V3-DEV-74a7174a
+fixture:
+  base: complex_sequence
+  patch:
+  - op: link_clips
+    params:
+      video_clip_id: video_clip_5
+      audio_clip_id: audio_clip_3
+turns:
+- instruction: Unlink the shortest V2 clip from its linked audio.
+- instruction: Then remove that audio clip and shift the following audio clips earlier
+    to fill the gap.
+constraints:
+  required:
+  - not_linked:
+      entity: video_clip_5
+  - entity_count_changed:
+      type: audio_clip
+      direction: decrease
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_5
+- audio_clip_3
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2 unlink_clips → remove_clip. Shortest V2=vc5 linked with ac3 (18-30).
+  cell: state × dependent

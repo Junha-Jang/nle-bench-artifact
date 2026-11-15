@@ -1,0 +1,57 @@
+id: NLEB-EX-AT-009
+legacy_id: NLB-v3-EX-AT-009
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: explicit
+  action: atomic
+split: dev
+canary: NLE-BENCH-V3-DEV-970d9dd0
+fixture: simple_sequence
+turns:
+- instruction: Add a cross-dissolve transition between video_clip_1 and video_clip_2
+    with duration 1.0s.
+- instruction: Set video_clip_3 opacity to 0.7.
+constraints:
+  required:
+  - has_transition:
+      between:
+      - video_clip_1
+      - video_clip_2
+      type: cross_dissolve
+  - attribute_equals:
+      entity: video_clip_3
+      field: transform.opacity
+      value: 0.7
+  - unchanged_except:
+      changed:
+      - video_clip_1
+      - video_clip_2
+      - video_clip_3
+      - $new_transition_1
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_1
+- video_clip_2
+- video_clip_3
+- $new_transition_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2 add_transition + update_clip.
+  cell: explicit × atomic

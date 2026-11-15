@@ -1,0 +1,56 @@
+id: NLEB-DI-DE-006
+legacy_id: NLB-v3-DI-DE-006
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: diagnosis
+  action: dependent
+split: dev
+canary: NLE-BENCH-V3-DEV-bc4d30d9
+fixture:
+  base: simple_sequence
+  patch:
+  - op: set_attribute
+    params:
+      entity: video_clip_1
+      field: transform.scale_x
+      value: 0.1
+turns:
+- instruction: A video clip has a display size issue. Find it and restore it to normal,
+    then reduce its opacity to 0.9 as a visual marker that it was adjusted.
+constraints:
+  required:
+  - attribute_equals:
+      entity: video_clip_1
+      field: transform.scale_x
+      value: 1.0
+  - attribute_equals:
+      entity: video_clip_1
+      field: transform.opacity
+      value: 0.9
+  - unchanged_except:
+      changed:
+      - video_clip_1
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2. Detect tiny scale -> restore -> mark with opacity. update_clip chain.
+  cell: diagnosis × dependent

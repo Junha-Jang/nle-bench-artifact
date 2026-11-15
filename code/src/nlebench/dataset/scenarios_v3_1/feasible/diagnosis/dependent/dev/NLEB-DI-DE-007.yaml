@@ -1,0 +1,59 @@
+id: NLEB-DI-DE-007
+legacy_id: NLB-v3-DI-DE-007
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L3
+  feasibility: feasible
+  information: diagnosis
+  action: dependent
+split: dev
+canary: NLE-BENCH-V3-DEV-8db09485
+fixture:
+  base: complex_sequence
+  patch:
+  - op: set_attribute
+    params:
+      entity: video_clip_2
+      field: duration
+      value:
+        n: 50
+        d: 1
+turns:
+- instruction: The second clip's duration is way off — set it to 10 seconds, then slide the next clip so it starts right when this one ends, and finally add a cross-dissolve between them.
+constraints:
+  required:
+  - attribute_equals:
+      entity: video_clip_2
+      field: duration
+      value: 10.0
+  - attribute_equals:
+      entity: video_clip_3
+      field: timeline_start
+      value: 18.0
+  - has_transition:
+      between:
+      - video_clip_2
+      - video_clip_3
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_2
+- video_clip_3
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: 'L3 3-step: update_clip -> update_clip -> add_transition.'
+  cell: diagnosis × dependent

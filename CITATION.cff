@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+title: "NLE-Bench: Feasibility-Aware Tool Use in Symbolic Non-Linear Video Editing"
+message: "If you use this benchmark in your research, please cite this repository."
+type: dataset
+authors:
+  - given-names: "Junha"
+    family-names: "Jang"
+    affiliation: "Someple Inc."
+abstract: |
+  NLE-Bench is an 800-scenario benchmark for evaluating tool-use agents on
+  symbolic non-linear editing project states. Scenarios are organized as
+  a 4 (perception) x 4 (execution) factorial of feasible scenarios (640)
+  plus 80 infeasible and 80 ambiguous calibration scenarios. Each scenario provides a
+  natural-language instruction, an initial EditProject state (JSON), a
+  constraint set (YAML) for deterministic scoring, and taxonomy labels.
+  This snapshot uses the frozen v3.1 scenario corpus; v3.1 is a corpus
+  provenance label, not a release number of the benchmark. This repository
+  holds the dev split.
+keywords:
+  - tool-use agents
+  - LLM evaluation
+  - benchmark
+  - agent calibration
+  - abstention
+  - clarification
+  - video editing
+  - constraint satisfaction
+  - refusal
+license: "CC-BY-NC-4.0"
+license-url: "https://creativecommons.org/licenses/by-nc/4.0/"

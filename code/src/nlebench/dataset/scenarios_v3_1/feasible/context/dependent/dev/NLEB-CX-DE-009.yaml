@@ -1,0 +1,52 @@
+id: NLEB-CX-DE-009
+legacy_id: NLB-v3-CX-DE-009
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L3
+  feasibility: feasible
+  information: context
+  action: dependent
+split: dev
+canary: NLE-BENCH-V3-DEV-ea71ad96
+fixture: complex_sequence
+turns:
+- instruction: The hero shot — slow it to 0.8x for dramatic weight.
+- instruction: Extend the hero's dialogue audio to match the new duration.
+- instruction: Then link the hero shot with its dialogue so they stay synced.
+constraints:
+  required:
+  - attribute_equals:
+      entity: video_clip_3
+      field: speed
+      value: 0.8
+  - attribute_changed:
+      entity: audio_clip_3
+      field: duration
+      direction: increase
+  - has_link:
+      clip_ids:
+      - video_clip_3
+      - audio_clip_3
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_3
+- audio_clip_3
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L3. Hero=longest V1=vc3. update_clip -> update_clip -> link_clips.
+  cell: context × dependent

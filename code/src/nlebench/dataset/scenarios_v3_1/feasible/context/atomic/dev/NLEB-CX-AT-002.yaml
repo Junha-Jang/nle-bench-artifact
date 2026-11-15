@@ -1,0 +1,47 @@
+id: NLEB-CX-AT-002
+legacy_id: NLB-v3-CX-AT-002
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L1
+  feasibility: feasible
+  information: context
+  action: atomic
+split: dev
+canary: NLE-BENCH-V3-DEV-57355fb2
+fixture: simple_sequence
+turns:
+- instruction: The opening section needs a title card. Add a caption saying 'Welcome'
+    at the very start.
+constraints:
+  required:
+  - entity_exists:
+      entity: $new_caption_1
+  - attribute_equals:
+      entity: $new_caption_1
+      field: text
+      value: Welcome
+  - entity_count_changed:
+      type: caption
+      direction: increase
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- $new_caption_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L1. Opening = start of timeline. add_caption.
+  cell: context × atomic

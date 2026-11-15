@@ -1,0 +1,44 @@
+id: NLEB-CX-AT-001
+legacy_id: NLB-v3-CX-AT-001
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L1
+  feasibility: feasible
+  information: context
+  action: atomic
+split: dev
+canary: NLE-BENCH-V3-DEV-a67a5d65
+fixture: simple_sequence
+turns:
+- instruction: I'm editing a travel vlog. The intro clip — scale it to 1.1.
+constraints:
+  required:
+  - attribute_equals:
+      entity: video_clip_1
+      field: transform.scale_x
+      value: 1.1
+  - unchanged_except:
+      changed:
+      - video_clip_1
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L1. Intro = first clip = vc1. update_clip.
+  cell: context × atomic

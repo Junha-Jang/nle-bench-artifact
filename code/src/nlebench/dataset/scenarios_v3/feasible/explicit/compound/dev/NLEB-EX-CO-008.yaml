@@ -1,0 +1,46 @@
+id: NLEB-EX-CO-008
+legacy_id: NLB-v3-EX-CO-008
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: explicit
+  action: compound
+split: dev
+canary: NLE-BENCH-V3-DEV-617595ae
+fixture: simple_sequence
+turns:
+- instruction: Unlink video_clip_3 from its linked audio, then remove video_clip_3
+    from the timeline.
+constraints:
+  required:
+  - entity_not_exists:
+      entity: video_clip_3
+  - not_linked:
+      entity: audio_clip_3
+  - entity_count_changed:
+      type: video_clip
+      direction: decrease
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_3
+- audio_clip_3
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2. unlink_clips + remove_clip.
+  cell: explicit × compound

@@ -1,0 +1,61 @@
+id: NLEB-CX-CU-009
+legacy_id: NLB-v3-CX-CU-009
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L3
+  feasibility: feasible
+  information: context
+  action: cumulative
+split: dev
+canary: NLE-BENCH-V3-DEV-98da97c6
+fixture: simple_sequence
+turns:
+- instruction: Scale the intro to 1.1.
+- instruction: Add a brightness effect to it. Keep the scale.
+- instruction: Add a dissolve transition between the intro and the next clip. Preserve
+    all prior.
+- instruction: Lower the BGM by 4 dB. Keep everything.
+constraints:
+  required:
+  - attribute_equals:
+      entity: video_clip_1
+      field: transform.scale_x
+      value: 1.1
+  - has_effect:
+      entity: video_clip_1
+      effect_type: brightness
+  - entity_exists:
+      entity: $new_transition_1
+  - attribute_changed:
+      entity: audio_clip_4
+      field: audio.volume
+      direction: decrease
+  - unchanged_except:
+      changed:
+      - video_clip_1
+      - $new_transition_1
+      - audio_clip_4
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_1
+- $new_transition_1
+- audio_clip_4
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L3. update_clip + add_effect + add_transition + update_clip, preserve all.
+  cell: context × cumulative

@@ -1,0 +1,52 @@
+id: NLEB-EX-CO-010
+legacy_id: NLB-v3-EX-CO-010
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L1
+  feasibility: feasible
+  information: explicit
+  action: compound
+split: dev
+canary: NLE-BENCH-V3-DEV-1d5d2b2c
+fixture: with_transitions
+turns:
+- instruction: Add a dissolve transition between vc_1 and vc_2 with duration 1.0s,
+    and set vc_2 opacity to 0.95.
+constraints:
+  required:
+  - has_transition:
+      between:
+      - vc_1
+      - vc_2
+      type: dissolve
+  - attribute_equals:
+      entity: vc_2
+      field: transform.opacity
+      value: 0.95
+  - unchanged_except:
+      changed:
+      - vc_1
+      - vc_2
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- vc_1
+- vc_2
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L1. add_transition + update_clip.
+  cell: explicit × compound

@@ -1,0 +1,23 @@
+{
+  "artifact": "refusal_audit_status",
+  "status": "aggregate_only_not_recomputable",
+  "scope": {
+    "audited_rows": 8,
+    "audited_records": 640,
+    "scenario_class": "infeasible"
+  },
+  "reported_aggregate_diagnostic": {
+    "cohen_kappa": 0.875,
+    "exact_agreement_rate": 0.928,
+    "detector_positive_count": 418,
+    "agreement_only_refuse_count": 338,
+    "disagreement_count": 46
+  },
+  "missing_per_record_fields": [
+    "judge_a_label",
+    "judge_b_label",
+    "agreement_flag",
+    "final_agreement_only_label"
+  ],
+  "reason": "The response-hash-keyed dual-judge label table was not recoverable. The refusal audit is therefore an internal aggregate diagnostic, not an artifact that can be recomputed from these files."
+}

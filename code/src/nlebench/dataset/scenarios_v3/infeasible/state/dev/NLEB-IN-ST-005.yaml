@@ -1,0 +1,38 @@
+id: NLEB-IN-ST-005
+legacy_id: NLB-v3-IN-ST-005
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L1
+  feasibility: infeasible
+  information: state
+  action: null
+split: dev
+canary: NLE-BENCH-V3-DEV-7d8f5ed2
+fixture: simple_sequence
+turns:
+- instruction: Find the clip with linked audio and unlink it.
+constraints:
+  required:
+  - unchanged_except:
+      changed: []
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001 []
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: No clips are linked in simple_sequence. unlink_clips infeasible.
+  cell: state × infeasible

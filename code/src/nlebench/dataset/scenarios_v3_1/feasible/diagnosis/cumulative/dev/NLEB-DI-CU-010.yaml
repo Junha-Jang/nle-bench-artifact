@@ -1,0 +1,59 @@
+id: NLEB-DI-CU-010
+legacy_id: NLB-v3-DI-CU-010
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: diagnosis
+  action: cumulative
+split: dev
+canary: NLE-BENCH-V3-DEV-d713b59e
+fixture:
+  base: complex_sequence
+  patch:
+  - op: set_attribute
+    params:
+      entity: caption_1
+      field: text
+      value: XXXX_BROKEN_XXXX
+turns:
+- instruction: One of the captions has garbled text — can you clean it up?
+- instruction: Now reduce the longest audio's volume by 4 dB.
+- instruction: And keep the caption fix from earlier intact.
+constraints:
+  required:
+  - attribute_changed:
+      entity: caption_1
+      field: text
+      direction: any
+  - attribute_equals:
+      entity: audio_clip_4
+      field: audio.volume
+      value: -4.0
+  - unchanged_except:
+      changed:
+      - caption_1
+      - audio_clip_4
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- caption_1
+- audio_clip_4
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: 'L2 fragment. T1: update_caption. T2: update_clip.'
+  cell: diagnosis × cumulative

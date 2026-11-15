@@ -1,0 +1,53 @@
+id: NLEB-ST-DE-006
+legacy_id: NLB-v3-ST-DE-006
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: state
+  action: dependent
+split: dev
+canary: NLE-BENCH-V3-DEV-44cfec93
+fixture: simple_sequence
+turns:
+- instruction: Scale the longest video clip down to 0.7, and set its x position to
+    0 and y position to 0 so it stays centered.
+constraints:
+  required:
+  - attribute_equals:
+      entity: video_clip_2
+      field: transform.scale_x
+      value: 0.7
+  - attribute_equals:
+      entity: video_clip_2
+      field: transform.position_x
+      value: 0.5
+  - attribute_equals:
+      entity: video_clip_2
+      field: transform.position_y
+      value: 0.5
+  - unchanged_except:
+      changed:
+      - video_clip_2
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_2
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L2. Recentering is dependent on the scale change.
+  cell: state × dependent

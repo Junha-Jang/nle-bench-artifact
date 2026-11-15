@@ -1,0 +1,53 @@
+id: NLEB-EX-CU-010
+legacy_id: NLB-v3-EX-CU-010
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L3
+  feasibility: feasible
+  information: explicit
+  action: cumulative
+split: dev
+canary: NLE-BENCH-V3-DEV-9423b3b0
+fixture: simple_sequence
+turns:
+- instruction: Add a caption 'Breaking' at 5s.
+- instruction: Apply a drop-shadow effect to the caption. Keep the caption.
+- instruction: Slow video_clip_2 to 0.5x to match the dramatic moment. Preserve everything.
+constraints:
+  required:
+  - entity_exists:
+      entity: $new_caption_1
+  - has_effect:
+      entity: $new_caption_1
+      effect_type: crop
+  - attribute_equals:
+      entity: video_clip_2
+      field: speed
+      value: 0.5
+  - unchanged_except:
+      changed:
+      - $new_caption_1
+      - video_clip_2
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- $new_caption_1
+- video_clip_2
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L3. add_caption -> add_effect -> update_clip, full preserve.
+  cell: explicit × cumulative

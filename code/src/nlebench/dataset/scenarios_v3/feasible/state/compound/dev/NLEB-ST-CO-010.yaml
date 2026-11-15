@@ -1,0 +1,41 @@
+id: NLEB-ST-CO-010
+legacy_id: NLB-v3-ST-CO-010
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L1
+  feasibility: feasible
+  information: state
+  action: compound
+split: dev
+canary: NLE-BENCH-V3-DEV-7029e050
+fixture: simple_sequence
+turns:
+- instruction: On the last clip on the timeline, remove any existing blur effect and
+    add a brightness effect instead.
+constraints:
+  required:
+  - has_effect:
+      entity: video_clip_3
+      effect_type: brightness
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_3
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L1 remove_effect + add_effect. Last=vc3.
+  cell: state × compound

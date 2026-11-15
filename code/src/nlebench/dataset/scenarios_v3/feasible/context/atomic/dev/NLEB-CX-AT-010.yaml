@@ -1,0 +1,52 @@
+id: NLEB-CX-AT-010
+legacy_id: NLB-v3-CX-AT-010
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L3
+  feasibility: feasible
+  information: context
+  action: atomic
+split: dev
+canary: NLE-BENCH-V3-DEV-3cc15073
+fixture: complex_sequence
+turns:
+- instruction: Create a new video track for the overlay layer.
+- instruction: The B-roll footage on V2 needs to be split — cut the later overlay
+    at the 2-second mark.
+- instruction: And slow the hero shot to 0.8x for emphasis.
+constraints:
+  required:
+  - entity_exists:
+      entity: $new_track_1
+  - entity_count_changed:
+      type: clip
+      direction: increase
+  - attribute_equals:
+      entity: video_clip_3
+      field: speed
+      value: 0.8
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- $new_track_1
+- video_clip_5
+- $new_clip_1
+- video_clip_3
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L3. add_track + split_clip (vc5) + update_clip (vc3).
+  cell: context × atomic

@@ -1,0 +1,63 @@
+id: NLEB-DI-CU-005
+legacy_id: NLB-v3-DI-CU-005
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L2
+  feasibility: feasible
+  information: diagnosis
+  action: cumulative
+split: dev
+canary: NLE-BENCH-V3-DEV-e76e2c3e
+fixture:
+  base: complex_sequence
+  patch:
+  - op: set_attribute
+    params:
+      entity: video_clip_5
+      field: audio.muted
+      value: true
+turns:
+- instruction: One of the V2 clips has gone silent — can you unmute it?
+- instruction: Now rotate the shortest V2 clip by 10 degrees.
+- instruction: And add a fade-out to the longest V1 clip — keep the unmute from before.
+constraints:
+  required:
+  - attribute_equals:
+      entity: video_clip_5
+      field: audio.muted
+      value: false
+  - attribute_equals:
+      entity: video_clip_5
+      field: transform.rotation
+      value: 10.0
+  - has_effect:
+      entity: video_clip_3
+      effect_type: fade_out
+  - unchanged_except:
+      changed:
+      - video_clip_5
+      - video_clip_3
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_5
+- video_clip_3
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: 'L2. T1: update_clip. T2: update_clip. T3: add_effect. vc5=shortest V2, vc3=longest
+    V1.'
+  cell: diagnosis × cumulative

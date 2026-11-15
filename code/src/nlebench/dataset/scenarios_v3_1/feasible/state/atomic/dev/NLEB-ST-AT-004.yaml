@@ -1,0 +1,42 @@
+id: NLEB-ST-AT-004
+legacy_id: NLB-v3-ST-AT-004
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L1
+  feasibility: feasible
+  information: state
+  action: atomic
+split: dev
+canary: NLE-BENCH-V3-DEV-b4dbccf3
+fixture: complex_sequence
+turns:
+- instruction: Remove the shortest video clip on track V2 from the timeline.
+constraints:
+  required:
+  - entity_not_exists:
+      entity: video_clip_5
+  - entity_count_changed:
+      type: video_clip
+      direction: decrease
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_5
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - author_pi
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L1 remove_clip. Shortest V2 = vc5 (5s).
+  cell: state × atomic

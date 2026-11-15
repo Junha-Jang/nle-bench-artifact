@@ -1,0 +1,49 @@
+id: NLEB-ST-DE-002
+legacy_id: NLB-v3-ST-DE-002
+dataset_version: "1.0"
+version: 1
+taxonomy:
+  scale: L1
+  feasibility: feasible
+  information: state
+  action: dependent
+split: dev
+canary: NLE-BENCH-V3-DEV-8ff6054d
+fixture: simple_sequence
+turns:
+- instruction: Rotate the shortest video clip by 20 degrees and scale it up to 1.2
+    to fill the frame after rotation.
+constraints:
+  required:
+  - attribute_equals:
+      entity: video_clip_1
+      field: transform.rotation
+      value: 20.0
+  - attribute_equals:
+      entity: video_clip_1
+      field: transform.scale_x
+      value: 1.2
+  - unchanged_except:
+      changed:
+      - video_clip_1
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution: []
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - internal_adjudicator
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: 'L1 update_clip (dependent: scale compensates rotation crop). Shortest=vc1.'
+  cell: state × dependent

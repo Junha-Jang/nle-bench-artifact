@@ -1,0 +1,49 @@
+{
+  "schema_version": "4.3",
+  "title": "Empty Project",
+  "bin": {
+    "id": "bin_1",
+    "name": "Root",
+    "media_ids": [],
+    "timeline_ids": [
+      "sequence_1"
+    ],
+    "bins": []
+  },
+  "media": [],
+  "timelines": [
+    {
+      "id": "sequence_1",
+      "name": "Main Sequence",
+      "width": 1920,
+      "height": 1080,
+      "fps": {
+        "n": 24,
+        "d": 1
+      },
+      "sample_rate": 48000,
+      "tracks": [
+        {
+          "id": "video_track_1",
+          "kind": "video",
+          "name": "V1",
+          "locked": false,
+          "visible": true,
+          "clips": [],
+          "transitions": []
+        },
+        {
+          "id": "audio_track_1",
+          "kind": "audio",
+          "name": "A1",
+          "locked": false,
+          "visible": true,
+          "muted": false,
+          "solo": false,
+          "clips": [],
+          "transitions": []
+        }
+      ]
+    }
+  ]
+}
